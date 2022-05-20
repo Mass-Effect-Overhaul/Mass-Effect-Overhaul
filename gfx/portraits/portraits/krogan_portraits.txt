@@ -1,0 +1,199 @@
+portraits = {
+	rep10_fix = {	entity = "portrait_reptilian_10_entity"	clothes_selector = "reptilian_normal_clothes_01" hair_selector = "no_texture" 
+		greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_normal_10_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_red.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_brown.dds"
+			"gfx/models/portraits/reptilian/reptilian_normal_10_purple.dds"
+		}
+	}
+}
+
+portrait_groups = {
+	rep10 = {
+		default = krogan_wrex
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					rep10_fix
+					krogan_wrex
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					rep10_fix
+					krogan_female
+				}
+			}
+
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Krogan"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					krogan_wrex
+					krogan_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Krogan"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep10_fix
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Krogan"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					krogan_wrex
+					krogan_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Krogan"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep10_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Krogan"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					krogan_wrex
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Krogan"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					krogan_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Krogan"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep10_fix
+				}
+			}
+		}
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Krogan"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					krogan_wrex
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Krogan"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					krogan_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Krogan"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep10_fix
+				}
+			}
+		}
+	}
+}

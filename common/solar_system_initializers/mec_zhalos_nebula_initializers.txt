@@ -1,0 +1,151 @@
+### Zhalos Nebula Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_zhalos_nebula_system_initializer = {
+	name = "Zhalos"
+	class = "sc_neutron_star"
+
+		init_effect = {
+		if = {
+			limit = { 
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				name = "Zhalos Nebula"
+				radius = 15
+			}
+		}
+	}
+	
+	flags = { mec_zhalos_nebula_zhalos_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 290
+	}
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 300
+	}
+
+	planet = {
+		name = "Zhalos"
+		class = "pc_neutron_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 20
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ZHALOS_2331_CAT			###Zhalos System Anomaly (Supernova)
+			}
+
+			create_ambient_object = {
+				type = "rare_nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	change_orbit = 290
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		count = 1
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_trade_value_5
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	change_orbit = 10
+
+	planet = {
+		count = 1
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_trade_value_5
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_alloys_1
+			set_planet_flag = starting_deposit
+		}
+	}
+}

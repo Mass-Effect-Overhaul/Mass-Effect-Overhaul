@@ -1,0 +1,242 @@
+portraits = {
+	avi13_fix = {	entity = "portrait_avian_13_entity"	clothes_selector = "avian_massive_clothes_01" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+			character_textures = {
+					"gfx/models/portraits/avian/avian_massive_13_red.dds"
+					"gfx/models/portraits/avian/avian_massive_13_purple.dds"
+					"gfx/models/portraits/avian/avian_massive_13_blue.dds"
+					"gfx/models/portraits/avian/avian_massive_13_dark_blue.dds"
+					"gfx/models/portraits/avian/avian_massive_13_black.dds"
+				}
+	}
+}
+
+portrait_groups = {
+	avi13 = {
+		default = turian_2
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = {
+						OR = {
+							gender = male
+							gender = indeterminable
+						}
+					}
+				}
+				portraits = {
+					avi13_fix
+					turian_1
+					turian_2	
+					turian_3
+				}
+			}
+			
+			add = {
+				trigger = {
+					ruler = {
+						OR = {
+							gender = female
+							gender = indeterminable
+						}
+					}
+				}
+				portraits = {
+					avi13_fix
+					turian_female_1
+					turian_female_2
+					turian_female_3
+					turian_female_4
+				}
+			}
+		}		
+
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Turian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					turian_1
+					turian_2	
+					turian_3			
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Turian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					avi13_fix		
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Turian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					turian_1
+					turian_2	
+					turian_3			
+					turian_female_1
+					turian_female_2
+					turian_female_3
+					turian_female_4			
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Turian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					avi13_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					OR = {
+						gender = male
+						gender = indeterminable
+					}
+					any_galaxy_species = {
+						is_species = "Turian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					turian_1
+					turian_2	
+					turian_3
+				}
+			}
+			add = {
+				trigger = {
+					OR = {
+						gender = female
+						gender = indeterminable
+					}
+					any_galaxy_species = {
+						is_species = "Turian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					turian_female_1
+					turian_female_2
+					turian_female_3
+					turian_female_4					
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Turian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					avi13_fix
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					OR = {
+						gender = male
+						gender = indeterminable
+					}
+					any_galaxy_species = {
+						is_species = "Turian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					turian_1
+					turian_2	
+					turian_3
+				}
+			}
+			add = {
+				trigger = {
+					OR = {
+						gender = female
+						gender = indeterminable
+					}
+					any_galaxy_species = {
+						is_species = "Turian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					turian_female_1
+					turian_female_2
+					turian_female_3
+					turian_female_4					
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Turian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					avi13_fix
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,157 @@
+portraits = {
+	mol7_fix = {	entity = "portrait_molluscoid_07_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "molluscoid_01_greetings" 
+			character_textures = {
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_blue_pink.dds"
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_blue_red.dds"
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_blue_orange.dds"
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_black_orange.dds"
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_black_red.dds"
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_black_pink.dds"
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_black_purple.dds"
+					"gfx/models/portraits/molluscoid/molluscoid_normal_07_black_blue.dds"
+			}
+	}
+}
+
+portrait_groups = {
+	mol7 = {
+		default = hanar
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				portraits = {
+					mol7_fix
+					hanar
+				}
+			}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Hanar"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					hanar
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Hanar"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mol7_fix
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Hanar"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					hanar
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Hanar"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mol7_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Hanar"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					hanar
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Hanar"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mol7_fix
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Hanar"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					hanar
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Hanar"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mol7_fix
+				}
+			}
+		}
+	}
+}

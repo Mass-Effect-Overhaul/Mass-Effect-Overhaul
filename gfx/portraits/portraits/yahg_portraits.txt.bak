@@ -1,0 +1,155 @@
+portraits = {
+	mam12_fix = {	entity = "portrait_mammalian_12_entity"	clothes_selector = "mammalian_massive_clothes_01" hair_selector = "no_texture" 
+		greeting_sound = "mammalian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/mammalian/mammalian_massive_12_yellow.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_white.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_full_black.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_full_red.dds"
+			"gfx/models/portraits/mammalian/mammalian_massive_12_full_yellow.dds"
+		}	
+	}
+}
+
+portrait_groups = {
+	mam12 = {
+		default = yahg
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				portraits = {
+					mam12_fix
+					yahg
+				}
+			}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Yahg"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					yahg
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Yahg"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam12_fix
+				}
+			}
+		}	
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Yahg"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					yahg
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Yahg"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam12_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Yahg"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					yahg
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Yahg"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam12_fix
+				}
+			}
+		}
+
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Yahg"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					yahg
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Yahg"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam12_fix
+				}
+			}
+		}
+	}
+}

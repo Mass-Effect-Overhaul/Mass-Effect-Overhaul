@@ -1,0 +1,21 @@
+##################
+# Species Traits #
+##################
+
+mec_bio_trait_biotic = {
+	cost = 0
+	potential_crossbreeding_chance = 0.0
+	opposites = { "mec_asari_trait_biotic" }
+	allowed_archetypes = { BIOLOGICAL }
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/mec_eg_trait_biotic.dds"
+	
+	modifier = {
+		army_damage_mult = 0.15
+	}
+	
+	slave_cost = {
+		energy = 50
+	}
+}

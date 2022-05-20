@@ -1,0 +1,202 @@
+﻿l_english:
+
+ ###########################
+ #      MEC Replacers      #
+ ###########################
+
+ ######################################
+ #      Battleship -> Dreadnought     #
+ ######################################
+
+ BATTLESHIP:0 "Dreadnought"
+ battleship:0 "Dreadnought"
+ battleship_plural:0 "Dreadnoughts"
+  
+ trait_ruler_battleship_focus:0 "Dreadnought Focus"
+ trait_ruler_battleship_focus_desc:1 "This leader is intent on promoting the construction of Dreadnoughts."
+ 
+ sm_battleship_assembly_yards:0 "Dreadnought Assembly Yards"
+ 
+ DEFAULT_BATTLESHIP:0 "Basic Dreadnought"
+ 
+ TECH_UNLOCK_BATTLESHIP_CONSTRUCTION_TITLE:0 "§HUnlocks Ship Type:§! Dreadnought"
+ TECH_UNLOCK_BATTLESHIP_CONSTRUCTION_DESC:1 "§HDreadnought§!\nThe largest regular hull configuration available, the Dreadnought carries immense power into battle at even greater cost and reduced maneuverability."
+ 
+ HOSTILE_COLOSSUS_REACT_GREETING_02:0 "That Colossus of yours... you were fools to build such a monstrosity. Think of how many dreadnoughts those resources would have afforded you!"
+ 
+ shipsize_battleship_build_speed_mult:0 "Dreadnought Build Speed"
+ 
+ mod_shipsize_battleship_build_cost_mult:0 "Dreadnought Build Cost"
+ mod_shipsize_battleship_upkeep_mult:0 "Dreadnought Upkeep"
+ mod_shipsize_battleship_hull_add:0 "Dreadnought Hull Points"
+ 
+ tech_battleships:0 "Dreadnought"
+ tech_battleships_desc:0 "The largest of the standard military vessels, Dreadnoughts are traditionally heavily armored and sport several gun batteries."
+ 
+ tech_battleship_hull_1:0 "Improved Dreadnought Hulls"
+ tech_battleship_hull_1_desc:0 "Advances in building techniques will allow for the construction of sturdier and more durable dreadnoughts."
+ tech_battleship_hull_2:0 "Advanced Dreadnought Hulls"
+ tech_battleship_hull_2_desc:0 "The latest generation of dreadnought hulls have optimized structural integrity fields and improved bulkheads."
+ tech_battleship_build_speed:0 "Standardized Dreadnought Patterns"
+ tech_battleship_build_speed_desc:0 "Establishing new standards for how we design and construct massive dreadnoughts greatly improves the speed at which they can be assembled."
+  
+ ######################################
+ #        Destroyer -> Frigate        #
+ ######################################
+ 
+ DESTROYER:0 "Frigate"
+ destroyer:0 "Frigate"
+ destroyer_plural:0 "Frigates"
+ 
+ trait_ruler_destroyer_focus:0 "Frigate Focus"
+ trait_ruler_destroyer_focus_desc:1 "This leader is intent on promoting the construction of Frigates."
+ 
+ sm_destroyer_assembly_yards:0 "Frigate Assembly Yards"
+ 
+ DEFAULT_DESTROYER:0 "Basic Frigate"
+ 
+ TECH_UNLOCK_DESTROYER_CONSTRUCTION_TITLE:0 "§HUnlocks Ship Type:§! Frigate"
+ TECH_UNLOCK_DESTROYER_CONSTRUCTION_DESC:0 "§HFrigate§!\nAs a larger two-section design, the Frigate offers a broad array of strategic armament options."
+ 
+ shipsize_destroyer_build_speed_mult:0 "Frigate Build Speed"
+ 
+ mod_shipsize_destroyer_build_cost_mult:0 "Frigate Build Cost"
+ mod_shipsize_destroyer_upkeep_mult:0 "Frigate Upkeep"
+ mod_shipsize_destroyer_hull_add:0 "Frigate Hull Points"
+ 
+ tech_destroyers:0 "Frigate"
+ tech_destroyers_desc:0 "While larger than Corvettes, Frigate hull configurations still make for comparatively nimble gunboats."
+ 
+ tech_destroyer_hull_1:0 "Improved Frigate Hulls"
+ tech_destroyer_hull_1_desc:0 "Advances in building techniques will allow for the construction of sturdier and more durable frigates."
+ tech_destroyer_hull_2:0 "Advanced Frigate Hulls"
+ tech_destroyer_hull_2_desc:0 "The latest generation of frigate hulls have optimized structural integrity fields and improved bulkheads."
+ tech_destroyer_build_speed:0 "Standardized Frigate Patterns"
+ tech_destroyer_build_speed_desc:0 "Establishing new standards for the modeling and construction of frigates greatly improves the efficiency of the production pipeline."
+ 
+ #####################################
+ #     Titan -> Superdreadnought     #
+ #####################################
+ 
+ TITAN:0 "Superdreadnought"
+ titan:0 "Superdreadnought"
+ titan_plural:0 "Superdreadnoughts"
+ 
+ sm_titan_yards:0 "Superdreadnought Assembly Yards"
+ sm_titan_yards_desc:0 "Specialized drydocks erected on the Starbase's hull allow for the construction of gargantuan Superdreadnought-class ships.\n"
+ sm_titan_yards_desc_modifier:0 "Shipyards: §YSuperdreadnought Construction Enabled§!"
+ 
+ TECH_UNLOCK_TITAN_CONSTRUCTION_TITLE:0 "§HUnlocks Ship Type:§! Superdreadnought"
+ TECH_UNLOCK_TITAN_CONSTRUCTION_DESC:0 "§HSuperdreadnought§!\nThese massive warships are the pride of the fleet. They are bristling with weapons and typically serve as flagships."
+ 
+ mod_shipsize_titan_build_cost_mult:0 "Superdreadnought Build Cost"
+ mod_shipsize_titan_upkeep_mult:0 "Superdreadnought Upkeep"
+ mod_shipsize_titan_hull_add:0 "Superdreadnought Hull Points"
+ 
+ tech_titans:0 "Superdreadnought"
+ tech_titans_desc:0 "Modeled after the hulking shadows looming in the core systems of Stagnant Ascendancies, the Superdreadnought class can be outfitted with X-size weapons."
+ 
+ tech_titan_hull_1:0 "Improved Superdreadnought Hulls"
+ tech_titan_hull_1_desc:0 "Advances in building techniques will allow for the construction of sturdier and more durable superdreadnoughts."
+ tech_titan_hull_2:0 "Advanced Superdreadnought Hulls"
+ tech_titan_hull_2_desc:0 "The latest generation of superdreadnought hulls have optimized structural integrity fields and improved bulkheads."
+ 
+ TECH_UNLOCK_COLOSSUS_CONSTRUCTION_DESC:0 "§HColossus§!\nLarger than even a Superdreadnought, the Colossus hull configuration has no ship-to-ship combat capability. It is more of a mobile orbital station, capable only of complete planetary devastation."
+ apoc.100.desc.pacif:0 "With deterrence theory once again in vogue among leading political scientists on [Root.Capital.GetName], the Colossus Project is presented as the ultimate deterrent; a weapon to surpass even the Superdreadnought ship class. While the proposed Colossus ships could carry payloads capable of complete planetary annihilation, we will deploy them using a less violent - but nevertheless terrifyingly permanent - method of conflict resolution.\n\nIf a hypothetical enemy will not cease their aggression toward us or our allies, we must simply §Rmake them§!."
+ 
+ ship_aura_components:1 "Ship Aura (Superdreadnought)"
+ ship_aura_components_DESC:2 "Superdreadnought ships can be equipped with field emitters that project and maintain localized fields that induce various effects in enemy or friendly vessels."
+ 
+ #######################################
+ #        Weapons/Components Tech       #
+ ########################################
+ 
+ tech_perdition_beam:0 "Perdition Beam"
+ tech_perdition_beam_desc:0 "A massive array of linked energy amplification conduits that fires a beam of unprecedented firepower. Its size means that it can only be fitted on Superdreadnought-class starships."
+
+ #PERDITION_BEAM:0 ""
+ #PERDITION_BEAM_DESC:0 ""
+ 
+ tech_energy_lance_1:0 "Particle Lances"
+ tech_energy_lance_1_desc:1 "These heavy energy weapons fire focused particle beams that cause massive damage. The size of the emitter arrays limits their use to dreadnoughts."
+ tech_energy_lance_2:0 "Tachyon Lances"
+ tech_energy_lance_2_desc:1 "A more powerful version of the particle lance, this weapon fires a tachyon beam of immense power. Like its predecessor, its use is limited to dreadnoughts."
+
+ #ENERGY_LANCE_1:0 ""
+ #ENERGY_LANCE_1_DESC:1 ""
+ #ENERGY_LANCE_2:0 ""
+ #ENERGY_LANCE_2_DESC:1 ""
+
+ tech_pd_tracking_1:0 "GARDIAN Systems"
+ tech_pd_tracking_1_desc:0 "Placed on the exterior hull, these basic mass accelerator turrets can intercept incoming missiles and fighters by flooding a target zone with shrapnel, causing areas of denial or early ordnance detonation. These systems are commonly referred to as General ARea Defense Integration Anti-spacecraft Network (GARDIAN) systems."
+ tech_pd_tracking_2:0 "Laser GARDIAN Systems"
+ tech_pd_tracking_2_desc:0 "The next generation of GARDIAN anti-missile and anti-fighter system. Since lasers move at light speed, they cannot be dodged by anything moving at non-relativistic speeds. Whilst lasers are not always lethal, they are still able to disrupt enemy missiles and fighters. The two major drawbacks to this system is the diffraction of lasers and the build-up of heat which needs to be transferred to sinks or radiators."
+ tech_pd_tracking_3:0 "Upgraded GARDIAN Systems"
+ tech_pd_tracking_3_desc:0 "Using state of the art ultra-violet frequencies, the next generation of GARDIAN anti-missile and anti-fighter systems are capable of engaging at much greater ranges with increased stopping power. The use of ultra-violet frequencies causes faster degredation of focal arrays and mirrors, leading to additional maintenance costs."
+
+ POINT_DEFENCE_1:0 "GARDIAN Systems"
+ POINT_DEFENCE_1_DESC:1 "Placed on the exterior hull, these basic mass accelerator turrets can intercept incoming missiles and fighters by flooding a target zone with shrapnel, causing areas of denial or early ordnance detonation. These systems are commonly referred to as General ARea Defense Integration Anti-spacecraft Network (GARDIAN) systems."
+ POINT_DEFENCE_2:0 "Laser GARDIAN Systems"
+ POINT_DEFENCE_2_DESC:1 "The next generation of GARDIAN anti-missile and anti-fighter system. Since lasers move at light speed, they cannot be dodged by anything moving at non-relativistic speeds. Whilst lasers are not always lethal, they are still able to disrupt enemy missiles and fighters. The two major drawbacks to this system is the diffraction of lasers and the build-up of heat which needs to be transferred to sinks or radiators."
+ POINT_DEFENCE_3:0 "Upgraded GARDIAN Systems"
+ POINT_DEFENCE_3_DESC:1 "Using state of the art ultra-violet frequencies, the next generation of GARDIAN anti-missile and anti-fighter systems are capable of engaging at much greater ranges with increased stopping power. The use of ultra-violet frequencies causes faster degredation of focal arrays and mirrors, leading to additional maintenance costs."
+
+ tech_hyper_drive_1:0 "Mass Effect Drive"
+ tech_hyper_drive_1_desc:0 "By exposing element zero to electric currents, a mass effect field can be created wherein the mass of an object can be dramatically altered. By reducing the mass of an object, such as a starship, an object can reach velocities faster than the speed of light."
+ tech_hyper_drive_2:0 "Improved Eezo Refinement"
+ tech_hyper_drive_2_desc:0 "Improvements in element zero refinement has led to significant efficiency savings. This is especially noticable in larger starships which require exponentially more element zero and power."
+ tech_hyper_drive_3:0 "Next Gen FTL Drive"
+ tech_hyper_drive_3_desc:0 "A new generation of element zero cores have dramatically improved efficiency and power density, allowing starships to travel faster and further via a Mass Effect drive."
+
+ HYPER_DRIVE_1:0 "Mass Effect Drive I"
+ HYPER_DRIVE_1_DESC:2 "By exposing element zero to electric currents, a mass effect field can be created wherein the mass of an object can be dramatically altered. By reducing the mass of an object, such as a starship, an object can reach velocities faster than the speed of light."
+ HYPER_DRIVE_2:0 "Mass Effect Drive II"
+ HYPER_DRIVE_2_DESC:1 "$HYPER_DRIVE_1_DESC$"
+ HYPER_DRIVE_3:0 "Mass Effect Drive III"
+ HYPER_DRIVE_3_DESC:1 "$HYPER_DRIVE_1_DESC$"
+
+ tech_shields_1:0 "Kinetic Barriers"
+ tech_shields_1_desc:0 "Kinetic barriers are repulsive mass effect fields projected from tiny emitters. These barriers safely deflect small objects traveling at rapid velocities."
+ tech_shields_2:0 "Improved Barriers"
+ tech_shields_2_desc:0 "These updated barriers are capable of soaking up even more punishment before they overload. Significantly improving survivability."
+ tech_shields_3:0 "Shields"
+ tech_shields_3_desc:0 "These new kinetic shield generators represent the next generation of kinetic barriers, replacing the older barrier technology. They offer significantly better protection."
+ tech_shields_4:0 "Advanced Shields"
+ tech_shields_4_desc:0 "An updated kinetic shield generator that produces an even stronger energy field. Only sustained enemy fire can penetrate this barrier."
+ tech_shields_5:0 "Cyclonic Barrier Technology"
+ tech_shields_5_desc:0 "This next generation barrier technology attempts to solve the higher-end limitations of traditional kinetic barriers. This technology violently slaps aside rather than halting incoming linear force. By rotationally firing their mass effect field projectors, ships create rapidly oscillating kinetic barriers instead of static ones."
+ tech_shield_rechargers_1:0 "Shield Capacitors"
+ tech_shield_rechargers_1_desc:1 "These capacitors store surplus energy which can quickly be transferred to reinforce a ship's kinetic barriers."
+
+ SHIELD_1:0 "Kinetic Barriers"
+ SHIELD_1_DESC:0 "Kinetic barriers are repulsive mass effect fields projected from tiny emitters. These barriers safely deflect small objects traveling at rapid velocities."
+ SHIELD_2:0 "Improved Barriers"
+ SHIELD_2_DESC:0 "These updated barriers are capable of soaking up even more punishment before they overload. Significantly improving survivability."
+ SHIELD_3:0 "Shields"
+ SHIELD_3_DESC:0 "These new kinetic shield generators represent the next generation of kinetic barriers, replacing the older barrier technology. They offer significantly better protection."
+ SHIELD_4:0 "Advanced Shields"
+ SHIELD_4_DESC:0 "An updated kinetic shield generator that produces an even stronger energy field. Only sustained enemy fire can penetrate this barrier."
+ SHIELD_5:0 "Cyclonic Barrier Technology"
+ SHIELD_5_DESC:0 "This next generation barrier technology attempts to solve the higher-end limitations of traditional kinetic barriers. This technology violently slaps aside rather than halting incoming linear force. By rotationally firing their mass effect field projectors, ships create rapidly oscillating kinetic barriers instead of static ones."
+ SHIELD_BOOSTER_1:0 "Shield Capacitors"
+ SHIELD_BOOSTER_DESC:0 "These capacitors store surplus energy which can quickly be transferred to reinforce a ship's kinetic barriers."
+
+ SMALL_SHIELD_1:0 "Small Barriers"
+ MEDIUM_SHIELD_1:0 "Medium Barriers"
+ LARGE_SHIELD_1:0 "Large Barriers"
+ SMALL_SHIELD_2:0 "Small Improved Barriers"
+ MEDIUM_SHIELD_2:0 "Medium Improved Barriers"
+ LARGE_SHIELD_2:0 "Large Improved Barriers"
+ #SMALL_SHIELD_3:0 "Small Shields"
+ #MEDIUM_SHIELD_3:0 "Medium Shields"
+ #LARGE_SHIELD_3:0 "Large Shields"
+ #SMALL_SHIELD_4:0 "Small Advanced Shields"
+ #MEDIUM_SHIELD_4:0 "Medium Advanced Shields"
+ #LARGE_SHIELD_4:0 "Large Advanced Shields"
+ SMALL_SHIELD_5:0 "Small CBT Shields"
+ MEDIUM_SHIELD_5:0 "Medium CBT Shields"
+ LARGE_SHIELD_5:0 "Large CBT Shields"
+
+ #################################
+ #       Other Technology        #
+ #################################

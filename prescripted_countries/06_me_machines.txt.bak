@@ -1,0 +1,250 @@
+# Geth Consensus
+geth ={
+	name = "Geth Consensus"
+	adjective = "Geth Consential"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "GET"
+	
+	species={
+		class = "MACHINE"
+		portrait = "sd_hum_robot"
+		name = "Geth"
+		plural = "Gethoi"
+		adjective = "Gethic"
+		species_bio = "The geth (\"Servant of the People\" in Khelish) are a race of networked artificial intelligences that reside beyond the Perseus Veil. The geth were created by the quarians as laborers and tools of war. When the geth became sentient and began to question their masters, the quarians attempted to exterminate them. The geth won the resulting war, and reduced the quarians to a race of nomads."
+		name_list = "MACHINE2"
+		gender=indeterminable
+		trait="trait_machine_unit"
+		trait="trait_robot_logic_engines"
+		trait="trait_robot_learning_algorithms"
+		trait="trait_robot_high_bandwidth"
+	}
+	secondary_species={
+		class="HUM"
+		portrait="humanoid_05"
+		name="Quarian"
+		plural="Quarians"
+		adjective="Quaric"
+		species_bio="The quarians are a nomadic species of humanoid aliens known for their skills with technology and synthetic intelligence. Since their homeworld Rannoch was conquered, the quarians live aboard the Migrant Fleet, a huge collection of starships that travel as a single fleet."
+		name_list="HUM3"
+		trait="trait_natural_engineers"
+		trait="trait_weak"
+		trait="trait_nomadic"
+		trait="trait_conservational"
+	}
+	
+	room = "machine_room"
+	
+	authority = "auth_machine_intelligence"
+	civics={ "civic_machine_delegated_functions" "civic_machine_servitor" }
+	government="gov_machine_servitor"
+	advisor_voice_type="l_hivemind"
+	
+	ethic="origin_galactic_doorstep"
+	
+	origin="origin_remnants"
+	
+	flags={ "me_geth" }
+	
+	planet_name = "Rannoch"
+	planet_class = "pc_arid"
+	initializer = ""
+	system_name = "Tikkun"
+	
+	graphical_culture = "arthropoid_01"
+	city_graphical_culture = "mammalian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Geth.dds"
+		}
+		background={
+			category="backgrounds"
+			file="triangle_split.dds"
+		}
+		colors={
+			"dark_teal"
+			"black"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Legion"
+		gender = indeterminable
+		portrait = "geth_legion"
+		texture = 0
+		hair = 0
+		clothes = 0
+		ruler_title="Delegated Mobile Platform"
+		ruler_title_female="Delegated Mobile Platform"
+		leader_class = ruler
+	}
+}
+
+# Sovereignty of Nazara
+geth_heretic ={
+	name = "Sovereignty of Nazara"
+	adjective = "Geth Heretical"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "GEH"
+	
+	species={
+		class = "MACHINE"
+		portrait = "sd_hum_robot"
+		name = "Geth"
+		plural = "Gethoi"
+		adjective = "Gethic"
+		species_bio = "The geth (\"Servant of the People\" in Khelish) are a race of networked artificial intelligences that reside beyond the Perseus Veil. The geth were created by the quarians as laborers and tools of war. When the geth became sentient and began to question their masters, the quarians attempted to exterminate them. The geth won the resulting war, and reduced the quarians to a race of nomads."
+		name_list = "MACHINE1"
+		gender=indeterminable
+		trait="trait_machine_unit"
+		trait="trait_robot_efficient_processors"
+		trait="trait_robot_high_bandwidth"
+	}
+	secondary_species={
+		class="HUM"
+		portrait="human"
+		name="Husk"
+		plural="Husks"
+		adjective="Husker"
+		species_bio="Husks are synthetic-organic \"zombies\" created from the bodies of organic beings. When a human is captured, they are placed on impaling devices, huge spikes that Alliance marines have nicknamed \"dragon's teeth\". Over time the body's organs, skin, and water content are converted into cybernetic materials; blood is changed to a sickly green fluid, and the body generates an electrical charge."
+		name_list="MACHINE1"
+		gender=indeterminable
+		trait="trait_cybernetic"
+		trait="trait_adaptive"
+		trait="trait_nomadic"
+		trait="trait_wasteful"
+	}
+	
+	room = "machine_room"
+	
+	authority = "auth_machine_intelligence"
+	civics={ "civic_machine_assimilator" "civic_machine_ota_updates" }
+	government="gov_machine_assimilator"
+	advisor_voice_type="l_hivemind"
+	
+	ethic="origin_galactic_doorstep"
+	
+	origin="origin_machine"
+	
+	flags={ "me_geth" }
+	
+	planet_name = "Haratar"
+	planet_class = "pc_continental"
+	initializer = ""
+	system_name = "The Sea of Storms"
+	
+	graphical_culture = "arthropoid_01"
+	city_graphical_culture = "arthropoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Geth Armory.dds"
+		}
+		background={
+			category="backgrounds"
+			file="stripe.dds"
+		}
+		colors={
+			"blue"
+			"dark_grey"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Prime"
+		gender = indeterminable
+		portrait = "geth"
+		texture = 2
+		hair = 0
+		clothes = 0
+		ruler_title="Geth
+		ruler_title_female="Geth"
+		leader_class = ruler
+	}
+}
+
+# Mx7552-4A Obedience Processor
+loki ={
+	name = "Mx7552-4A Obedience Processor"
+	adjective = "VI Virus-Infected"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "MSV"
+	
+	species={
+		class = "MACHINE"
+		portrait = "default_robot"
+		name = "LOKI Mech"
+		plural = "LOKI Mechs"
+		adjective = "LOKI Mechanical"
+		species_bio = "The Hahne-Kedar-manufactured LOKI Mech is a bipedal humanoid security robot designed for security detail and guard duty in locations where manpower is an issue, or where the use of organics for \"around the clock\" shifts is unfeasible. Initially used exclusively by the Alliance for colony guard duty, the LOKI Mech came into new use following the Battle of the Citadel in 2183. Numerous civilian and military sector units saw staggering losses from Sovereign's attack and incidents involving the rogue Spectre Saren Arterius."
+		name_list = "MACHINE3"
+		gender=indeterminable
+		trait="trait_machine_unit"
+		trait="trait_robot_bulky"
+		trait="trait_robot_emotion_emulators"
+		trait="trait_robot_mass_produced"
+		trait="trait_robot_luxurious"
+		trait="trait_robot_streamlined_protocols"
+	}
+	
+	room = "machine_room"
+	
+	authority = "auth_machine_intelligence"
+	civics={ "civic_machine_terminator" "civic_machine_replication" }
+	government="gov_machine_terminator"
+	advisor_voice_type="l_hivemind"
+	
+	ethic="origin_galactic_doorstep"
+	
+	origin="origin_galactic_doorstep"
+		
+	planet_name = "Capek"
+	planet_class = "pc_desert"
+	initializer = ""
+	system_name = "Haskins"
+	
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Hadne-Kedar.dds"
+		}
+		background={
+			category="backgrounds"
+			file="vertical.dds"
+		}
+		colors={
+			"red"
+			"grey"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Mx7552-4A"
+		gender = indeterminable
+		portrait = "loki"
+		texture = 0
+		hair = 0
+		clothes = 0
+		ruler_title="Processor Core"
+		ruler_title_female="Processor Core"
+		leader_class = ruler
+	}
+}

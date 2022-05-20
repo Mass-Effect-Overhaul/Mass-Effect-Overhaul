@@ -1,0 +1,40 @@
+﻿
+l_english:
+#########################################
+#           MEC Colony Events           #
+#########################################
+
+###Thresher Maw Attack
+ mec_eg_colony.001.name:0 "Thresher Maw Attack"
+ mec_eg_colony.001.desc:0 "With little to no warning a thresher maw has appeared near our growing colony on [From.Planet.GetName] killing a number of our more rural colonists. The meagre garrison of the colony is preparing to defend against further aggression, but without additional support they will likely be hopelessly outmatched. The local commander is requesting authorization to engage the beast before it threatens the heart of the colony, although this may leave the colony defenseless if they fail or from any threat in the near future."
+ mec_eg_colony.001.a:0 "The colony can deal with it."
+ mec_eg_colony.001.b:0 "Hunt the Thresher Maw down!"
+ mec_eg_colony.001.c:0 "Relocate the colony and declare an exclusion zone."
+
+##No Action Taken 
+ mec_eg_colony.0010.name:0 "Abanded to the Beast"
+ mec_eg_colony.0010.desc:0 "The thresher maw has caused extensive damage to our colony, leading to a significant number of additional deaths. Unsurprisingly the local garrison was unable to effectively counter the rampaging beast, and whilst they are still combat ready, they sorely lack the capability to hunt the animal. \n\nFortunately the thresher maw has seemingly disappeared and all our seismic instruments have not identified any indicators that the beast is in the near vicinity to the colony. However the destruction to the colony and, perhaps more importantly, the colonists' trust in us has been extensively damaged and will take considerable time to repair and heal."
+ mec_eg_colony.0010.a:0 "Let us hope this is the end."
+
+##Army Killed by Thresher Maw
+ mec_eg_colony.0011.name:0 "Tried and Failed"
+ mec_eg_colony.0011.desc:0 "The local commander’s attempt at engaging the thresher maw beyond the heart of the colony has ended in failure. The local garrison was ill prepared to handle such a ferocious beast, leading to significant damage and casualties. \n\nFortunately the thresher maw has seemingly disappeared and all our seismic instruments have not identified any indicators that the beast is in the near vicinity to the colony. Whilst the colonists are reeling from the attack, many are at least mollified by the attempt to stop the beast before it could cause serious harm, even if it failed."
+ mec_eg_colony.0011.a:0 "Let us hope the colony is now safe."
+
+##Thresher Maw Killed
+ mec_eg_colony.0012.name:0 "A Monster Defeated"
+ mec_eg_colony.0012.desc:0 "The local commander’s attempt at engaging the thresher maw beyond the heart of the colony was a major success. Thanks to the clever use of low frequency audio and modified vehicles to ensure mobility, the commander was able to draw the thresher maw away from the colony before hounding the beast with continuous assaults from lightly armoured, though heavily armed, vehicles. \n\nUnsurprisingly, the commander is being hailed as a hero by the colony who are already planning a feast to celebrate the victory. It is rumored that some enterprising colonists will be creating a variety of dishes from the remains of the beast. How palatable these food dishes will be, remains to be seen."
+ mec_eg_colony.0012.a:0 "A worthy celebration!"
+
+##Relocate & Nature Reserve
+ mec_eg_colony.0013.name:0 "Balance is Restored"
+ mec_eg_colony.0013.desc:0 "We have successfully relocated the colony and its inhabitants to a new location on the planet. Whilst this endeavour has been costly, and we have lost a potential region of development due to the newly established thresher maw exclusion zone, it has and will continue to ensure the viability and survival of the colony. An additional benefit of this new arrangement is the possibility to further study the behaviour of a thresher maw with minimal interference."
+ mec_eg_colony.0013.a:0 "A wise decision."
+
+##Thresher Maw Rampage
+ mec_eg_colony.0014.name:0 "Thresher Maw Rampage"
+ mec_eg_colony.0014.desc:0 "The worst fears of [From.Planet.GetName] have come true with the return of the thresher maw. The beast appears to have grown in size since its first appearance. This has emboldened it to indiscriminately attack the colony causing widespread damage and death. It has become abundantly clear that this thresher maw is now an existential threat to the survival of the colony and its inhabitants. The only option is to kill it."
+ mec_eg_colony.0014.a:0 "The beast must die!"
+ mec_eg_colony_0014.a.tooltip:0 "A rampaging thresher maw is attacking our colonists on [Root.GetName]!"
+
+################################################################################################################################################################################################

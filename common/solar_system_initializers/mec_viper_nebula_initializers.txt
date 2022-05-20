@@ -1,0 +1,208 @@
+### Viper Nebula Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_viper_nebula_system_initializer = {
+	name = "Bahak"
+	class = "sc_g"
+
+		init_effect = {
+		if = {
+			limit = { 
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				name = "Viper Nebula"
+				radius = 20
+			}
+		}
+	}
+	
+	flags = { mec_viper_nebula_bahak_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 275
+	}
+
+	planet = {
+		name = "Bahak"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Clogon"
+		class = "pc_toxic"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 7
+		has_ring = no
+		entity = "mec_toxic_green_01"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+	}
+	
+	planet = {
+		name = "Aratoht"
+		class = "pc_desert"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+
+		flags = { mec_eg_planet_aratoht }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+
+			add_modifier = {
+				modifier = mineral_rich
+				days = -1
+			}
+		}
+
+		moon = {
+			name = "Aratoht a"
+			count = 1
+			class = "pc_barren_cold"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 12
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+	
+	planet = {
+		name = "Yunaca"
+		class = "pc_barren_cold"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Urmola"
+		class = "pc_gas_giant"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_pink_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Bastzuda"
+		class = "pc_gas_giant"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 43
+		has_ring = no
+		entity = "mec_gg_pink_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	change_orbit = 35
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+}

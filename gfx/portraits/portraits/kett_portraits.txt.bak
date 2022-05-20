@@ -1,0 +1,196 @@
+portraits = {
+ 	nec11_fix = {	entity = "portrait_necroid_11_entity" clothes_selector = "necroid_clothes_01" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_16_death_worshipper"
+ 		character_textures = {
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v1.dds"
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v2.dds"
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v3.dds"
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v4.dds"
+ 		}
+ 	}
+}
+
+portrait_groups = {
+	nec11 = {
+		default = kett_ascendant_male
+		game_setup = { #will run with a limited country scope. species and government is add but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					nec11_fix
+					kett_ascendant_male
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					nec11_fix
+					kett_ascendant_female
+				}
+			}
+		}
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Kett"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					kett_ascendant_male
+					kett_ascendant_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Kett"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec11_fix
+				}
+			}
+		}
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Kett"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					kett_ascendant_male
+					kett_ascendant_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Kett"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec11_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Kett"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					kett_ascendant_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Kett"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					kett_ascendant_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Kett"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec11_fix
+				}
+			}
+		}
+
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Kett"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					kett_ascendant_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Kett"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					kett_ascendant_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Kett"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec11_fix
+				}
+			}
+		}
+	}
+}

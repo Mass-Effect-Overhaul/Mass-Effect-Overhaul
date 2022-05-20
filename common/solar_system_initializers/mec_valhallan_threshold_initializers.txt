@@ -1,0 +1,386 @@
+### Valhallan Threshold Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_valhallan_threshold_system_initializer = {
+	name = "Raheel-Leyya"
+	class = "sc_binary_5"
+	
+	flags = { mec_valhallan_threshold_raheel_leyya_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Raheel"
+		class = "pc_a_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 90
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_physics_4
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Leyya "
+		class = "pc_a_star"
+		orbit_distance = 70
+		orbit_angle = 140
+		size = 40
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_4
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_valhallan_threshold_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_valhallan_threshold_neighbour_02"
+	}
+}
+
+mec_valhallan_threshold_neighbour_01 = {
+	name = "Micah"
+	class = "sc_g"
+
+	flags = { mec_valhallan_threshold_micah_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_valhallan_threshold_raheel_leyya_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 260
+	}
+
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 280
+	}
+	
+	planet = {
+		name = "Micah"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 65
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Elohi"
+		class = "pc_gas_giant"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 37
+		has_ring = no
+		entity = "mec_gg_pink_06"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Dumah"
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_orange_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+
+		moon = {
+			name = "Dumah a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+		
+		moon = {
+			name = "Dumah b"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Dumah c"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Dumah d"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Dumah e"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Dumah f"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 8
+			size = 9
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+		
+		moon = {
+			name = "Dumah g"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+
+	change_orbit = 85
+	
+	planet = {
+		name = "Farlas"
+		class = "pc_ice_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	change_orbit = 15
+	
+	planet = {
+		name = "Kakabel"
+		class = "pc_ice_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	change_orbit = 15
+	
+	planet = {
+		name = "Israfil"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		flags = { mec_eg_planet_israfil }
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ISRAFIL_1301_CAT				###Israfil Anomaly (Impossible Life)
+			}
+		}
+	}
+}
+
+mec_valhallan_threshold_neighbour_02 = {
+	name = "Paz"
+	class = "sc_a"
+	
+	flags = { mec_valhallan_threshold_paz_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_valhallan_threshold_raheel_leyya_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Paz"
+		class = "pc_a_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 65
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Garvug"
+		class = "pc_arctic"
+		orbit_distance = 170
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_garvug }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = bleak_planet
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Garvug I"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 10
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+}

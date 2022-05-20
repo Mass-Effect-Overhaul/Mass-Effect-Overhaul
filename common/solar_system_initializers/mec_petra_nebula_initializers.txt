@@ -1,0 +1,225 @@
+### Petra Nebula System
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_petra_nebula_system_initializer = {
+	name = "Vetus"			
+	class = "sc_k"		
+
+		init_effect = {
+		if = {
+			limit = { 
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				name = "Petra Nebula"
+				radius = 20
+			}
+		}
+	}
+	
+	flags = { mec_petra_nebula_vetus_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 270
+	}
+	
+	planet = {
+		name = "Vetus"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 45
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Tyre"
+		class = "pc_molten"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_molten_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Elysium"
+		class = "pc_alpine"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_elysium }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = low_gravity
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Sidon"
+		class = "pc_barren_cold"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no	
+		entity = "mec_barren_blue_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Joppa"
+		class = "pc_gas_giant"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 41
+		has_ring = yes
+		entity = "mec_gg_green_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+		
+		moon = {
+			name = "Joppa a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 17
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Joppa b"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 3
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+	
+change_orbit = 40
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Gilead"
+		class = "pc_frozen"
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		size = 8
+		has_ring = no
+		entity = "mec_barren_grey_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			set_deposit = d_alloys_1
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+}

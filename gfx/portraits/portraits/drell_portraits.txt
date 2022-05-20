@@ -1,0 +1,221 @@
+portrait_groups = {
+	humanoid_02 = {
+		default = drell_male
+		game_setup = { #will run with a limited country scope. species and government is add but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					humanoid_02_male_01
+					drell_male
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					humanoid_02_female_01
+					drell_female
+				}
+			}
+		}
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Drell"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					drell_male
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Drell"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_02_female_01
+					humanoid_02_male_01
+				}
+			}
+		}
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Drell"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					drell_male
+					drell_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Drell"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_02_female_01
+					humanoid_02_male_01
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Drell"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					drell_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Drell"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					drell_female
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Drell"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_02_female_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Drell"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_02_male_01
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Drell"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					drell_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Drell"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					drell_female
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Drell"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_02_female_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Drell"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_02_male_01
+				}
+			}
+		}
+	}
+}

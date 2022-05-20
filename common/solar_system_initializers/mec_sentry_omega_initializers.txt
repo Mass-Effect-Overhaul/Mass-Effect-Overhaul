@@ -1,0 +1,160 @@
+### Sentry Omega System
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_sentry_omega_system_initializer = {
+	name = "Hoc"			
+	class = "sc_g"		
+	
+	flags = { mec_sentry_omega_hoc_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Hoc"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 70
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Jarfor"
+		class = "pc_gas_giant"
+		orbit_distance = 115
+		orbit_angle = { min = 90 max = 270 }
+		size = 43
+		has_ring = no
+		entity = "mec_gg_green_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Nemata"
+		class = "pc_toxic"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_toxic_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_minerals_4
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = mineral_rich
+				days = -1
+			}
+		}
+	}
+
+	planet = {
+		name = "Virmire"
+		class = "pc_continental"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_virmire }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = lush_planet
+				days = -1
+			}
+			add_modifier = {
+				modifier = natural_beauty
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Cloroplon"
+		class = "pc_gas_giant"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 32
+		has_ring = no
+		entity = "mec_gg_red_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Prescyla"
+		class = "pc_frozen"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 7
+		has_ring = no
+		entity = "mec_barren_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+}

@@ -1,0 +1,727 @@
+### Artemis Tau Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_artemis_tau_system_initializer = {
+	name = "Macedon"
+	class = "sc_m"
+	
+	flags = { mec_artemis_tau_macedon_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 220
+	}
+	
+	planet = {
+		name = "Macedon"
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Sharijila"
+		class = "pc_toxic"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Porolan"
+		class = "pc_barren"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		entity = "mec_barren_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_4
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = mineral_rich
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Patavig"
+		class = "pc_toxic"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 23
+		has_ring = no	
+		flags = { mec_eg_planet_patavig }
+		entity = "mec_toxic_green_03"
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_PATAVIG_1031_CAT			### Patavig Anomaly (Rich Ammonia Seas)
+			}
+		}
+	}
+	
+change_orbit = 35
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Fargeluse"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 38
+		has_ring = no
+		entity = "mec_gg_orange_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_artemis_tau_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_artemis_tau_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_artemis_tau_neighbour_03"
+	}
+}
+
+mec_artemis_tau_neighbour_01 = {
+	name = "Athens"
+	class = "sc_k"
+
+	flags = { mec_artemis_tau_athens_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_artemis_tau_macedon_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 130
+	}
+	
+	planet = {
+		name = "Athens"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 45
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Salamis"
+		class = "pc_molten"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_molten_purple_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Proteus"
+		class = "pc_ocean"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 24
+		has_ring = no
+		flags = { mec_eg_planet_proteus }
+		
+		init_effect = {
+			prevent_anomaly = yes		
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = hazardous_weather
+				days = -1
+			}
+		}	
+	}
+	
+change_orbit = 30
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Nausicaa"
+		class = "pc_gas_giant"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 43
+		has_ring = no
+		entity = "mec_gg_black_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Circe"
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 27
+		has_ring = no
+		entity = "mec_gg_green_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_exotic_gases_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Pharos"
+		class = "pc_barren_cold"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+		entity = "mec_barren_green_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}
+
+mec_artemis_tau_neighbour_02 = {
+	name = "Sparta"
+	class = "sc_f"
+	
+	flags = { mec_artemis_tau_sparta_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_artemis_tau_macedon_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 110
+	}
+	
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 320
+	}
+		
+	planet = {
+		name = "Sparta"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 70
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Tremanre"
+		class = "pc_molten"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	change_orbit = 30
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Edolus"
+		class = "pc_toxic"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit		
+		
+			add_modifier = {
+				modifier = asteroid_impacts
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Altaaya"
+		class = "pc_barren_cold"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = no
+		entity = "mec_barren_blue_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Ontamalca"
+		class = "pc_gas_giant"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_blue_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes	
+			clear_planet_modifiers = yes 	
+		
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Ontamalca a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 15
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Ontamalca b"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Ontamalca c"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+
+		moon = {
+			name = "Ontamalca d"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+
+		moon = {
+			name = "Ontamalca e"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 9
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+		
+		moon = {
+			name = "Ontamalca f"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+
+	change_orbit = 50
+	
+	planet = {
+		count = 3
+		class = "pc_ice_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Alsages"
+		class = "pc_frozen"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_barren_grey_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}
+
+mec_artemis_tau_neighbour_03 = {
+	name = "Knossos"
+	class = "sc_g"
+	
+	flags = { mec_artemis_tau_knossos_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_artemis_tau_macedon_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 100
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 260
+	}
+		
+	planet = {
+		name = "Knossos"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Phaistos"
+		class = "pc_molten"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 12
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	change_orbit = 40
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Therum"
+		class = "pc_arid"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		flags = { mec_eg_planet_therum }
+		
+		init_effect = {
+			prevent_anomaly = yes									
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_THERUM_2030_CAT					###Therum Anomaly & Archaeological Site (Prothean Ruins)
+			}
+
+			add_deposit = d_mec_eg_therum_ruins
+
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+			add_modifier = {
+				modifier = ultra_rich
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Zakros"
+		class = "pc_toxic"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+		entity = "mec_toxic_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Armeni"
+		class = "pc_barren_cold"
+		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_armeni }
+		entity = "mec_barren_green_02"
+		
+		init_effect = {
+			prevent_anomaly = yes		
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ARMENI_1032_CAT			### Armeni Anomaly (Alien Crypts)
+			}
+		}
+	}
+	
+	change_orbit = 35
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}		
+	}
+
+	planet = {
+		name = "Archanes"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = no
+		entity = "mec_gg_red_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}

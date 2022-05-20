@@ -1,0 +1,524 @@
+### Horsehead Nebula Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_horsehead_nebula_system_initializer = {
+	name = "Pax"
+	class = "sc_k"
+
+		init_effect = {
+		if = {
+			limit = { 
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				name = "Horsehead Nebula"
+				radius = 50
+			}
+		}
+	}
+	
+	flags = { mec_horsehead_nebula_pax_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	planet = {
+		name = "Pax"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_3"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Svarog"
+		class = "pc_gas_giant"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 33
+		has_ring = no
+		entity = "mec_gg_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Noveria"
+		class = "pc_arctic"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+
+		flags = { mec_eg_planet_noveria }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Morana"
+		class = "pc_frozen"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_blue_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}
+	}
+
+	planet = {
+		name = "Veles"
+		class = "pc_barren_cold"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_grey_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_society_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_horsehead_nebula_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_horsehead_nebula_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_horsehead_nebula_neighbour_03"
+	}
+}
+
+mec_horsehead_nebula_neighbour_01 = {
+	name = "Anadius"
+	class = "sc_b"
+
+	flags = { mec_horsehead_nebula_anadius_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_horsehead_nebula_pax_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Anadius"
+		class = "pc_m_giant_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 120
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_physics_4
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_4"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 295
+	}
+
+	change_orbit = 295
+
+	planet = {
+		name = "CR0-N019"
+		class = "pc_barren_cold"
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_blue_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_engineering_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_alloys_1
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+}
+
+mec_horsehead_nebula_neighbour_02 = {
+	name = "Fortuna"
+	class = "sc_m"
+
+	flags = { mec_horsehead_nebula_fortuna_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_horsehead_nebula_pax_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Fortuna"
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 25
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_4"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Maganlis"
+		class = "pc_barren"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+		entity = "mec_barren_green_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_society_2
+			set_planet_flag = starting_deposit	
+		}	
+	}
+
+	planet = {
+		name = "Therumlon"
+		class = "pc_barren"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_barren_grey_10"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Amaranthine"
+		class = "pc_barren_cold"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_green_04"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+		}		
+	}
+
+	planet = {
+		name = "Wentania"
+		class = "pc_frozen"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 9
+		has_ring = no
+		entity = "mec_barren_grey_02"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}		
+	}
+}
+
+mec_horsehead_nebula_neighbour_03 = {
+	name = "Strenuus"
+	class = "sc_g"
+
+	flags = { mec_horsehead_nebula_strenuus_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_horsehead_nebula_pax_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Strenuus"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 40
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_3"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Yunthorl"
+		class = "pc_toxic"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 11
+		has_ring = no
+
+		flags = { mec_eg_planet_yunthorl }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_YUNTHORL_1111_CAT			###Yunthorl Anomaly (Oceans of Oil)
+			}
+		}
+	}
+	
+	planet = {
+		name = "Antitarra"
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 35
+		has_ring = no
+		entity = "mec_gg_red_04"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+
+	planet = {
+		name = "Trelyn"
+		class = "pc_barren_cold"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+
+			add_modifier = {
+				modifier = low_gravity
+				days = -1
+			}	
+		}
+	}
+
+	planet = {
+		name = "Xawin"
+		class = "pc_frozen"
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Thesalgon"
+		class = "pc_gas_giant"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 39
+		has_ring = yes
+		entity = "mec_gg_blue_01"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+
+		}		
+	}
+}

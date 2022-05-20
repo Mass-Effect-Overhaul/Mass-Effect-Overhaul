@@ -1,0 +1,644 @@
+### Hourglass Nebula Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 30 - 35
+### 35000 - 55000 = 35 - 40
+### 55000+ = 40-45
+
+mec_hourglass_nebula_system_initializer = {
+	name = "Osun"
+	class = "sc_f"
+
+		init_effect = {
+		if = {
+			limit = { 
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				name = "Hourglass Nebula"
+				radius = 50
+			}
+		}
+	}
+	
+	flags = { mec_hourglass_nebula_osun_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	planet = {
+		name = "Osun"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Orunmila"
+		class = "pc_gas_giant"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 34
+		has_ring = no
+		entity = "mec_gg_red_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	planet = {
+		name = "Erinle"
+		class = "pc_tundra"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+
+		flags = { mec_eg_planet_erinle }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ERINLE_1121_CAT			###Erinle Anomaly (A Dying Planet)
+			}
+		}
+	}
+	
+	planet = {
+		name = "Aganju"
+		class = "pc_barren_cold"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 23
+		has_ring = no
+		entity = "mec_barren_green_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = high_gravity
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Olokun"
+		class = "pc_gas_giant"
+		orbit_distance = 110
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = yes
+		entity = "mec_gg_orange_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hourglass_nebula_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hourglass_nebula_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hourglass_nebula_neighbour_03"
+	}
+}
+
+mec_hourglass_nebula_neighbour_01 = {
+	name = "Faryar"
+	class = "sc_g"
+	
+	flags = { mec_hourglass_nebula_faryar_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hourglass_nebula_osun_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 290
+	}
+		
+	planet = {
+		name = "Faryar"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Quarem"
+		class = "pc_barren"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 9
+		has_ring = no
+		entity = "mec_barren_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Daratar"
+		class = "pc_barren"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 11
+		has_ring = no
+		entity = "mec_barren_green_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Daratar b"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 8
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Tunfigel"
+		class = "pc_barren"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		entity = "mec_barren_grey_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = high_gravity
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Nephros"
+		class = "pc_gas_giant"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 37
+		has_ring = no
+		entity = "mec_gg_yellow_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Alingon"
+		class = "pc_barren_cold"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 9
+		has_ring = no
+		entity = "mec_barren_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = strong_magnetic_field
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Wenrum"
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_gg_blue_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	change_orbit = 10
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Antictra"
+		class = "pc_barren_cold"
+		orbit_distance = 15
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_barren_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+}
+
+mec_hourglass_nebula_neighbour_02 = {
+	name = "Ploitari"
+	class = "sc_g"
+
+	flags = { mec_hourglass_nebula_ploitari_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hourglass_nebula_osun_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Ploitari"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 45
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes						
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Aigela"
+		class = "pc_barren"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_grey_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Zanethu"
+		class = "pc_barren"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_grey_04"
+
+		flags = { mec_eg_planet_zanethu }
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ZANETHU_1122_CAT			###Zanethu Anomaly (Post-Garden World) 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Synalus"
+		class = "pc_toxic"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_toxic_white_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Thegan"
+		class = "pc_frozen"
+		orbit_distance = 95
+		orbit_angle = { min = 90 max = 270 }
+		size = 9
+		has_ring = no
+		entity = "mec_barren_blue_02"
+		
+		init_effect = {
+			prevent_anomaly = yes			
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}
+
+mec_hourglass_nebula_neighbour_03 = {
+	name = "Sowilo"
+	class = "sc_g"
+	
+	flags = { mec_hourglass_nebula_sowilo_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hourglass_nebula_osun_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Sowilo"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Uruz"
+		class = "pc_barren"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Kenaz"
+		class = "pc_barren"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_barren_grey_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Hagalaz"
+		class = "pc_arid"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+
+		flags = { mec_eg_planet_hagalaz }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 				
+			add_anomaly = {
+				category = MEC_EG_ANO_HAGALAZ_1123_CAT			###Hagalaz Anomaly (Extreme Storms)
+			}
+		}
+	}
+	
+	planet = {
+		name = "Ansuz"
+		class = "pc_barren_cold"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+		entity = "mec_barren_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Thurisaz"
+		class = "pc_gas_giant"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 41
+		has_ring = yes
+		entity = "gas_giant_01_entity"
+		
+		init_effect = {
+			prevent_anomaly = yes			
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Isa"
+		class = "pc_frozen"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_bareen_grey_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}

@@ -1,0 +1,333 @@
+### Styx Theta Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_styx_theta_system_initializer = {
+	name = "Acheron"			
+	class = "sc_k"		
+	
+	flags = { mec_styx_theta_acheron_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 170
+	}
+	
+	planet = {
+		name = "Acheron"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Farthorl"
+		class = "pc_toxic"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_toxic_green_03"
+
+		init_effect = {
+			prevent_anomaly = yes 		
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Altahe"
+		class = "pc_barren"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 11
+		has_ring = no
+		entity = "mec_barren_red_02"
+		flags = { mec_eg_planet_altahe }
+
+		init_effect = {
+			prevent_anomaly = yes						
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ALTAHE_1261_CAT			###Altahe Anomaly (Shared Atmosphere)
+			}
+			
+			add_modifier = {
+				modifier = wild_storms
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Ontahe"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 10
+			entity = "mec_barren_yellow_01"
+
+			init_effect = {
+				prevent_anomaly = yes						
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+change_orbit = 50
+
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Grosalgen"
+		class = "pc_frozen"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_barren_blue_03"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Imaneya"
+		class = "pc_frozen"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 23
+		has_ring = no
+		entity = "mec_barren_grey_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_styx_theta_neighbour_01"
+	}
+}
+
+mec_styx_theta_neighbour_01 = {
+	name = "Erebus"			
+	class = "sc_f"		
+	
+	flags = { mec_styx_theta_erebus_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_styx_theta_acheron_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 140
+	}
+	
+	planet = {
+		name = "Erebus"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 65
+		has_ring = no	
+	
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Nepmos"
+		class = "pc_molten"
+		orbit_distance = 110
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_molten_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+			add_modifier = {
+				modifier = mineral_rich
+				days = -1
+			}
+		}	
+	}
+	
+change_orbit = 30
+
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Quaji"
+		class = "pc_toxic"
+		orbit_distance = 15
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_toxic_white_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+	}
+	
+	planet = {
+		name = "Wermani"
+		class = "pc_gas_giant"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no	
+		entity = "mec_gg_blue_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+	}
+	
+	planet = {
+		name = "Chofen"
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 28
+		has_ring = no
+		entity = "mec_gg_blue_10"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+	}
+}

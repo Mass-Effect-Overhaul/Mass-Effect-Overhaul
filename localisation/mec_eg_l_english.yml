@@ -1,0 +1,204 @@
+﻿l_english:
+
+ ########################
+ #      MEC Armies      #
+ ########################
+
+ husk_army:0 "Husks"
+ husk_army_desc:0 "Husks are synthetic-organic monsters created from the bodies of organic beings. Infected by alien devices, the hosts undergo a transformation caused by nano-machines which spread throughout the body altering into a synthetic-organic hybrid. These husks have no vestiges for their former selves, and are only concerned with killing and infecting others."
+
+ thresher_army:0 "Thresher Maw"
+ thresher_army_desc:0 "Thresher maws are subterranean carnivores that spend their entire lives eating or searching for something to eat. They are enormous, violent creatures that burst up from the ground without warning when disturbed."
+
+################################################################################################################################################################################################
+
+ #######################
+ #      MEC Ships      #
+ #######################
+
+ NAME_NOVA:0 "Nova"
+ PROTHEAN_EVT_MAIN:1 "Nova Core"
+ mec_prothean_ship:0 "Prothean Cruiser"
+ mec_prothean_ship_plural:0 "Prothean Cruisers"
+
+################################################################################################################################################################################################
+
+#######################################
+#       MEC Planetary Modifiers       #
+#######################################
+ 
+### Attican Beta
+## Hercules
+# Eletania (Poisonous Biosphere) - Also Generic Planetary Modifier
+ mec_eg_pm_poison_biosphere:0 "Poisonous Biosphere"
+ mec_eg_pm_poison_biosphere_desc:0 "This planet is covered by a verdant carpet of mosses, algae and lichen, and possesses a thick oxygenated atmosphere, but the animal kingdom is a web of microscopic symbiotic creatures. These are impossible to filter out of the air and cause anaphylactic shock in non-native life. Fully sealed environments, or replacement of the entire world's ecosystem is required."
+
+####################################################################################
+
+### Hourglass Nebula
+## Osun
+# Erinle (Dying Planet) - Also Generic Planetary Modifier
+ mec_eg_pm_dying_planet:0 "Dying Planet"
+ mec_eg_pm_dying_planet_desc:0 "This planet is a garden world in its last stages of habitability. Whilst its soil still supports agriculture, its animal biodiversity has fallen dramatically. Without major intervention the planet's biosphere is likely to collapse in the millennia."
+
+### Hourglass Nebula
+## Sowilo
+# Hagalaz (Extreme Storms)
+ mec_eg_pm_hagalaz_storms:0 "Extreme Habitat"
+ mec_eg_pm_hagalaz_storms_desc:0 "Whilst the planet is technically habitable, the planet's storms make habitation a difficulty. It's rotational period is very slow, making its day and night last months. The intense heat on one side of the planet, and the extreme cold on the other makes for violent storm cells wherever the sun is rising or setting."
+
+####################################################################################
+
+### Kepler Verge  / The Phoenix Massing
+## Newton         / Typhon
+# Ontarom         / Aite (Collision Course) - Also Generic Planetary Modifier
+ mec_eg_pm_collision_course:0 "Collision Course"
+ mec_eg_pm_collision_course_desc:0 "The moon of this planet is in an unstable orbit and is steadily decaying. Its proximity is beginning to have tidal effects, and the dynamo-like revolution through the planet's magnetic field is generating increasingly powerful electrical storms. An impact event will undoubtedly leave the planet uninhabitable. In theory, it could be possible to stabilize the moon's orbit, however, it would require a major investment."
+
+####################################################################################
+
+### Other Planetary Modifiers (Random / Events) ###
+
+###Any Habitable World
+##Colony Event
+# Thresher Maw - Anrgy
+ mec_eg_pm_thresher_maw:0 "Wild Thresher Maw"
+ mec_eg_pm_thresher_maw_desc:0 "A wild thresher maw is wreaking havoc across a wide region of this planet, causing major disruption to any efforts to colonize and develop the region."
+
+###Any Habitable World
+##Colony Event
+# Thresher Maw - Pacified
+ mec_eg_pm_thresher_maw_pacified:0 "Thresher Maw Reserve"
+ mec_eg_pm_thresher_maw_pacified_desc:0 "The thresher maw has successfully been pacified, thanks to the creation of an expansive protected reserve. Whilst this has ensured that a substantial region cannot be developed, it does mean that the remainder of the planet is safe."
+
+####################################################################################
+
+###Tomb World
+##Archaeological Site
+# Union of Horror (Dread Ruins) 
+ mec_eg_pm_dread_ruins:0 "Dread Ruins"
+ mec_eg_pm_dread_ruins_desc:0 "The ruins across this world are a reminder of the horrors that have occured on this planet. Whilst they provide much for archaeologists to research, many find living upon this world unnerving."
+
+################################################################################################################################################################################################
+
+###################################
+#       MEC Planet Features       #
+###################################
+
+### Artemis Tau
+## Knossos
+# Therum (Prothean Ruins)
+d_mec_eg_therum_ruins:0 "Prothean Ruins"
+d_mec_eg_therum_ruins_desc:0 "The Prothean Ruins on this planet are under constant examination by a large number of scientists from a variety of fields. Whilst it is unlikely the ruins on the planet will provide any significant discoveries, they continue to improve our understanding of the Protheans and inspire the next generation of xeno-archaeologists and xeno-linguists."
+
+####################################################################################
+
+### Attican Beta
+## Theseus
+# Feros (Prothean Megalopolis Ruins)
+d_mec_eg_feros_ruins:0 "Prothean Megalopolis Ruins"
+d_mec_eg_feros_ruins_desc:0 "Whilst the planet is habitable, there is little open ground for agriculture. The only sizable fresh water sources are the poles, which are tapped by the decaying prothean aqueduct system. The dead cities that litter the landscape of this planet, may be in relatively good condition considering their age, but they are unstable and present a major risk due to debris and dust. Major efforts would have to be taken to revitalise the planet."
+
+################################################################################################################################################################################################
+
+####################################
+ #      MEC System Initializers     #
+ ####################################
+
+ mec_argos_rho_system_initializer_NAME:0 "Argos Rho"
+ mec_argos__rho_system_initializer_DESC:0 "Argos Rho"
+ 
+ mec_armstrong_nebula_system_initializer_NAME:0 "Armstrong Nebula"
+ mec_armstrong_nebula_system_initializer_DESC:0 "Armstrong Nebula"
+ 
+ mec_artemis_tau_system_initializer_NAME:0 "Artemis Tau"
+ mec_artemis_tau_system_initializer_DESC:0 "Artemis Tau"
+ 
+ mec_attican_beta_system_initializer:0 "Attican Beta"
+ mec_attican_beta_system_initializer:0 "Attican Beta"
+ 
+ mec_caleston_rift_system_initializer:0 "Caleston Rift"
+ mec_caleston_rift_system_initializer:0 "Caleston Rift"
+ 
+ mec_eagle_nebula_system_initializer:0 "Eagle Nebula"
+ mec_eagle_nebula_system_initializer:0 "Eagle Nebula"
+ 
+ mec_gemini_sigma_system_initializer:0 "Gemini Sigma"
+ mec_gemini_sigma_system_initializer:0 "Gemini Sigma"
+ 
+ mec_hades_gamma_system_initializer_NAME:0 "Hades Gamma"
+ mec_hades_gamma_system_initializer_DESC:0 "Hades Gamma"
+ 
+ mec_hades_nexus_system_initializer_NAME:0 "Hades Nexus"
+ mec_hades_nexus_system_initializer_DESC:0 "Hades Nexus"
+ 
+ mec_hawking_eta_system_initializer_NAME:0 "Hawking Eta"
+ mec_hawking_eta_system_initializer_DESC:0 "Hawking Eta"
+
+ mec_horsehead_nebula_system_initializer_NAME:0 "Horse Head Nebula"
+ mec_horsehead_nebula_system_initializer_DESC:0 "Horse Head Nebula"
+ 
+ mec_hourglass_nebula_system_initializer_NAME:0 "Hourglass Nebula"
+ mec_hourglass_nebula_system_initializer_DESC:0 "Hourglass Nebula"
+ 
+ mec_ismar_frontier_system_initializer_NAME:0 "Ismar Frontier"
+ mec_ismar_frontier_system_initializer_DESC:0 "Ismar Frontier"
+ 
+ mec_kepler_verge_system_initializer_NAME:0 "Kepler Verge"
+ mec_kepler_verge_system_initializer_DESC:0 "Kepler Verge"
+ 
+ mec_maroon_sea_system_initializer_NAME:0 "Maroon Sea"
+ mec_maroon_sea_system_initializer_DESC:0 "Maroon Sea"
+
+ mec_minos_wasteland_system_initializer_NAME:0 "Minos Wasteland"
+ mec_minos_wasteland_system_initializer_DESC:0 "Minos Wasteland"
+ 
+ mec_nubian_expanse_system_initializer_NAME:0 "Nubian Expanse"
+ mec_nubian_expanse_system_initializer_DESC:0 "Nubian Expanse"
+ 
+ mec_pangaea_expanse_system_initializer_NAME:0 "Pangaea Expanse"
+ mec_pangaea_expanse_system_initializer_DESC:0 "Pangaea Expanse"
+ 
+ mec_petra_nebula_system_initializer_NAME:0 "Petra Nebula"
+ mec_petra_nebula_system_initializer_DESC:0 "Petra Nebula"
+ 
+ mec_pylos_nebula_system_initializer_NAME:0 "Pylos Nebula"
+ mec_pylos_nebula_system_initializer_DESC:0 "Pylos Nebula"
+ 
+ mec_rosetta_nebula_system_initializer_NAME:0 "Rosetta Nebula"
+ mec_rosetta_nebula_system_initializer_DESC:0 "Rosetta Nebula"
+ 
+ mec_sentry_omega_system_initializer_NAME:0 "Sentry Omega"
+ mec_sentry_omega_system_initializer_DESC:0 "Sentry Omega"
+ 
+ mec_shadow_sea_system_initializer_NAME:0 "Shadow Sea"
+ mec_shadow_sea_system_initializer_DESC:0 "Shadow Sea"
+ 
+ mec_sigurds_cradle_system_initializer_NAME:0 "Sigurd's Cradle"
+ mec_sigurds_cradle_system_initializer_DESC:0 "Sigurd's Cradle"
+ 
+ mec_styx_theta_system_initializer_NAME:0 "Styx Theta"
+ mec_styx_theta_system_initializer_DESC:0 "Styx Theta"
+ 
+ mec_the_phoenix_massing_system_initializer_NAME:0 "The Phoenix Massing"
+ mec_the_phoenix_massing_system_initializer_DESC:0 "The Phoenix Massing"
+ 
+ mec_the_shrike_abyssal_system_initializer_NAME:0 "The Shrike Abyssal"
+ mec_the_shrike_abyssal_system_initializer_DESC:0 "The Shrike Abyssal"
+ 
+ mec_titan_nebula_system_initializer_NAME:0 "Titan Nebula"
+ mec_titan_nebula_system_initializer_DESC:0 "Titan Nebula"
+ 
+ mec_valhallan_threshold_system_initializer_NAME:0 "Valhallan Threshold"
+ mec_valhallan_threshold_system_initializer_DESC:0 "Valhallan Threshold"
+
+ mec_viper_nebula_system_initializer_NAME:0 "Viper Nebula"
+ mec_viper_nebula_system_initializer_DESC:0 "Viper Nebula"
+ 
+ mec_voyager_cluster_system_initializer_NAME:0 "Voyager Cluster"
+ mec_voyager_cluster_system_initializer_DESC:0 "Voyager Cluster"
+
+ mec_zhalos_nebula_system_initializer_NAME:0 "Zhalos Nebula"
+ mec_zhalos_nebula_system_initializer_DESC:0 "Zhalos Nebula"
+
+################################################################################################################################################################################################

@@ -1,0 +1,303 @@
+### Minos Wasteland Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_minos_wasteland_system_initializer = {
+	name = "Fortis"
+	class = "sc_g"
+	
+	flags = { mec_minos_wasteland_fortis_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	planet = {
+		name = "Fortis"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 40
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Vir"
+		class = "pc_toxic"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 19
+		has_ring = no
+		entity = "mec_toxic_green_03"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+		}	
+	}
+	
+	planet = {
+		name = "Pietas"
+		class = "pc_barren"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_barren_red_07"
+
+		flags = { mec_eg_planet_pietas }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_PIETAS_1161_CAT			###Pietas Anomaly (Terraforming Candidate)
+			}
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+		}	
+	}
+	
+	planet = {
+		name = "Aequitas"
+		class = "pc_barren"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+		entity = "mec_barren_red_04"
+
+		flags = { mec_eg_planet_aequitas }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_AEQUITAS_1162_CAT			###Aequitas Anomaly (Springs of Life)
+			}
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_minos_wasteland_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_minos_wasteland_neighbour_02"
+	}
+}
+
+mec_minos_wasteland_neighbour_01 = {
+	name = "Arrae"
+	class = "sc_a"
+
+	flags = { mec_minos_wasteland_arrae_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_minos_wasteland_fortis_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Arrae"
+		class = "pc_a_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Erros"
+		class = "pc_molten"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit	
+		}
+	}
+	
+	planet = {
+		name = "Gellix"
+		class = "pc_tundra"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 11
+		has_ring = no
+
+		flags = { mec_eg_planet_gellix }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	planet = {
+		name = "Antinax"
+		class = "pc_toxic"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 21
+		has_ring = no
+		entity = "mec_toxic_yellow_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	planet = {
+		name = "Nirrus"
+		class = "pc_gas_giant"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 41
+		has_ring = yes
+		entity = "mec_gg_orange_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}
+
+mec_minos_wasteland_neighbour_02 = {
+	name = "Caestus"
+	class = "sc_g"
+
+	flags = { mec_minos_wasteland_caestus_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_minos_wasteland_fortis_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Caestus"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 35
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Invictus"
+		class = "pc_tropical" 
+		orbit_distance = 55
+		orbit_angle = { min = 10 max = 190 }
+		size = 18
+		has_ring = no
+
+		flags = { mec_eg_planet_invictus }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+
+			add_modifier = {
+				modifier = dangerous_wildlife
+				days = -1
+			}	
+		}	
+	}
+
+	planet = {
+		name = "Temerarus"
+		class = "pc_barren"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 9
+		has_ring = no
+		entity = "mec_barren_red_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_4
+			set_planet_flag = starting_deposit	
+		}
+	}
+}

@@ -1,0 +1,30 @@
+#####################################
+# 			Biotic Events 			#
+#####################################
+
+namespace = mec_bio_evt
+
+### BIOTICS EVENTS
+
+##Biotic Flags from Intro Events
+
+#mec_bio_biotics_tales = Did not investigate, biotics basically remain unknown
+#mec_bio_biotics_investigate = Investigated and found out about biotics
+
+#mec_bio_biotics_public = Went public with info on biotics
+
+#mec_bio_biotics_secret = Maintained Secrecy about biotics
+#mec_bio_biotics_secret_large = Maintained secrecy about biotics but has large population of biotics
+
+#mec_bio_biotics_deviants = Biotics are considered deviants
+#mec_bio_biotics_execute = Killed biotics
+#mec_bio_biotics_guard = Biotics are captured to turn into special army
+
+#mec_bio_biotics_holy = Biotics were/are considered divine
+#mec_bio_biotics_heretics = Biotics are now considered heretics
+
+#mec_bio_biotics_society = Biotics now have a large presence within society (Can occur from Public, Secret and Holy Event Paths)
+#mec_bio_biotics_exposed = Public learns of experiments to create more biotics 
+
+####################################################################################
+

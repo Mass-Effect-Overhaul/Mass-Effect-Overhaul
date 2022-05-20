@@ -1,0 +1,1004 @@
+### Artemis Tau Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 10000 - 15000 = 23 - 25
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_armstrong_nebula_system_initializer = {
+	name = "Gagarin"
+	class = "sc_g"
+
+	init_effect = {
+		if = {
+			limit = { 
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				name = "Armstrong Nebula"
+				radius = 50
+			}
+		}
+	}
+
+	flags = { mec_armstrong_nebula_gagarin_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	planet = {
+		name = "Gagarin"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Junthor"
+		class = "pc_barren"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 23
+		has_ring = no
+		entity = "mec_barren_grey_05"
+		flags = { mec_eg_planet_junthro }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_JUNTHOR_1021_CAT			###Junthor Anomaly (Ancient Obelisk)
+			}
+			
+			add_modifier = {
+				modifier = bleak_planet
+				days = -1
+			}
+		}	
+		
+		moon = {
+			name = "Junthor a"
+			count = 1
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 7
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes				
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Pressha"
+		class = "pc_gas_giant"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 27
+		has_ring = no
+		entity = "mec_gg_yellow_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Pressha a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 11
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Pressha b"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Pressha c"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 9
+		
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Rayingri"
+		class = "pc_molten"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_molten_purple_02"
+		flags = { mec_eg_planet_rayingri }
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_RAYINGRI_1022_CAT			###Rayingri Anomaly (Collision Course)
+			}
+		}
+		
+		moon = {
+			name = "Vahtz"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 7
+			size = 6
+			entity = "mec_barren_blue_02"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Sogelrus"
+		class = "pc_frozen"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 12
+		has_ring = no
+		entity = "mec_barren_grey_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Antirumgon"
+		class = "pc_frozen"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		entity = "mec_barren_green_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = carbon_world
+				days = -1
+			}
+		}	
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_armstrong_nebula_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_armstrong_nebula_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_armstrong_nebula_neighbour_03"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_armstrong_nebula_neighbour_04"
+	}
+}
+
+mec_armstrong_nebula_neighbour_01 = {
+	name = "Grissom"
+	class = "sc_f"
+	
+	flags = { mec_armstrong_nebula_grissom_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_armstrong_nebula_gagarin_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 180
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 275
+	}
+		
+	planet = {
+		name = "Grissom"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Benda"
+		class = "pc_molten"
+		orbit_distance = 95
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes	
+			clear_planet_modifiers = yes 	
+
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Zaherux"
+		class = "pc_barren"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_barren_grey_01"
+		flags = { mec_eg_planet_zaherux }
+		
+		init_effect = {
+			prevent_anomaly = yes			
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ZAHERUX_1023_CAT			###Zaherux Anomaly (Sea of Sands)
+			}
+		}
+	}
+	
+	change_orbit = 25
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+	
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Notanban"
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_blue_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 		
+
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Solcrum"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 8
+			entity = "mec_barren_blue_02"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes	
+				clear_planet_modifiers = yes 	
+	
+				add_modifier = {
+					modifier = tidal_locked
+					days = -1
+				}
+			}			
+		}
+		
+		moon = {
+			name = "Notanban b"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Notanban c"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 4
+			entity = "mec_barren_red_01"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Notanban d"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	change_orbit = 60
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+}
+
+mec_armstrong_nebula_neighbour_02 = {
+	name = "Hong"
+	class = "sc_k"
+
+	flags = { mec_armstrong_nebula_hong_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_armstrong_nebula_gagarin_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Hong"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_2"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Pomal"
+		class = "pc_barren"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		entity = "mec_barren_red_05"
+		flags = { mec_eg_planet_pomal }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_POMAL_1024_CAT			###Pomal Anomaly (Shallow Seas)
+			}
+		}
+	}
+	
+	planet = {
+		name = "Casbin"
+		class = "pc_barren"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 19
+		has_ring = no
+		entity = "mec_barren_red_09"
+		flags = { mec_eg_planet_casbin }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_CASBIN_1025_CAT			###Casbin Anomaly (Pre-Garden World)
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Matar"
+		class = "pc_frozen"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+		entity = "mec_barren_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	planet = {
+		name = "Theshaca"
+		class = "pc_gas_giant"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_orange_02"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Theshaca a"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 16
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Theshaca b"
+			count = 1
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Theshaca c"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Treagir"
+		class = "pc_frozen"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_blue_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+}
+
+mec_armstrong_nebula_neighbour_03 = {
+	name = "Tereshkova"
+	class = "sc_binary_6"
+	
+	flags = { mec_armstrong_nebula_tereshkova_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_armstrong_nebula_gagarin_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 105
+	}
+
+	planet = {
+		name = "Tereshkova A"
+		class = "pc_m_star"
+		orbit_distance = 20
+		orbit_angle = 1
+		size = 65
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Tereshkova B"
+		class = "pc_m_star"
+		orbit_distance = 20
+		orbit_angle = 120
+		size = 40
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	change_orbit = 65
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_3
+		}
+	}
+
+	planet = {
+		name = "Antibaar"
+		class = "pc_barren_cold"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_blue_04"
+		flags = { mec_eg_planet_antibaar }
+
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 
+		
+			add_anomaly = {
+				category = MEC_EG_ANO_ANTIBAAR_1026_CAT			###Antibaar Anomaly (Terraforming Candidate)
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Patamalrus"
+		class = "pc_toxic"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Hunsalra"
+		class = "pc_gas_giant"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 23
+		has_ring = no
+		entity = "mec_gg_blue_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Thegeuse"
+		class = "pc_barren"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_barren_green_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes	
+			clear_planet_modifiers = yes 	
+		
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Solmarlon"
+		class = "pc_gas_giant"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_green_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Mawinor"
+		class = "pc_frozen"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_grey_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes	
+			clear_planet_modifiers = yes 	
+		
+			add_modifier = {
+				modifier = low_gravity
+				days = -1
+			}
+		}	
+	}
+}
+
+mec_armstrong_nebula_neighbour_04 = {
+	name = "Vamshi"
+	class = "sc_binary_4"
+
+	flags = { mec_armstrong_nebula_vamshi_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_armstrong_nebula_gagarin_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	planet = {
+		name = "Vamshi A"
+		class = "pc_m_giant_star"
+		orbit_distance = 15
+		orbit_angle = 1
+		size = 80
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_4"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Vamshi B"
+		class = "pc_b_star"
+		orbit_distance = 65
+		orbit_angle = 180
+		size = 20
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Maji"
+		class = "pc_barren"
+		orbit_distance = 125
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_barren_red_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Pregel"
+		class = "pc_toxic"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Almos"
+		class = "pc_gas_giant"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_blue_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}

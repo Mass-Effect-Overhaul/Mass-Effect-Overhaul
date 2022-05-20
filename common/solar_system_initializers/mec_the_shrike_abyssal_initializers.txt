@@ -1,0 +1,727 @@
+### Shrike Abyssal Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_the_shrike_abyssal_system_initializer = {
+	name = "Xe Cha"
+	class = "sc_k"
+	
+	flags = { mec_shrike_abyssal_xe_cha_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	planet = {
+		name = "Xe Cha"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Zada Ban"
+		class = "pc_barren"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+		entity = "mec_barren_red_10"
+		
+		init_effect = {
+			prevent_anomaly = yes		
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = asteroid_impacts
+				days = -1
+			}
+		}
+	}
+
+	planet = {
+		name = "Aphras"
+		class = "pc_nuked"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		flags = { mec_eg_planet_aphras }
+		
+		init_effect = {
+			prevent_anomaly = yes					###Aphras Anomaly (Impact Craters)
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = bleak_planet
+				days = -1
+			}
+			add_modifier = {
+				modifier = asteroid_impacts
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Tosal Nym"
+		class = "pc_nuked"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 17						
+		has_ring = no
+		flags = { mec_eg_planet_tosalnym }
+
+		init_effect = {
+			prevent_anomaly = yes			### Tosal Nym Anomaly (Impact Craters)
+			clear_planet_modifiers = yes 
+
+			add_modifier = {
+				modifier = bleak_planet
+				days = -1
+			}
+			add_modifier = {
+				modifier = asteroid_impacts
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Vem Osca"
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 44
+		has_ring = no
+		entity = "mec_gg_red_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Vem Osca a"
+			count = 1
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 17
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Vem Osca b"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+		
+		moon = {
+			name = "Vem Osca c"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Vem Osca d"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_shrike_abyssal_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_shrike_abyssal_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_shrike_abyssal_neighbour_03"
+	}
+}
+
+mec_shrike_abyssal_neighbour_01 = {
+	name = "Kyzil"
+	class = "sc_k"
+	
+	flags = { mec_shrike_abyssal_kyzil_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_shrike_abyssal_xe_cha_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Kyzil"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_physics_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Naskral"
+		class = "pc_barren"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 7
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Heshtok"							###Vorcha Homeworld
+		class = "pc_tundra"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 10
+		has_ring = no
+		
+		flags = { mec_eg_planet_heshtok }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 		
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+			
+			create_species = {
+				name = Vorcha
+				plural = Vorcha
+				class = "REP"
+				portrait = "rep12"
+				traits = {
+					trait = "trait_extremely_adaptive"
+					trait = "trait_rapid_breeders"
+					trait = "trait_fleeting"	
+					trait = "trait_repugnant"
+					trait = "trait_wasteful"
+				}
+				homeworld = this
+				}
+			create_country = {
+				name = random
+				authority = auth_oligarchic
+				civics = {
+					civic = civic_increasing_urbanization
+					civic = civic_atmospheric_pollution
+				}
+				species = last_created
+				ethos = { 
+					ethic = "ethic_xenophobe"
+					ethic = "ethic_militarist"
+					ethic = "ethic_authoritarian"
+				}
+				flag = {
+					icon = {
+						category = "domination"
+						file = "domination_14.dds"
+					}
+					background= {
+						category = "backgrounds"
+						file = "v.dds"
+					}
+					colors={
+						"red"
+						"black"
+						"null"
+						"null"
+					}
+				}
+				day_zero_contact = no
+				type = primitive
+			}
+			last_created_country = {
+				set_graphical_culture = industrial_01
+				set_country_flag = machine_age
+				set_country_flag = machine_age
+				set_primitive_age = machine_age
+			}
+			set_owner = last_created_country
+					
+			create_primitive_blockers = yes
+	
+			while = {
+				count = 24
+				create_pop = {
+					species = last_created
+				}					
+			}
+			add_building = building_primitive_farm
+			add_building = building_primitive_factory
+			add_building = building_primitive_mine
+			add_building = building_primitive_power_plant
+			add_building = building_primitive_capital
+			add_building = building_urban_dwellings
+					
+			last_created_country = {
+				capital_scope = { set_name = "Heshtok" }
+			}
+		}
+	}
+	
+	planet = {
+		name = "Parasc"
+		class = "pc_barren"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 7
+		has_ring = no
+		entity = "mec_barren_green_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Lihrat"
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Rustaka"
+		class = "pc_gas_giant"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 33
+		has_ring = no
+		entity = "mec_gg_blue_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}
+
+mec_shrike_abyssal_neighbour_02 = {
+	name = "Thal"
+	class = "sc_k"
+
+	flags = { mec_shrike_abyssal_thal_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_shrike_abyssal_xe_cha_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 245
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 335
+	}
+
+	planet = {
+		name = "Thal"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes						
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Garan"
+		class = "pc_molten"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 24
+		has_ring = no
+		entity = "mec_molten_purple_02"
+		flags = { mec_eg_planet_garan }
+		
+		init_effect = {
+			prevent_anomaly = yes				
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_GARAN_1282_CAT				###Garan Anomaly (Raining Rocks)
+			}
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Sarait"
+		class = "pc_toxic"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 23
+		has_ring = no
+		entity = "mec_toxic_white_01"
+		flags = { mec_eg_planet_sarait }
+		
+		init_effect = {
+			prevent_anomaly = yes			
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_SARAIT_1283_CAT				###Sarait Anomaly (Atmospheric Switching)
+			}	
+		}
+	}
+	
+	planet = {
+		name = "Altakiril"
+		class = "pc_arctic"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		flags = { mec_eg_planet_altakiril }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	change_orbit = 35
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Tyrix"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Xerceo"
+		class = "pc_gas_giant"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = yes
+		entity = "mec_gg_orange_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Xerceo a"
+			count = 1
+			class = "pc_toxic"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Xerceo b"
+			count = 1
+			class = "pc_barren_cold"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Virits"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+}
+
+mec_shrike_abyssal_neighbour_03 = {
+	name = "Urla Rast"
+	class = "sc_g"
+	
+	flags = { mec_shrike_abyssal_urla_rast_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_shrike_abyssal_xe_cha_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Urla Rast"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Bovis Tor"
+		class = "pc_molten"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_molten_purple_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Talis Fia"
+		class = "pc_tundra"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+
+		flags = { mec_eg_planet_talisfia }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Doz Atab"
+		class = "pc_gas_giant"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 38
+		has_ring = yes
+		entity = "mec_gg_blue_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Rosh"
+		class = "pc_barren_cold"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_grey_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			set_deposit = d_alloys_1
+			set_planet_flag = starting_deposit
+		}
+	}
+}

@@ -1,0 +1,156 @@
+portraits = {
+	sd_hum_robot_fix = {
+		entity = "portrait_humanoid_synthetic_dawn_01_entity"	clothes_selector = "no_texture"	hair_selector = "no_texture"	greeting_sound = "robot_human_greetings"
+		character_textures = {
+			"gfx/models/portraits/synthetic_dawn/synthetic_dawn_portrait_humanoid.dds"
+			"gfx/models/portraits/synthetic_dawn/synthetic_dawn_portrait_humanoid_orange.dds"
+			"gfx/models/portraits/synthetic_dawn/synthetic_dawn_portrait_humanoid_red.dds"
+			"gfx/models/portraits/synthetic_dawn/synthetic_dawn_portrait_humanoid_black.dds"
+		}
+	}
+}	
+
+portrait_groups = {
+	sd_hum_robot = {
+		default = geth
+		game_setup = { #will run with a limited country scope. species and government is set but the country does NOT actually exist
+			add = {
+				portraits = {
+					sd_hum_robot_fix
+					geth
+					geth_legion
+				}
+			}
+		}
+
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Geth"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					geth
+				}
+			}
+			add = {
+				trigger = { 
+					NOT = { 
+						any_galaxy_species = {
+							is_species = "Geth"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					sd_hum_robot_fix
+				}
+			}
+		}
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Geth"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					geth
+				}
+			}
+			add = {
+				trigger = {
+					NOT = { 
+						any_galaxy_species = {
+							is_species = "Geth"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					sd_hum_robot_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Geth"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					geth
+				}
+			}
+			add = {
+				trigger = {
+					NOT = { 
+						any_galaxy_species = {
+							is_species = "Geth"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					sd_hum_robot_fix
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Geth"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					geth
+					geth_legion
+				}
+			}
+			add = {
+				trigger = {
+					NOT = { 
+						any_galaxy_species = {
+							is_species = "Geth"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					sd_hum_robot_fix
+				}
+			}
+		}		
+	}		
+}

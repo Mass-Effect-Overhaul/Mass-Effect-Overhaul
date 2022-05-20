@@ -1,0 +1,811 @@
+### Sigurd's Cradle Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_sigurds_cradle_system_initializer = {
+	name = "Skepsis"
+	class = "sc_g"
+	
+	flags = { mec_sigurds_cradle_skepsis_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Skepsis"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Wallace"
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 37
+		has_ring = no
+		entity = "mec_gg_yellow_05"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Darwin"
+		class = "pc_barren"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_red_04"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Watson"
+		class = "pc_tropical"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_watson }
+
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 				
+		}
+
+		moon = {
+			name = "Franklin"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 10
+			size = 7
+			entity = "mec_barren_grey_04"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Crick"
+		class = "pc_barren_cold"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 12
+		has_ring = no
+		entity = "mec_barren_grey_06"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Pauling"
+		class = "pc_gas_giant"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = yes
+		entity = "mec_gg_red_07"
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+		}
+
+		moon = {
+			name = "Pauling a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 14
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Pauling b"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Pauling c"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Pauling d"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 3
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Keimowitz"
+		class = "pc_frozen"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		entity = "mec_barren_grey_04"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+
+		moon = {
+			name = "Noa"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 14
+			size = 9
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}		
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_sigurds_cradle_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_sigurds_cradle_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_sigurds_cradle_neighbour_03"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_sigurds_cradle_neighbour_04"
+	}
+}
+
+mec_sigurds_cradle_neighbour_01 = {
+	name = "Mil"
+	class = "sc_k"
+
+	flags = { mec_sigurds_cradle_mil_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_sigurds_cradle_skepsis_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 195
+	}
+	
+	planet = {
+		name = "Mil"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Akraia"
+		class = "pc_barren"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 8
+		has_ring = no
+		entity = "mec_barren_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Lisir"
+		class = "pc_barren"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_green_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Selvos"
+		class = "pc_barren"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_grey_05"
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_deposits = yes 
+			clear_planet_modifiers = yes 				
+
+			add_modifier = {
+				modifier = terraforming_candidate
+				days = -1
+			}
+		}
+
+		moon = {
+			name = "Chalkhos"
+			count = 1
+			class = pc_tropical
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 12
+			size = 15
+			flags = { mec_eg_planet_chalkhos }
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_planet_modifiers = yes 
+			}
+		}		
+	}
+	
+	change_orbit = 50
+
+	planet = {
+		name = "Mylasi"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Terapso"
+		class = "pc_gas_giant"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_orange_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+		
+		moon = {
+			name = "Terapso a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+				
+			}
+		}
+		
+		moon = {
+			name = "Terapso b"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+				
+			}
+		}
+		
+		moon = {
+			name = "Terapso c"
+			count = 1
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+				
+			}
+		}
+	}
+}
+
+mec_sigurds_cradle_neighbour_02 = {
+	name = "Lenal"
+	class = "sc_f"
+	
+	flags = { mec_sigurds_cradle_lenal_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_sigurds_cradle_skepsis_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Lenal"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 75
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Laconix"
+		class = "pc_barren"
+		orbit_distance = 110
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		entity = "mec_barren_red_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Triginta Petra"
+		class = "pc_arid"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		has_ring = no
+		flags = { mec_eg_planet_trigintapetra }
+
+		init_effect = {
+			prevent_anomaly = yes		
+			clear_planet_modifiers = yes 			
+
+			add_modifier = {
+				modifier = bleak_planet
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Choitadix"
+		class = "pc_barren"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 6
+		has_ring = no
+		entity = "mec_barren_yellow_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_alloys_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Nutus"
+		class = "pc_gas_giant"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = yes
+		entity = "mec_gg_orange_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+		
+		moon = {
+			name = "Etrat"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 9
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+}
+
+mec_sigurds_cradle_neighbour_03 = {
+	name = "Decoris"
+	class = "sc_g"
+	
+	flags = { mec_sigurds_cradle_decoris_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_sigurds_cradle_skepsis_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Decoris"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Laena"
+		class = "pc_toxic"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 12
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes				
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Sanctum"
+		class = "pc_arctic"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+		flags = { mec_eg_planet_sanctum }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes				
+
+			add_modifier = {
+				modifier = ultra_rich
+				days = -1
+			}
+		}
+	}
+}
+
+mec_sigurds_cradle_neighbour_04 = {
+	name = "Psi Tophet"
+	class = "sc_k"
+	
+	flags = { mec_sigurds_cradle_psi_tophet_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_sigurds_cradle_skepsis_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Psi Tophet"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Despoina"
+		class = "pc_ocean"
+		orbit_distance = 105
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		flags = { mec_eg_planet_despoina }
+		
+		init_effect = {
+			prevent_anomaly = yes				###Despoina Anomaly (Lurking in the Depths) 
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Arion"
+		class = "pc_barren"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 12
+		has_ring = no
+		entity = "mec_barren_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Eubolos"
+		class = "pc_gas_giant"
+		orbit_distance = 105
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = yes
+		entity = "mec_gg_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+		
+		moon = {
+			name = "Eubolos a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Eubolos b"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Eubolos c"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+
+				set_deposit = d_rare_crystals_1
+				set_planet_flag = starting_deposit
+			}
+		}
+		
+		moon = {
+			name = "Eubolos d"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+}

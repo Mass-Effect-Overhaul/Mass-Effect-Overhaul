@@ -1,0 +1,152 @@
+portraits = {
+	nec5_fix = {	entity = "portrait_necroid_05_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_06_ascended"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_05_portrait_purple.dds"
+			"gfx/models/portraits/necroid/necroids_05_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_05_portrait_blue.dds"
+			"gfx/models/portraits/necroid/necroids_05_portrait_red.dds"
+		}
+	}
+}
+
+portrait_groups = {
+	nec5 = {
+		default = collector
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				portraits = {
+					nec5_fix
+					collector
+				}
+			}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Collector"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					collector
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Collector"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec5_fix
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Collector"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					collector
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Collector"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec5_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Collector"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					collector
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Collector"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec5_fix
+				}
+			}
+		}
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Collector"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					collector
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Collector"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					nec5_fix
+				}
+			}
+		}
+	}
+}

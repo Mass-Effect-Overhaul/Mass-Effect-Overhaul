@@ -1,0 +1,221 @@
+portrait_groups = {
+	humanoid_05 = {
+		default = quarian_female_01
+		game_setup = { #will run with a limited country scope. species and government is add but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					humanoid_05_male_01
+					quarian_male_01
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					humanoid_05_female_01
+					quarian_female_01
+				}
+			}
+		}
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Quarian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					quarian_male_01
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Quarian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_05_female_01
+					humanoid_05_male_01
+				}
+			}
+		}
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Quarian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					quarian_male_01
+					quarian_female_01
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Quarian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_05_female_01
+					humanoid_05_male_01
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Quarian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					quarian_male_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Quarian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					quarian_female_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Quarian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_05_female_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Quarian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_05_male_01
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Quarian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					quarian_male_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Quarian"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					quarian_female_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Quarian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_05_female_01
+				}
+			}
+			add = {
+				trigger = {
+					gender = male
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Quarian"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					humanoid_05_male_01
+				}
+			}
+		}
+	}
+}

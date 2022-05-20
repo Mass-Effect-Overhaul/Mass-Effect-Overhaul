@@ -1,0 +1,89 @@
+#############################################
+# 		Planetary Modifiers - Static		#
+#############################################
+
+### Attican Beta
+## Hercules
+# Eletania (Verdant Green) - Also Generic Planetary Modifier
+mec_eg_pm_poison_biosphere = {
+	pop_environment_tolerance = -0.20
+	district_farming_max = -2
+	planet_jobs_society_research_produces_mult = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_atmospheric_hallucinogen.dds"
+	icon_frame = 2
+}
+
+####################################################################################
+
+### Hourglass Nebula
+## Osun
+# Erinle (Dying Planet) - Also Generic Planetary Modifier
+mec_eg_pm_dying_planet = {
+	pop_environment_tolerance = -0.20
+	district_farming_max = -2
+	planet_jobs_society_research_produces_mult = 0.15
+	icon = "gfx/interface/icons/planet_modifiers/pm_bleak.dds"
+	icon_frame = 2
+}
+
+### Hourglass Nebula
+## Sowilo
+# Hagalaz (Extreme Storms)
+mec_eg_pm_hagalaz_storms = {
+	pop_environment_tolerance = -0.20
+	planet_jobs_society_research_produces_mult = 0.10
+	planet_jobs_physics_research_produces_mult = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_wild_storms.dds"
+	icon_frame = 2
+}
+
+####################################################################################
+
+### Kepler Verge  / The Phoenix Massing
+## Newton         / Typhon
+# Ontarom         / Aite (Collision Course) - Also Generic Planetary Modifier
+mec_eg_pm_collision_course = {
+	pop_environment_tolerance = -0.05
+	planet_jobs_physics_research_produces_mult = 0.15
+	icon = "gfx/interface/icons/planet_modifiers/pm_tidal_locked.dds"
+	icon_frame = 2
+}
+
+#################################################################################################################################################################################################
+
+#############################################
+# 		Planetary Modifiers - Random		#
+#############################################
+
+### Thresher Maw - Anrgy
+mec_eg_pm_thresher_maw = {
+	pop_environment_tolerance = -0.10
+	planet_max_districts_add = -2
+	biological_pop_happiness = -0.10
+	lithoid_pop_happiness = -0.10
+	planet_jobs_society_research_produces_mult = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_dangerous_wildlife.dds"
+	icon_frame = 3
+}
+
+### Thresher Maw - Pacified
+mec_eg_pm_thresher_maw_pacified = {
+	planet_max_districts_add = -1
+	planet_jobs_society_research_produces_mult = 0.10
+	icon = "gfx/interface/icons/planet_modifiers/pm_dangerous_wildlife.dds"
+	icon_frame = 2
+}
+
+####################################################################################
+
+### RANDOM TOMB WOLRD
+# Union of Horror (Dread Ruins) 
+mec_eg_pm_dread_ruins = {
+	biological_pop_happiness = -0.20
+	lithoid_pop_happiness = -0.20
+	planet_jobs_society_research_produces_mult = 0.20
+	icon = "gfx/interface/icons/planet_modifiers/pm_city_ruins.dds"
+	icon_frame = 2
+}
+
+#################################################################################################################################################################################################

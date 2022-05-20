@@ -1,0 +1,218 @@
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+me_kanala_system = {
+	name = "Kanala"
+	class = "sc_g"
+	
+	flags = { empire_home_system }
+	
+	usage = custom_empire
+	
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		generate_home_system_resources = yes
+	}
+	
+	planet = {
+		name = "Kanala"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Jenakala"
+		class = "pc_molten"
+		orbit_distance = 40
+		orbit_angle = 15
+		size = 9
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Kahje"
+		class = "pc_ocean"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 27
+		starting_planet = yes
+		has_ring = no
+		entity = "ocean_planet_kahje_entity"
+		deposit_blockers = none
+		modifiers = none
+		flags = { planet_kahje }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Nalynder"
+			class = "pc_frozen"
+			size = 8
+			orbit_distance = 12
+			orbit_angle = 40
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "Kahjehohnle"
+		class = "pc_asteroid"
+		orbit_distance = 55
+		orbit_angle = -95
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Hohnle"
+		class = "pc_gas_giant"
+		orbit_distance = 65
+		orbit_angle = -160
+		size = 35
+		has_ring = no
+		entity = "gas_giant_jupiter_entity"
+		change_orbit = 6
+	}
+	
+	planet = {
+		name = "Pohdenar"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = -160
+		size = 35
+		has_ring = no
+		entity = "gas_giant_jupiter_entity"
+		change_orbit = 6
+	
+	    moon = {
+			name = "Pelise"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 10
+			orbit_angle = 110
+			has_ring = no
+		}
+		moon = {
+			name = "Craithrenneth"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 2.5
+			orbit_angle = 10
+			has_ring = no
+		}
+		moon = {
+			name = "Percywlwyd"
+			class = "pc_frozen"
+			size = 9
+			orbit_distance = 2.5
+			orbit_angle = 80
+			has_ring = no
+		}
+		moon = {
+			name = "Gwaerthyr"
+			class = "pc_frozen"
+			size = 7
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Eildellin"
+			class = "pc_frozen"
+			size = 5
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Cred"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Gwylus"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Gaersone"
+			class = "pc_frozen"
+			size = 8
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Taerellyn"
+			class = "pc_frozen"
+			size = 5
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Vaughred"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Pherdin"
+			class = "pc_frozen"
+			size = 4
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Lynelt"
+			class = "pc_frozen"
+			size = 7
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+		moon = {
+			name = "Blailin"
+			class = "pc_frozen"
+			size = 9
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+	}
+	
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		distance = { min = 10 max = @distance }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		distance = { min = 10 max = @distance }	
+		initializer = "neighbor_t1_first_colony"
+	}
+}

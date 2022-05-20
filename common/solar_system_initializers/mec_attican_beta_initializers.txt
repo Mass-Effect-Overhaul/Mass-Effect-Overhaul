@@ -1,0 +1,315 @@
+### Attican Beta Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_attican_beta_system_initializer = {
+	name = "Hercules"
+	class = "sc_g"
+	
+	flags = { mec_attican_beta_hercules_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Hercules"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 40
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Xathorron"
+		class = "pc_barren"
+		orbit_distance = 50
+		orbit_angle = 45
+		size = 10
+		has_ring = no
+		entity = "mec_barren_grey_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Syided"
+		class = "pc_barren"
+		orbit_distance = 30
+		orbit_angle = 120
+		size = 19
+		has_ring = no
+		flags = { mec_eg_planet_syided }
+		entity = "mec_barren_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes				
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_SYIDED_1041_CAT			###Syided Anomaly (Stunning Auroras)
+			}
+		}
+	}
+
+	planet = {
+		name = "Eletania"
+		class = "pc_continental"
+		orbit_distance = 50
+		orbit_angle = 180
+		size = 21
+		has_ring = yes
+		flags = { mec_eg_planet_eletania }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ELETANIA_1042_CAT			###Eletania Anomaly (Verdant Green)	
+			}
+
+			add_modifier = {
+				modifier = asteroid_belt
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Zatorus"
+		class = "pc_gas_giant"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 39
+		has_ring = no
+		entity = "mec_gg_yellow_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_attican_beta_neighbour_01"
+	}
+}
+
+mec_attican_beta_neighbour_01 = {
+	name = "Theseus"
+	class = "sc_k"
+
+	flags = { mec_attican_beta_theseus_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_attican_beta_hercules_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Theseus"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Sytau"
+		class = "pc_molten"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 23
+		has_ring = no
+		entity = "mec_molten_green_01"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 		
+		
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Feros"
+		class = "pc_relic"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 19
+		has_ring = no
+		flags = { mec_eg_planet_feros }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_deposits = yes						
+			clear_planet_modifiers = yes 	
+			
+			add_anomaly = {
+				category = MEC_EG_ANO_FEROS_2040_CAT					###Feros Anomaly & Archaeological Site (Prothean Megalopos)
+			}
+
+			add_deposit = d_mec_eg_feros_ruins
+			add_deposit = d_flooded_reactor_pits
+			add_deposit = d_crumbling_mining_tunnels
+			add_deposit = d_relic_metal_boneyard
+			add_deposit = d_immense_solar_array
+			add_deposit = d_industrial_sector
+			add_deposit = d_underwater_vent
+			add_deposit = d_ore_rich_caverns
+			add_deposit = d_boggy_fens
+			add_deposit = d_boggy_fens
+		}	
+		
+		moon = {
+			name = "Orcan"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 10
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Vardet"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 12
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Sharring"
+		class = "pc_gas_giant"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 42
+		has_ring = no
+		entity = "mec_gg_red_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Quana"
+		class = "pc_frozen"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_barren_blue_03"
+		
+		init_effect = {
+			prevent_anomaly = yes							
+			clear_deposits = yes
+			clear_planet_modifiers = yes 	
+
+			add_anomaly = {
+				category = MEC_EG_ANO_QUANA_1043_CAT			###Quana Anomaly (Shattered Mines)
+			}	
+		
+			add_modifier = {
+				modifier = mineral_rich
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Logan"
+		class = "pc_gas_giant"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_red_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+}
+

@@ -1,0 +1,333 @@
+portrait_groups = {
+	humanoid_03 = {
+		default = asari-republic_1
+		game_setup = { #will run with a limited country scope. species and government is set but the country does NOT actually exist
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					humanoid_03_female_01
+					asari-republic_1	#blue
+#					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+#					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+#					asari-republic_7	#pale mauve
+#					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					humanoid_03_male_01
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = indeterminable }
+				}
+				portraits = {
+					humanoid_03_male_01
+					humanoid_03_female_01
+				}
+			}
+			#set = {
+			#	trigger = { ... }
+			#	portraits = { ... }
+			#	#using "set =" instead of "add" will first clear any portraits already added
+			#}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { is_subspecies = prev }
+						NOT = { root = { species = { is_half_species = prev } } }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+#					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+#					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+#					asari-republic_7	#pale mauve
+#					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { is_half_species = prev }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+					asari-republic_7	#pale mauve
+					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { is_subspecies = prev }
+						}
+					}
+					exists = species
+					NOT = { species = { species_gender = female } }
+				}
+				portraits = {
+					humanoid_03_male_01
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { is_subspecies = prev }
+						}
+					}
+					exists = species
+					NOT = { species = { species_gender = male } }
+				}
+				portraits = {
+					humanoid_03_female_01
+				}
+			}
+		}
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { is_subspecies = prev }
+						NOT = { root = { species = { is_half_species = prevprev } } }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+#					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+#					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+#					asari-republic_7	#pale mauve
+#					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { species = { is_half_species = prevprev } }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+					asari-republic_7	#pale mauve
+					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { species = { is_subspecies = prevprev } }
+						}
+					}
+					NOT = { species = { species_gender = female } }
+				}
+				portraits = {
+					humanoid_03_male_01
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { species = { is_subspecies = prevprev } }
+						}
+					}
+					NOT = { species = { species_gender = male } }
+				}
+				portraits = {
+					humanoid_03_female_01
+				}
+			}
+		}
+		
+		leader = {
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { is_subspecies = prev }
+						NOT = { root = { species = { is_half_species = prevprev } } }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+#					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+#					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+#					asari-republic_7	#pale mauve
+#					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { species = { is_half_species = prevprev } }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+					asari-republic_7	#pale mauve
+					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { species = { is_subspecies = prevprev } }
+						}
+					}
+					OR = {
+						gender = male
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					humanoid_03_male_01
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { species = { is_subspecies = prevprev } }
+						}
+					}
+					OR = {
+						gender = female
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					humanoid_03_female_01
+				}
+			}
+		}
+
+		ruler = {
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { is_subspecies = prev }
+						NOT = { root = { species = { is_half_species = prevprev } } }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+#					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+#					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+#					asari-republic_7	#pale mauve
+#					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Asari"
+						root = { species = { is_half_species = prevprev } }
+					}
+				}
+				portraits = {
+					asari-republic_1	#blue
+					asari-republic_2	#purple
+					asari-republic_3	#dark blue
+					asari-republic_4	#dark purple
+					asari-republic_5	#teal
+					asari-republic_6	#pale blue
+					asari-republic_7	#pale mauve
+					asari-republic_8	#green
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { species = { is_subspecies = prevprev } }
+						}
+					}
+					OR = {
+						gender = male
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					humanoid_03_male_01
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Asari"
+							root = { species = { is_subspecies = prevprev } }
+						}
+					}
+					OR = {
+						gender = female
+						gender = indeterminable
+					}
+				}
+				portraits = {
+					humanoid_03_female_01
+				}
+			}
+		}
+	}
+}

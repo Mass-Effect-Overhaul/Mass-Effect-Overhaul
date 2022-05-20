@@ -1,0 +1,575 @@
+#################################
+#  Expanded Galaxy Site Events  #
+#################################
+
+### Key: TGGS = T(type) G(group) S(subgroup)
+
+namespace = mec_eg_site
+
+### RANDOM OCEAN WOLRD
+# A Lost City (Densorin Underwater City) 
+# Stage 1
+fleet_event = {
+	id = mec_eg_site.30071
+	title = "mec_eg_site.30071.name"
+	desc = "mec_eg_site.30071.desc"
+	picture = GFX_evt_underwater_ruins
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30071.a
+		medium_artifact_reward = yes 
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Stage 2
+fleet_event = {
+	id = mec_eg_site.30072
+	title = "mec_eg_site.30072.name"
+	desc = "mec_eg_site.30072.desc"
+	picture = GFX_evt_tradestation_interior
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30072.a
+		medium_artifact_reward = yes 
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+# Stage 3
+fleet_event = {
+	id = mec_eg_site.30073
+	title = "mec_eg_site.30073.name"
+	desc = "mec_eg_site.30073.desc"
+	picture = GFX_evt_fleet_evil
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30073.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Stage 4
+fleet_event = {
+	id = mec_eg_site.30074
+	title = "mec_eg_site.30074.name"
+	desc = "mec_eg_site.30074.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30074.a
+		owner = {
+			if = {
+				limit = {
+					has_tech_option = tech_sensors_3
+				}
+				add_tech_progress = {
+					tech = tech_sensors_3
+					progress = 0.25
+				}
+			}
+			else = {
+				add_research_option = tech_sensors_2
+				add_tech_progress = {
+					tech = tech_sensors_2
+					progress = 0.75
+				}
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Stage 5
+fleet_event = {
+	id = mec_eg_site.30075
+	title = "mec_eg_site.30075.name"
+	desc = "mec_eg_site.30075.desc"
+	picture = GFX_evt_surreal_visions
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30075.a
+		large_artifact_reward = yes 
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+		}
+	}
+}
+
+# Mini 1
+fleet_event = {
+	id = mec_eg_site.30076
+	title = "mec_eg_site.30076.name"
+	desc = "mec_eg_site.30076.desc"
+	picture = GFX_evt_assembly_fight
+	show_sound = event_conversation
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+		owner = { set_country_flag = mec_eg_site_mini_30076 }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30076.a
+		fromfrom = { add_stage_clues = -4 }
+	}
+}
+
+# Mini 2
+fleet_event = {
+	id = mec_eg_site.30077
+	title = "mec_eg_site.30077.name"
+	desc = "mec_eg_site.30077.desc"
+	picture = GFX_evt_derelict_interior
+	show_sound = event_structural_collapse
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+		owner = { set_country_flag = mec_eg_site_mini_30077 }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30077.a
+		fromfrom = { add_stage_clues = -4 }
+	}
+}
+
+# Mini 2
+fleet_event = {
+	id = mec_eg_site.30078
+	title = "mec_eg_site.30078.name"
+	desc = "mec_eg_site.30078.desc"
+	picture = GFX_evt_underwater_ruins
+	show_sound = event_life_support_fail
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+		owner = { set_country_flag = mec_eg_site_mini_30078 }
+		leader = {
+			save_event_target_as = mec_eg_site_3007_scientist
+		}
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30078.a
+		fromfrom = { add_stage_clues = -8 }
+		custom_tooltip = mec_eg_site_30078.a.tooltip
+		hidden_effect = {
+			event_target:mec_eg_site_3007_scientist = {
+				kill_leader = {
+					type = scientist
+				}
+			}
+		}
+	}
+}
+
+#################################################################################################################################################################################################
+
+### RANDOM TOMB WOLRD
+# Union of Horror (Cult of Synthesis) 
+# Stage 1
+fleet_event = {
+	id = mec_eg_site.30091
+	title = "mec_eg_site.30091.name"
+	desc = "mec_eg_site.30091.desc"
+	picture = GFX_evt_derelict_interior
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30091.a
+		medium_artifact_reward = yes 
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Stage 2
+fleet_event = {
+	id = mec_eg_site.30092
+	title = "mec_eg_site.30092.name"
+	desc = "mec_eg_site.30092.desc"
+	picture = GFX_evt_analyzing_artifacts
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30092.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+# Stage 3
+fleet_event = {
+	id = mec_eg_site.30093
+	title = "mec_eg_site.30093.name"
+	desc = "mec_eg_site.30093.desc"
+	picture = GFX_evt_conclave
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30093.a
+		medium_artifact_reward = yes 
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+# Stage 4
+fleet_event = {
+	id = mec_eg_site.30094
+	title = "mec_eg_site.30094.name"
+	desc = "mec_eg_site.30094.desc"
+	picture = GFX_evt_hive_mind
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30094.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# Stage 5
+fleet_event = {
+	id = mec_eg_site.30095
+	title = "mec_eg_site.30095.name"
+	desc = "mec_eg_site.30095.desc"
+	picture = GFX_evt_clones
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30095.a
+		medium_artifact_reward = yes 
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+		}
+	}
+}
+
+# Stage 6
+fleet_event = {
+	id = mec_eg_site.30096
+	title = "mec_eg_site.30096.name"
+	desc = "mec_eg_site.30096.desc"
+	picture = GFX_evt_nuclear_explosion
+	show_sound = event_mystic_reveal
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = { 
+		from = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30096.a
+		large_artifact_reward = yes 
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+		}
+		#event_target:mec_eg_site_3009_planet = {
+		#	add_modifier = {
+		#		modifier = mec_eg_pm_dread_ruins 
+		#		days = -1
+		#	}
+		#}
+	}
+}
+
+# Mini 1
+fleet_event = {
+	id = mec_eg_site.30097
+	title = "mec_eg_site.30097.name"
+	desc = "mec_eg_site.30097.desc"
+	picture = GFX_evt_collapsing_roof
+	show_sound = event_structural_collapse
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+		owner = { set_country_flag = mec_eg_site_mini_30097 }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30097.a
+		fromfrom = { add_stage_clues = -4 }
+	}
+}
+
+# Mini 2
+fleet_event = {
+	id = mec_eg_site.30098
+	title = "mec_eg_site.30098.name"
+	desc = "mec_eg_site.30098.desc"
+	picture = GFX_evt_archaeologists_escaping
+	show_sound = event_ship_explosion
+	
+	archaeology = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+		fromfrom = { set_site_progress_locked = yes }
+		owner = { set_country_flag = mec_eg_site_mini_30098 }
+	}
+
+	after = { 
+		fromfrom = { set_site_progress_locked = no } 
+	}
+	
+	option = {
+		name = mec_eg_site.30077.a
+		fromfrom = { add_stage_clues = -4 }
+	}
+}

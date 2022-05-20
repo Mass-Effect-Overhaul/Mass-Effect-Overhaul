@@ -1,0 +1,215 @@
+# Harbinger of Ascendance
+collector ={
+	name = "Harbinger of Ascendance"
+	adjective = "Collectorial"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "COL"
+	
+	species={
+		class = "NECROID"
+		portrait = "nec5"
+		name = "Collector"
+		plural = "Collectors"
+		adjective = "Collectoric"
+		species_bio = "The Collectors are an enigmatic race that live beyond the Omega 4 Relay, a mass relay within the same system as Omega, in the Terminus Systems. They are rarely seen in the Terminus itself, let alone Citadel space, and are generally regarded as a myth by Citadel citizens. Definite sightings of Collectors have been made on Omega every few centuries."
+		name_list = "HIVE"
+		gender=indeterminable
+		trait="trait_hive_mind"
+		trait="trait_natural_sociologists"
+		trait="trait_communal"
+	}
+	
+	room = "necroids_room"
+	
+	authority = "auth_hive_mind"
+	civics={ "civic_hive_catalytic_processing" "civic_hive_devouring_swarm" }
+	government="gov_devouring_swarm"
+	advisor_voice_type="l_hivemind"
+	
+	ethic="ethic_gestalt_consciousness"
+	
+	origin="origin_remnants"
+	
+	planet_name = "Collector Base"
+	planet_class = "pc_alpine"
+	initializer = ""
+	system_name = "Tartarus"
+	
+	graphical_culture = "arthropoid_01"
+	city_graphical_culture = "arthropoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="collector.dds"
+		}
+		background={
+			category="backgrounds"
+			file="horizontal.dds"
+		}
+		colors={
+			"dark_purple"
+			"light_orange"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "General"
+		gender = indeterminable
+		portrait = "collector"
+		texture = 0
+		hair = 0
+		clothes = 0
+		ruler_title="Collector"
+		ruler_title_female="Collector"
+		leader_class = ruler
+	}
+}
+
+# Children of Harmony
+rachni ={
+	name = "Children of Harmony"
+	adjective = "Rachnian"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "RAC"
+	
+	species={
+		class = "ART"
+		portrait = "art17"
+		name = "Rachni"
+		plural = "Rachnioi"
+		adjective = "Rachnic"
+		species_bio = "The rachni are an extinct insect-like species from the planet Suen that threatened Citadel space roughly two thousand years ago during the Rachni Wars. Intelligent and highly aggressive, the spacefaring rachni were driven to expand and defend their territory. They were eventually defeated and completely eradicated by the krogan, who had been uplifted by the salarians for their combat prowess and physical resilience to directly confront the rachni in the harsh environments of the rachni worlds. The accidental discovery of the rachni led to the Citadel races curbing their rapid expansion, in fear of being plunged into another galactic war."
+		name_list = "ART1"
+		trait="trait_hive_mind"
+		trait="trait_adaptive"
+		trait="trait_strong"
+		trait="trait_sedentary"
+	}
+	
+	room = "personality_hive_mind_room"
+	
+	authority = "auth_hive_mind"
+	civics={ "civic_hive_empath" "civic_hive_strength_of_legions" }
+	government="gov_hive_mind"
+	
+	ethic="ethic_gestalt_consciousness"
+	
+	origin="origin_galactic_doorstep"
+	
+	planet_name = "Suen"
+	planet_class = "pc_alpine"
+	initializer = ""
+	system_name = "Maskim Xul"
+	
+	graphical_culture = "arthropoid_01"
+	city_graphical_culture = "arthropoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Rachni.dds"
+		}
+		background={
+			category="backgrounds"
+			file="pattern_01.dds"
+		}
+		colors={
+			"light_blue"
+			"dark_green"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Queen"
+		gender = female
+		portrait = "rachni"
+		texture = 0
+		hair = 0
+		clothes = 0
+		ruler_title = "Rachni"
+		ruler_title_female = "Rachni"
+		leader_class = ruler
+	}
+}
+
+# Old Growth of Thorian
+thorian ={
+	name = "Old Growth of Thorian"
+	adjective = "Thorial"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "S37"
+	
+	species={
+		class = "FUN"
+		portrait = "fun10"
+		name = "Thorian Creeper"
+		plural = "Thorian Creepers"
+		adjective = "Thoric"
+		species_bio = "The Thorian, also called Species 37, is an ancient sentient plant at least fifty thousand years old - its ability to hibernate for thousands of years makes its real age impossible to guess. The Thorian is a unique creature with mind-controlling and telepathic abilities, and a massive sensory network. It releases spores into the air that allow the Thorian to control those who inhale them, using pain to control their behaviour. These 'thralls' then tend to the Thorian and obey its will."
+		name_list = "PLANT3"
+		gender=indeterminable
+		trait="trait_hive_mind"
+		trait="trait_nomadic"
+		trait="trait_weak"
+		trait="trait_plantoid_budding"
+	}
+	
+	room = "personality_hive_mind_room"
+	
+	authority = "auth_hive_mind"
+	civics={ "civic_hive_pooled_knowledge" "civic_hive_subsumed_will" }
+	government="gov_hive_mind"
+	advisor_voice_type="l_the_diplomat"
+	
+	ethic="ethic_gestalt_consciousness"
+	
+	origin="origin_tree_of_life"
+	
+	planet_name = "Feros"
+	planet_class = "pc_continental"
+	initializer = ""
+	system_name = "Theseus"
+	
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Thorian.dds"
+		}
+		background={
+			category="backgrounds"
+			file="circle.dds"
+		}
+		colors={
+			"yellow"
+			"dark_green"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Asari Clone"
+		gender = indeterminable
+		portrait = "asari-republic_8"
+		texture = 2
+		hair = 0
+		clothes = 66
+		ruler_title = "Thorian Speaker"
+		ruler_title_female = "Thorian Speaker"
+		leader_class = ruler
+	}
+}

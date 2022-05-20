@@ -1,0 +1,146 @@
+# Systems Alliance
+systems_alliance ={
+	name = "Systems Alliance"
+	adjective = "Alliantial"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "SSV"
+	
+	species={
+		class = "HUM"
+		portrait = "human"
+		name = "PRESCRIPTED_species_name_humans1"
+		plural = "PRESCRIPTED_species_plural_humans1"
+		adjective = "PRESCRIPTED_species_adjective_humans1"
+		species_bio = "The Systems Alliance is the representative body of Earth and all human colonies in Citadel space. Backed by Earth's most powerful nations, the Alliance has become humanity's military, exploratory, and economic spearhead. While the Alliance is relatively new to the galactic community, it has already made a name for itself, gaining humans an embassy on the Presidium. The Alliance is governed by a parliament based at Arcturus Station, which also serves as the Alliance's capital."
+		name_list = "HUMAN1"
+		trait = "trait_adaptive"
+		trait = "trait_nomadic"
+		trait = "trait_wasteful"
+	}
+	
+	room = "personality_democratic_crusaders_room"
+	
+	authority = "auth_democratic"
+	civics = { "civic_beacon_of_liberty" "civic_shadow_council" }
+	government = "gov_military_commissariat"
+	advisor_voice_type = "l_the_soldier"
+	
+	ethic = "ethic_egalitarian"
+	ethic = "ethic_xenophile"
+	ethic = "ethic_militarist"
+	
+	origin = "origin_galactic_doorstep"
+	
+	flags = { "me_alliance" human_1 custom_start_screen }
+	
+	planet_name = "Earth"
+	planet_class = "pc_continental"
+	initializer = "sol_system_initializer"
+	system_name = "Sol"
+	
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+	
+	empire_flag = {
+		icon = {
+			category = "masseffect"
+			file = "Systems Alliance 2.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "horizontal_stripe.dds"
+		}
+		colors = {
+			"dark_blue"
+			"yellow"
+			"null"
+			"null"
+		}
+	}
+	ruler = {
+		name = "Amul Shastri"
+		gender = male
+		portrait = "old_human_male_05"
+		texture = 0
+		hair = 6
+		clothes = 12
+		ruler_title = "Prime Minister"
+		ruler_title_female = "Prime Minister"
+		leader_class = ruler
+	}
+}
+
+# Cerberus
+cerberus ={
+	name="Cerberus"
+	adjective="Cerberal"
+	spawn_enabled= yes # yes / no / always
+	ignore_portrait_duplication=yes
+	
+	ship_prefix="CSV"
+	
+	species={
+		class="HUM"
+		portrait="human"
+		name = "PRESCRIPTED_species_name_humans1"
+		plural = "PRESCRIPTED_species_plural_humans1"
+		adjective = "PRESCRIPTED_species_adjective_humans1"
+		species_bio="Cerberus is a human-survivalist paramilitary group led by the enigmatic Illusive Man. Cerberus' core belief is that humans deserve a greater role in the galactic community, and that the Systems Alliance is too hamstrung by law and public opinion to stand up effectively to the other Citadel races. Cerberus supports the principle that any methods of advancing humanity's ascension are entirely justified, including illegal or dangerous experimentation, terrorist activities, sabotage and assassination. Cerberus operatives accept that these methods are brutal, but believe history will vindicate them. Nevertheless, both the Systems Alliance and the Citadel Council have declared Cerberus to be a terrorist organization and will prosecute identified Cerberus agents accordingly."
+		name_list="HUMAN2"
+		trait="trait_adaptive"
+		trait="trait_nomadic"
+		trait="trait_wasteful"
+	}
+	
+	room="personality_ruthless_capitalists_room"
+	
+	authority="auth_corporate"
+	civics={ "civic_criminal_heritage" "civic_permanent_employment" }
+	government="gov_criminal_syndicate"
+	advisor_voice_type="l_the_technocrat"
+	
+	ethic="ethic_xenophobe"
+	ethic="ethic_fanatic_materialist"
+	
+	origin="origin_lost_colony"
+	
+	flags={ "me_cerberus" human_2 custom_start_screen }
+	
+	planet_name="Cronos"
+	planet_class="pc_continental"
+	initializer="deneb_system"
+	system_name="Anadius"
+	
+	graphical_culture="humanoid_01"
+	city_graphical_culture="mammalian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Cerberus.dds"
+		}
+		background={
+			category="backgrounds"
+			file="stripes.dds"
+		}
+		colors={
+			"light_orange"
+			"grey"
+			"null"
+			"null"
+		}
+	}
+	ruler={
+		name = "Jack Harper"
+		gender = male
+		portrait = "illusive_male_04"
+		texture = 0
+		hair = 46
+		clothes = 8
+		ruler_title = "Illusive Man"
+		ruler_title_female = "Illusive Woman"
+		leader_class = ruler
+	}
+}

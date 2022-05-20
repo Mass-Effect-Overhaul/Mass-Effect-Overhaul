@@ -1,0 +1,155 @@
+portraits = {
+	art17_fix = {	entity = "portrait_arthropoid_17_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "arthropoid_01_greetings" 
+			character_textures = {
+					"gfx/models/portraits/arthropoid/arthropoid_massive_17_blue.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_massive_17_teal.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_massive_17_green.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_massive_17_olive.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_massive_17_yellow.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_massive_17_orange.dds"
+					"gfx/models/portraits/arthropoid/arthropoid_massive_17_red.dds"
+			}
+	}
+}
+
+portrait_groups = {
+	art17 = {
+		default = rachni
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				portraits = {
+					art17_fix
+					rachni
+				}
+			}
+		}		
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Rachni"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					rachni
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Rachni"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					art17_fix
+				}
+			}
+		}		
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Rachni"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					rachni
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Rachni"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					art17_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Rachni"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					rachni
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Rachni"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					art17_fix
+				}
+			}
+		}
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Rachni"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					rachni
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Rachni"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					art17_fix
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,202 @@
+portraits = {
+	rep11_fix = {	entity = "portrait_reptilian_11_entity"	clothes_selector = "reptilian_massive_clothes_11" hair_selector = "no_texture" 
+		greeting_sound = "reptilian_01_greetings"
+		character_textures = {
+			"gfx/models/portraits/reptilian/reptilian_massive_11_yellow.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_yellow_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_dark_green.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_teal.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_turquoise.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_blue.dds"
+			"gfx/models/portraits/reptilian/reptilian_massive_11_purple.dds"
+		}
+	}
+}
+
+portrait_groups = {
+	rep11 = {
+		default = angara_male
+		game_setup = { #will run with a limited country scope. species and government is add but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					rep11_fix
+					angara_male
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					rep11_fix
+					angara_female
+				}
+			}
+		}
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Angara"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					angara_male
+					angara_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Angara"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep11_fix
+				}
+			}
+		}
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Angara"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					angara_male
+					angara_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Angara"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep11_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Angara"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					angara_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Angara"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					angara_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Angara"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep11_fix
+				}
+			}
+		}
+
+			
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Angara"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					angara_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Angara"
+						root = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					angara_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Angara"
+							root = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					rep11_fix
+				}
+			}
+		}
+	}
+}

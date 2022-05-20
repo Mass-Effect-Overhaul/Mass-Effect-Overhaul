@@ -1,0 +1,440 @@
+### Rosetta Nebula Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_rosetta_nebula_system_initializer = {
+	name = "Enoch"
+	class = "sc_g"
+
+		init_effect = {
+		if = {
+			limit = { 
+				is_inside_nebula = no
+			}
+			create_nebula = {
+				name = "Rosetta Nebula"
+				radius = 30
+			}
+		}
+	}
+	
+	flags = { mec_rosetta_nebula_enoch_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Enoch"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			create_ambient_object = {
+				type = "nebula_3"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+
+	planet = {
+		name = "Laban"
+		class = "pc_barren"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = asteroid_impacts
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Mizraim"
+		class = "pc_gas_giant"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 26
+		has_ring = yes
+		entity = "mec_gg_blue_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Joab"
+		class = "pc_nuked"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no	
+
+		flags = { mec_eg_planet_joab }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes
+
+			add_anomaly = {
+				category = MEC_EG_ANO_JOAB_1211_CAT			###Joab Anomaly (Mass Extinction)	
+			}
+			add_modifier = {
+				modifier = asteroid_impacts
+				days = -1
+			}
+			add_modifier = {
+				modifier = bleak_planet
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Joab a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 8
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Joab b"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+	
+	planet = {
+		name = "Goliath"
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes				
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_rosetta_nebula_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_rosetta_nebula_neighbour_02"
+	}
+}
+
+mec_rosetta_nebula_neighbour_01 = {
+	name = "Phi Clio"
+	class = "sc_g"
+
+	flags = { mec_rosetta_nebula_phi_clio_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_rosetta_nebula_enoch_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	planet = {
+		name = "Phi Clio"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 65
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_3"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Cyllene"
+		class = "pc_gas_giant"
+		orbit_distance = 100
+		orbit_angle = { min = 90 max = 270 }
+		size = 37
+		has_ring = no
+		entity = "mec_gg_red_04"
+		flags = { mec_eg_planet_cyllene }
+
+		init_effect = {
+			prevent_anomaly = yes						
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			add_anomaly = {
+				category = MEC_EG_ANO_CYLLENE_1212_CAT			###Cyllene Anomaly (Abandonded Stations)
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Parnassus"
+		class = "pc_molten"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_molten_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}
+	}
+}
+
+mec_rosetta_nebula_neighbour_02 = {
+	name = "Alpha Draconis"
+	class = "sc_f"
+	
+	flags = { mec_rosetta_nebula_alpha_draconis_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_rosetta_nebula_enoch_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Alpha Draconis"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 75
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+
+			create_ambient_object = {
+				type = "nebula_3"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Aeia"
+		class = "pc_ocean"
+		orbit_distance = 160
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_aeia }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes
+
+			add_modifier = {
+				modifier = lush_planet
+				days = -1
+			}
+			add_modifier = {
+				modifier = atmospheric_hallucinogen
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Aeia a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 8
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Aeia b"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Aeia c"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Aeia d"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+
+	planet = {
+		name = "Artwo"
+		class = "pc_gas_giant"
+		orbit_distance = 140
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_red_07"
+		
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+}

@@ -1,0 +1,540 @@
+### Argos Rho Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_argos_rho_system_initializer = {
+	name = "Hydra"
+	class = "sc_g"
+	
+	flags = { mec_argos_rho_hydra_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+
+	planet = {
+		name = "Hydra"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Varmalus"
+		class = "pc_toxic"
+		orbit_distance = 80
+		orbit_angle = 40
+		size = 23
+		has_ring = no
+		entity = "mec_toxic_red_01"
+		
+		flags = { mec_eg_planet_varmalus }
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_VARMALUS_1011_CAT			###Varmalus Anomaly (Hardy Life)
+			}
+
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Metgos"
+		class = "pc_molten"
+		orbit_distance = 50
+		orbit_angle = 60
+		size = 15
+		has_ring = no
+		entity = "mec_molten_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+			add_modifier = {
+				modifier = hazardous_weather
+				days = -1
+			}
+			add_modifier = {
+				modifier = ultra_rich
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Theyar"
+		class = "pc_gas_giant"
+		orbit_distance = 25
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_white_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Theyar a"
+			count = 1
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 15
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Theyar b"
+			count = 1
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+			size = 9
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+	}
+	
+	planet = {
+		name = "Canrum"
+		class = "pc_barren_cold"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_barren_green_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Syba"
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 37
+		has_ring = no
+		entity = "mec_gg_blue_02"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_argos_rho_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_argos_rho_neighbour_02"
+	}
+}
+
+mec_argos_rho_neighbour_01 = {
+	name = "Gorgon"
+	class = "sc_f"
+
+	flags = { mec_argos_rho_gorgon_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_argos_rho_hydra_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Gorgon"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Wuo"
+		class = "pc_barren"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Vectra"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_blue_01"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Camaron"
+		class = "pc_barren"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+		entity = "mec_barren_red_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Sharblu"
+		class = "pc_gas_giant"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 37
+		has_ring = no
+		entity = "mec_gg_blue_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Slekon"
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = yes
+		entity = "mec_gg_green_07"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+}
+
+mec_argos_rho_neighbour_02 = {
+	name = "Phoenix"
+	class = "sc_k"
+
+	flags = { mec_argos_rho_phoenix_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_argos_rho_hydra_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 100
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 250
+	}
+
+	planet = {
+		name = "Phoenix"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Patashi"
+		class = "pc_barren"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_barren_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}	
+	}
+	
+	change_orbit = 20
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Sylsalto"
+		class = "pc_gas_giant"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_green_04"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Intai'sei"
+		class = "pc_arid"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+
+		flags = { mec_eg_planet_intaisei }
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+
+			add_modifier = {
+				modifier = hazardous_weather
+				days = -1
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Tuntau"
+		class = "pc_barren_cold"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = no
+		entity = "mec_barren_blue_02"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+
+			add_modifier = {
+				modifier = carbon_world
+				days = -1
+			}
+		}	
+	}
+	
+	change_orbit = 25
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_2
+		}
+	}
+	
+	planet = {
+		name = "Vebinok"
+		class = "pc_frozen"
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+		size = 9
+		has_ring = no
+		entity = "mec_barren_green_04"
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = low_gravity
+				days = -1
+			}
+			add_modifier = {
+				modifier = carbon_world
+				days = -1
+			}
+		}		
+	}
+}

@@ -1,0 +1,408 @@
+### Nubian Expanse Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_nubian_expanse_system_initializer = {
+	name = "Dakka"
+	class = "sc_g"
+	
+	flags = { mec_nubian_expanse_dakka_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Dakka"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Bannik "
+		class = "pc_toxic"
+		orbit_distance = 45
+		orbit_angle = 140
+		size = 19
+		has_ring = no
+		entity = "mec_toxic_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = ultra_rich
+				days = -1
+			}
+			add_modifier = {
+				modifier = high_gravity
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Pragia "
+		class = "pc_tropical"
+		orbit_distance = 50
+		orbit_angle = 140
+		size = 15
+		has_ring = no
+		flags = { mec_eg_planet_pragia }
+		entity = "mec_tropical_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Alkonost "
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = 140
+		size = 25
+		has_ring = no
+		entity = "mec_gg_blue_03"	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = strong_magnetic_field
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Gamayun "
+		class = "pc_gas_giant"
+		orbit_distance = 70
+		orbit_angle = 140
+		size = 45
+		has_ring = no
+		entity = "mec_gg_green_03"	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+		
+		moon = {
+			name = "Gigula"
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 9
+			entity = "mec_barren_grey_07"	
+			flags = { mec_eg_planet_gigula }
+			
+			init_effect = {
+				prevent_anomaly = yes			
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+
+				add_anomaly = {
+					category = MEC_EG_ANO_GIGULA_1171_CAT			###Gigula Anomaly (Ancient Starship)
+				}
+			}
+		}
+		
+		moon = {
+			name = "Gamayun b"
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 6
+			entity = "mec_molten_green_01"	
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Gamayun c"
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+
+		moon = {
+			name = "Gamayun d"
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 8
+			entity = "mec_barren_grey_04"	
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Gamayun e"
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 3
+			size = 5
+			entity = "mec_barren_yellow_01"	
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+		
+		moon = {
+			name = "Gamayun f"
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+	
+	planet = {
+		name = "Zirnitra "
+		class = "pc_barren_cold"
+		orbit_distance = 80
+		orbit_angle = 140
+		size = 7
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_nubian_expanse_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_nubian_expanse_neighbour_02"
+	}
+}
+
+mec_nubian_expanse_neighbour_01 = {
+	name = "Kalabsha"
+	class = "sc_g"
+
+	flags = { mec_nubian_expanse_kalabsha_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_nubian_expanse_dakka_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	planet = {
+		name = "Kalabsha"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 45
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Yamm"
+		class = "pc_ocean"
+		orbit_distance = 110
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_yamm }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes				
+			
+			add_modifier = {
+				modifier = hazardous_weather
+				days = -1
+			}
+			add_modifier = {
+				modifier = wild_storms
+				days = -1
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Tefnut"
+		class = "pc_gas_giant"
+		orbit_distance = 95
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_yellow_01"	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+	}
+}
+
+mec_nubian_expanse_neighbour_02 = {
+	name = "Qertassi"
+	class = "sc_g"
+	
+	flags = { mec_nubian_expanse_qertassi_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_nubian_expanse_dakka_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Qertassi"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 100
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_4
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Norehsa"
+		class = "pc_gas_giant"
+		orbit_distance = 250
+		orbit_angle = { min = 90 max = 270 }
+		size = 37
+		has_ring = no
+		entity = "mec_gg_blue_02"	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+		
+		moon = {
+			name = "Norehsa a"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 14
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+
+		moon = {
+			name = "Norehsa b"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}
+	}
+}

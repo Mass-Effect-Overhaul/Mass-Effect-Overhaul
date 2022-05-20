@@ -1,0 +1,495 @@
+### Alternative Asari systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### These are used instead of the player starts if only the Illium or Thessia origin was picked at start but not the other
+### The player who picked the other origin can choose to spawn the counterpart empire or keep the cluster empty (it will not contain any special features)
+
+mec_asr_system_copy_initializer = {
+	name = "Parnitha"
+	
+	class = "sc_f"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 160
+	}
+	flags = { empire_home_system mec_asari_parnitha_system custom_system }
+	
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		create_nebula = {
+			name = mec_asari_nebula_athena
+			radius = 50
+		}
+	}
+	
+	planet = {
+		name = "Parnitha"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 26
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_energy_5
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+						
+			# Nebula Effect
+			
+			create_ambient_object = {
+				type = "rare_nebula_1"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Kurinth"
+		class = "pc_toxic"
+		orbit_distance = 50
+		orbit_angle = 15
+		size = 9
+		has_ring = no
+		entity = "mec_asari_01_planet_molten_kurinth"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_physics_3
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_research_target
+		}
+	}
+	
+	planet = {
+		name = "Thessia"
+		class = "pc_continental"
+		orbit_distance = 40
+		orbit_angle = 80
+		size = 18
+		#starting_planet = yes
+		has_ring = no
+		modifiers = none
+		flags = { mec_asari_planet_thessia special_start_planet }
+		entity = "mec_asari_01_planet_habitable_thessia_01_entity"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			
+			if = {
+				limit = {
+					NOT = { exists = event_target:mec_asari_planet_thessia }
+				}
+				save_global_event_target_as = mec_asari_planet_thessia
+			}
+		}
+	}
+	
+	planet = {
+		name = "Piares"
+		class = "pc_barren"
+		orbit_distance = 45
+		orbit_angle = 70
+		size = 14
+		has_ring = no
+		entity = "mec_asari_01_planet_barren_piares"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_minerals_5
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+		}
+	}
+	
+	change_orbit = 25
+	
+	planet = {
+		count = 4
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 40 max = 100 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 40 max = 100 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Lucen"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 40 max = 100 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_minerals_5
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+		}
+	}
+	
+	planet = {
+		name = "Janiri"
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = -60
+		size = 30
+		has_ring = no
+		entity = "mec_asari_01_planet_gas_giant_janiri"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_engineering_2
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_research_deposit
+		}
+	}
+	
+	planet = {
+		name = "Athame"
+		class = "pc_gas_giant"
+		orbit_distance = 55
+		orbit_angle = -100
+		size = 35
+		has_ring = yes
+		entity = "mec_asari_01_planet_gas_giant_athame"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_energy_5
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+		}
+	}
+	
+	planet = {
+		name = "Tevura"
+		class = "pc_gas_giant"
+		orbit_distance = 45
+		orbit_angle = -170
+		size = 25
+		has_ring = no
+		entity = "mec_asari_01_planet_gas_giant_tevura"
+		
+		init_effect = {
+			clear_deposits = yes
+			prevent_anomaly = yes
+		}
+		
+		moon = {
+			name = "Tevura I"
+			count = 1
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 13
+			size = 2
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+			}
+		}
+		
+		moon = {
+			name = "Tevura II"
+			count = 1
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+			}
+		}
+		
+		moon = {
+			name = "Tevura III"
+			count = 1
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 7
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				set_deposit = d_minerals_3
+				set_planet_flag = starting_deposit
+				set_planet_flag = starting_mining_target
+			}
+		}
+	}
+	
+	neighbor_system = {
+		#hyperlane_jumps = { min = 1 max = 1 }
+		distance = { min = 10 max = @distance }	
+		initializer = "mec_asr_neighbour_01"
+	}
+	neighbor_system = {
+		#hyperlane_jumps = { min = 1 max = 1 }
+		distance = { min = 10 max = @distance }
+		initializer = "mec_asr_neighbour_02"
+	}
+	neighbor_system = {
+		#hyperlane_jumps = { min = 1 max = 1 }
+		distance = { min = 10 max = @distance }
+		initializer = "mec_asr_neighbour_03"
+	}
+	neighbor_system = {
+		#hyperlane_jumps = { min = 1 max = 1 }
+		distance = { min = 10 max = @distance }
+		initializer = "mec_asr_neighbour_04"
+	}
+}
+
+mec_asi_system_copy_initializer = {
+	name = "Tasale"
+	
+	class = "sc_g"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 140
+	}
+	flags = { empire_home_system mec_asari_tasale_system custom_system }
+	
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		create_nebula = {
+			name = mec_asari_nebula_crescent
+			radius = 50
+		}
+	}
+	
+	planet = {
+		name = "Tasale"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 35
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_energy_5
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+						
+			# Nebula Effect
+			
+			create_ambient_object = {
+				type = "rare_nebula_2"
+				entity_offset_height = -5
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "Beregale"
+		class = "pc_molten"
+		orbit_distance = 45
+		orbit_angle = 15
+		size = 22
+		has_ring = no
+		entity = "mec_asari_01_planet_molten_beregale"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_minerals_5
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+		}
+	}
+	
+	planet = {
+		name = "Illium"
+		class = "pc_arid"
+		orbit_distance = 30
+		orbit_angle = 160
+		size = 20
+		#starting_planet = yes
+		has_ring = no
+		modifiers = none
+		entity = "mec_asari_01_planet_habitable_illium_01_entity"
+		flags = { mec_asari_planet_illium special_start_planet }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			
+			if = {
+				limit = {
+					NOT = { exists = event_target:mec_asari_planet_illium }
+				}
+				save_global_event_target_as = mec_asari_planet_illium
+			}
+		}
+	}
+	
+	planet = {
+		name = "Ponolus"
+		class = "pc_molten"
+		orbit_distance = 30
+		orbit_angle = 180
+		size = 10
+		has_ring = no
+		entity = "mec_asari_01_planet_molten_ponolus"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_physics_3
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_research_target
+		}
+	}
+	
+	change_orbit = 34
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 40 max = 100 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 40 max = 100 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_minerals_3	
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Teukria"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 40 max = 100 }
+		size = 14
+		entity = "cold_barren_planet_01_entity"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_minerals_5
+			set_planet_flag = starting_deposit
+			set_planet_flag = starting_mining_target
+		}
+	}
+	
+	planet = {
+		name = "Thail"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = 170
+		size = 38
+		has_ring = yes
+		entity = "mec_asari_01_planet_gas_giant_thail"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Naxell"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = -75
+		size = 20
+		has_ring = no
+		entity = "mec_asari_01_planet_gas_giant_naxell"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_deposit = d_energy_5
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	neighbor_system = {
+		#hyperlane_jumps = { min = 1 max = 1 }
+		distance = { min = 10 max = @distance }	
+		initializer = "mec_asi_neighbour_01"
+	}
+	neighbor_system = {
+		#hyperlane_jumps = { min = 1 max = 1 }
+		distance = { min = 10 max = @distance }
+		initializer = "mec_asi_neighbour_02"
+	}
+	neighbor_system = {
+		#hyperlane_jumps = { min = 1 max = 1 }
+		distance = { min = 10 max = @distance }
+		initializer = "mec_asi_neighbour_03"
+	}
+}

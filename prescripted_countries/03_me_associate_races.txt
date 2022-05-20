@@ -1,0 +1,442 @@
+# Assembly at the Hollows
+krogan ={
+	name = "Assembly at the Hollows"
+	adjective = "Krogan Clanish"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "KCS"
+	
+	species={
+		class = "REP"
+		portrait = "rep10"
+		name = "Krogan"
+		plural = "Krogans"
+		adjective = "Krogic"
+		species_bio = "The krogan are a species of large reptilian bipeds native to the planet Tuchanka, a world known for its harsh environments, scarce resources, and overabundance of vicious predators. The krogan managed to not only survive on their unforgiving homeworld, but actually thrived in the extreme conditions. Unfortunately, as krogan society became more technologically advanced, so did their weaponry. The end result is that they destroyed their homeworld in a nuclear war that reduced their race into primitive warring tribes."
+		name_list = "REP3"
+		trait = "trait_extremely_adaptive"
+		trait = "trait_slow_breeders"
+		trait = "trait_repugnant"
+		trait = "trait_strong"
+		trait = "trait_enduring"
+	}
+	
+	room = "personality_honorbound_warriors_room"
+	
+	authority = "auth_democratic"
+	civics={ "civic_functional_architecture" "civic_warrior_culture" }
+	government="gov_assembly_of_clans"
+	
+	ethic="ethic_xenophile"
+	ethic="ethic_fanatic_militarist"
+	
+	origin = "origin_galactic_doorstep"
+	
+	planet_name = "Tuchanka"
+	planet_class = "pc_desert"
+	initializer = ""
+	system_name = "Aralakh"
+	
+	graphical_culture = "reptilian_01"
+	city_graphical_culture = "reptilian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Kalros.dds"
+		}
+		background={
+			category="backgrounds"
+			file="new_dawn.dds"
+		}
+		colors={
+			"red"
+			"brown"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Urdnot Wrex"
+		gender = male
+		portrait = "krogan_wrex"
+		texture = 1
+		hair = 0
+		clothes = 2
+		ruler_title = "Overlord"
+		ruler_title_female = "Overlord"
+		leader_class = ruler
+	}
+}
+
+# Migrant Fleet
+quarian ={
+	name = "Migrant Fleet"
+	adjective = "Flotillan"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "MFV"
+	
+	species={
+		class = "HUM"
+		portrait = "humanoid_05"
+		name = "Quarian"
+		plural = "Quarians"
+		adjective = "Quaric"
+		species_bio = "The quarians are a nomadic species of humanoid aliens known for their skills with technology and synthetic intelligence. Since their homeworld Rannoch was conquered, the quarians live aboard the Migrant Fleet, a huge collection of starships that travel as a single fleet."
+		name_list = "HUM3"
+		trait = "trait_void_dweller_1"
+		trait = "trait_natural_engineers"
+		trait = "trait_weak"
+		trait = "trait_nomadic"
+		trait = "trait_conservational"
+	}
+	
+	room = "personality_migrating_flock_room"
+	
+	authority = "auth_democratic"
+	civics = { "civic_crafters" "civic_technocracy" }
+	government = "gov_rational_consensus"
+	
+	ethic = "ethic_egalitarian"
+	ethic = "ethic_pacifist"
+	ethic = "ethic_materialist"
+	
+	origin = "origin_void_dwellers"
+	
+	planet_name = "The Flotilla"
+	planet_class = "pc_arid"
+	initializer = "void_dweller_system"
+	system_name = "Raheel-Leyya"
+	
+	graphical_culture = "humanoid_01"
+	city_graphical_culture = "humanoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Migrant Fleet.dds"
+		}
+		background={
+			category="backgrounds"
+			file="double_hemispheres.dds"
+		}
+		colors={
+			"turquoise"
+			"dark_purple"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Shala'Raan vas Tonbay"
+		gender = female
+		portrait = "quarian_female_01"
+		texture = 0
+		hair = 3
+		clothes = 26
+		ruler_title = "Dean of the Conclave"
+		ruler_title_female = "Dean of the Conclave"
+		leader_class = ruler
+	}
+}
+
+# Illuminated Primacy
+hanar ={
+	name = "Illuminated Primacy"
+	adjective = "Primacial"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "IPS"
+	
+	species={
+		class = "MOL"
+		portrait = "mol7"
+		name = "Hanar"
+		plural = "Hanares"
+		adjective = "Hanatic"
+		species_bio = "The hanar are a species resembling Earth's jellyfish and are one of the few non-bipedal Citadel races. Hanar are known for their intense politeness when speaking, and their strong religious beliefs regarding the Protheans, whom they refer to as \"the Enkindlers\"."
+		name_list = "AQUATIC3"
+		gender = indeterminable
+		trait = "trait_communal"
+		trait = "trait_resilient"
+	}
+	secondary_species={
+		class = "HUM"
+		portrait = "humanoid_02"
+		name = "Drell"
+		plural = "Drells"
+		adjective = "Dreller"
+		species_bio = "The drell are a reptile-like race that were rescued from their dying homeworld by the hanar following first contact between the two. Since then, the drell have remained loyal to the hanar for their camaraderie and have fit comfortably into galactic civilization."
+		name_list = "HUM2"
+		trait="trait_syncretic_proles"
+		trait="trait_talented"
+		trait="trait_strong"
+		trait="trait_fleeting"
+	}
+	
+	room = "personality_spiritual_seekers_room"
+	
+	authority = "auth_oligarchic"
+	civics = { "civic_cutthroat_politics" "civic_merchant_guilds" }
+	government = "gov_theocratic_oligarchy"
+	
+	ethic = "ethic_xenophile"
+	ethic = "ethic_fanatic_spiritualist"
+	
+	origin = "origin_syncretic_evolution"
+	
+	planet_name = "Khaje"
+	planet_class = "pc_ocean"
+	initializer = ""
+	system_name = "Kanala"
+	
+	graphical_culture = "molluscoid_01"
+	city_graphical_culture = "molluscoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Hanar.dds"
+		}
+		background={
+			category="backgrounds"
+			file="sinus.dds"
+		}
+		colors={
+			"pink"
+			"turquoise"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Zymandis"
+		gender = indeterminable
+		portrait = "hanar"
+		texture = 0
+		hair = 0
+		clothes = 0
+		ruler_title = "Primate"
+		ruler_title_female = "Primate"
+		leader_class = ruler
+	}
+}
+
+# Exodus of Rakhana
+drell ={
+	name = "Exodus of Rakhana"
+	adjective = "Rakhanan"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "OHSV"
+	
+	species={
+		class = "HUM"
+		portrait = "humanoid_02"
+		name = "Drell"
+		plural = "Drells"
+		adjective = "Dreller"
+		species_bio = "The drell are a reptile-like race that were rescued from their dying homeworld by the hanar following first contact between the two. Since then, the drell have remained loyal to the hanar for their camaraderie and have fit comfortably into galactic civilization."
+		name_list = "HUM2"
+		trait="trait_talented"
+		trait="trait_strong"
+	}
+	
+	room = "personality_spiritual_seekers_room"
+	
+	authority="auth_democratic"
+	civics = { "civic_cutthroat_politics" "civic_memorialist" }
+	government="gov_moral_democracy"
+	
+	ethic="ethic_fanatic_pacifist"
+	ethic="ethic_spiritualist"
+	
+	origin="origin_doomsday"
+	
+	planet_name = "Rakhana"
+	planet_class = "pc_desert"
+	initializer = ""
+	system_name = "Olyn"
+	
+	graphical_culture = "reptilian_01"
+	city_graphical_culture = "reptilian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Drell.dds"
+		}
+		background={
+			category="backgrounds"
+			file="v.dds"
+		}
+		colors={
+			"light_green"
+			"burgundy"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Thane Krios"
+		gender = male
+		portrait = "drell_male"
+		texture = 0
+		hair = 0
+		clothes = 0
+		leader_class = ruler
+	}
+}
+
+# Elkoss Combine
+volus ={
+	name = "Elkoss Combine"
+	adjective = "Elcossian"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "VPS"
+	
+	species={
+		class = "MOL"
+		portrait = "mol1"
+		name = "Volus"
+		plural = "Voli"
+		adjective = "Vol"
+		species_bio = "The volus are an associate race on the Citadel with their own embassy, but are also a client race of the turians. They hail from Irune, which possesses a high-pressure greenhouse atmosphere able to support an ammonia-based biochemistry. As a result, the volus must wear pressure suits and breathers when dealing with other species."
+		name_list = "ART1"
+		trait="trait_ingenious"
+		trait="trait_thrifty"
+		trait="trait_nonadaptive"
+		trait="trait_talented"
+		trait="trait_weak"
+	}
+	
+	room="personality_peaceful_traders_room"
+	
+	authority="auth_corporate"
+	civics = { "civic_free_traders" "civic_private_prospectors" }
+	government="gov_trade_league"
+	advisor_voice_type="l_slick_corp"
+	
+	ethic="ethic_fanatic_xenophile"
+	ethic="ethic_pacifist"
+	
+	origin="origin_galactic_doorstep"
+	
+	planet_name = "Irune"
+	planet_class = "pc_tundra"
+	initializer = ""
+	system_name = "Aru"
+	
+	graphical_culture = "reptilian_01"
+	city_graphical_culture = "molluscoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Elkoss Combine.dds"
+		}
+		background={
+			category="backgrounds"
+			file="new_dawn.dds"
+		}
+		colors={
+			"dark_green"
+			"yellow"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Rupe Elkoss"
+		gender = male
+		portrait = "volus_male"
+		texture = 0
+		hair = 0
+		clothes = 0
+		leader_class = ruler
+	}
+}
+
+# Courts of Dekuuna
+elcor ={
+	name = "Courts of Dekuuna"
+	adjective = "Decuunan"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "DDF"
+	
+	species={
+		class = "MAM"
+		portrait = "mam13"
+		name = "Elcor"
+		plural = "Elcores"
+		adjective = "Elcoric"
+		species_bio = "The elcor are a Citadel species native to the high-gravity world Dekuuna. They are massive creatures, standing on four muscular legs for increased stability. Elcor move slowly, an evolved response to an environment where a fall can be lethal. This has colored their psychology, making them deliberate and conservative."
+		name_list = "LITHOID4"
+		trait="trait_strong"
+		trait="trait_sedentary"
+		trait="trait_conformists"
+	}
+	
+	room="personality_harmonious_hierarchy_room"
+	
+	authority="auth_oligarchic"
+	civics = { "civic_aristocratic_elite" "civic_free_haven" }
+	government="gov_irenic_bureaucracy"
+	
+	ethic="ethic_authoritarian"
+	ethic="ethic_xenophile"
+	ethic="ethic_pacifist"
+	
+	origin="origin_default"
+	
+	planet_name = "Dekuuna"
+	planet_class = "pc_savannah"
+	initializer = ""
+	system_name = "Phontes"
+	
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Courts of Dekuuna.dds"
+		}
+		background={
+			category="backgrounds"
+			file="horizontal.dds"
+		}
+		colors={
+			"black"
+			"grey"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Calyn"
+		gender = male
+		portrait = "elcor_male"
+		texture = 0
+		hair = 0
+		clothes = 0
+		ruler_title = "High Elder"
+		ruler_title_female = "High Elder"
+		leader_class = ruler
+	}
+}

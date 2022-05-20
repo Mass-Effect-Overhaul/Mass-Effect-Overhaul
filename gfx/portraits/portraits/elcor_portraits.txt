@@ -1,0 +1,201 @@
+portraits = {
+	mam13_fix = {	entity = "portrait_mammalian_13_entity"	clothes_selector = "mammalian_massive_clothes_01" hair_selector = "no_texture" 
+		greeting_sound = "mammalian_01_greetings"
+			character_textures = {
+					"gfx/models/portraits/mammalian/mammalian_massive_13_brown.dds"
+					"gfx/models/portraits/mammalian/mammalian_massive_13_brown.dds"
+					"gfx/models/portraits/mammalian/mammalian_massive_13_red.dds"
+					"gfx/models/portraits/mammalian/mammalian_massive_13_black.dds"
+					"gfx/models/portraits/mammalian/mammalian_massive_13_full_black.dds"
+					"gfx/models/portraits/mammalian/mammalian_massive_13_white.dds"
+					"gfx/models/portraits/mammalian/mammalian_massive_13_blond.dds"
+				}
+	
+	}
+}
+
+portrait_groups = {
+	mam13 = {
+		default = elcor_male
+		game_setup = { #will run with a limited country scope. species and government is set but the country does not actually exist
+			add = {
+				trigger = {
+					ruler = { gender = male }
+				}
+				portraits = {
+					mam13_fix
+					elcor_male
+				}
+			}
+			add = {
+				trigger = {
+					ruler = { gender = female }
+				}
+				portraits = {
+					mam13_fix
+					elcor_female
+				}
+			}
+		}
+		
+		#species scope
+		species = { #generic portrait for a species
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Elcor"
+						prev = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					elcor_male
+					elcor_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Elcor"
+							prev = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam13_fix
+				}
+			}
+		}
+		
+		#pop scope
+		pop = { #for a specific pop
+			add = {
+				trigger = {
+					any_galaxy_species = {
+						is_species = "Elcor"
+						prev = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					elcor_male
+					elcor_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Elcor"
+							prev = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam13_fix
+				}
+			}
+		}
+		
+		#leader scope
+		leader = { #scientists, generals, admirals, governor
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Elcor"
+						prev = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					elcor_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Elcor"
+						prev = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					elcor_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Elcor"
+							prev = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam13_fix
+				}
+			}
+		}
+
+		#leader scope 
+		ruler = {
+			add = {
+				trigger = {
+					gender = male
+					any_galaxy_species = {
+						is_species = "Elcor"
+						prev = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					elcor_male
+				}
+			}
+			add = {
+				trigger = {
+					gender = female
+					any_galaxy_species = {
+						is_species = "Elcor"
+						prev = {
+							is_subspecies = prev
+						}
+					}
+				}
+				portraits = {
+					elcor_female
+				}
+			}
+			add = {
+				trigger = {
+					NOT = {
+						any_galaxy_species = {
+							is_species = "Elcor"
+							prev = {
+								is_subspecies = prev
+							}
+						}
+					}
+				}
+				portraits = {
+					mam13_fix
+				}
+			}
+		}
+	}
+}

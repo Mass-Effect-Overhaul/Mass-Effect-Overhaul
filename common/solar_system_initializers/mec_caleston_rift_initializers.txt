@@ -1,0 +1,870 @@
+### Caleston Rift Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_caleston_rift_system_initializer = {
+	name = "Balor"
+	class = "sc_m"
+	
+	flags = { mec_caleston_rift_balor_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 130
+	}
+
+	planet = {
+		name = "Balor"
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 40
+		has_ring = no	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Cernunnos"
+		class = "pc_gas_giant"
+		orbit_distance = 65
+		orbit_angle = 40
+		size = 38
+		has_ring = no
+		entity = "mec_gg_blue_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Caleston"
+			count = 1
+			class = "pc_barren"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 16
+			entity = "mec_barren_red_08"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_trade_value_3
+				set_planet_flag = starting_deposit			
+	
+				add_modifier = {
+					modifier = unstable_tectonics
+					days = -1
+				}
+			}
+		}
+	}
+	
+	change_orbit = 65
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Bres"
+		class = "pc_barren"
+		orbit_distance = 5
+		orbit_angle = 40
+		size = 5
+		has_ring = no
+		entity = "mec_barren_grey_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Elatha"
+		class = "pc_barren_cold"
+		orbit_distance = 30
+		orbit_angle = 40
+		size = 7
+		has_ring = no
+		entity = "mec_barren_grey_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Partholon"
+		class = "pc_frozen"
+		orbit_distance = 65
+		orbit_angle = 40
+		size = 23
+		has_ring = no
+		entity = "mec_barren_grey_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_caleston_rift_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_caleston_rift_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_caleston_rift_neighbour_03"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_caleston_rift_neighbour_04"
+	}
+}
+
+mec_caleston_rift_neighbour_01 = {
+	name = "Aysur"
+	class = "sc_g"
+	
+	flags = { mec_caleston_rift_aysur_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_caleston_rift_balor_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 230
+	}
+		
+	planet = {
+		name = "Aysur"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Agnin"
+		class = "pc_toxic"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_toxic_yellow_01"
+		
+		init_effect = {
+			prevent_anomaly = yes			
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Shasu"
+		class = "pc_barren"
+		orbit_distance = 25
+		orbit_angle = 40
+		size = 6
+		has_ring = no
+		entity = "mec_barren_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Dranen"
+		class = "pc_gas_giant"
+		orbit_distance = 75
+		orbit_angle = 40
+		size = 45
+		has_ring = no
+		entity = "mec_gg_green_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+		}
+		
+		moon = {
+			name = "Dranen a"
+			count = 1
+			class = "pc_toxic"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Arvuna"
+			count = 1
+			class = "pc_ocean"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 8
+			size = 16
+			flags = { mec_eg_planet_arvuna }
+			entity = "mec_ocean_01"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_planet_modifiers = yes 
+			
+				add_modifier = {
+					modifier = dangerous_wildlife
+					days = -1
+				}
+			}
+		}
+		
+		moon = {
+			name = "Alahya"
+			count = 1
+			class = "pc_barren"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 7
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Dranen d"
+			count = 1
+			class = "pc_barren_cold"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Dranen e"
+			count = 1
+			class = "pc_molten"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	change_orbit = 55
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Mahavid"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = 40
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_4
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Alformus"
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = 40
+		size = 45
+		has_ring = no
+		entity = "mec_gg_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Shir"
+		class = "pc_barren_cold"
+		orbit_distance = 40
+		orbit_angle = 40
+		size = 14
+		has_ring = no
+		entity = "mec_barren_blue_04"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Tamgauta"
+		class = "pc_frozen"
+		orbit_distance = 30
+		orbit_angle = 40
+		size = 9
+		has_ring = no
+		entity = "mec_barren_grey_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}
+
+mec_caleston_rift_neighbour_02 = {
+	name = "Solveig"
+	class = "sc_g"
+
+	flags = { mec_caleston_rift_solveig_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_caleston_rift_balor_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Solveig"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 80
+		has_ring = no
+		flags = { mec_eg_star_solveig }
+		
+		init_effect = {
+			prevent_anomaly = yes						
+			clear_deposits = yes
+
+			add_anomaly = {
+				category = MEC_EG_ANO_SOLVEIG_1051_CAT			###Solveig Anomaly (Birth of a Red Giant)
+			}
+		}
+	}
+	
+	planet = {
+		name = "Surtur"
+		class = "pc_barren"
+		orbit_distance = 135
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+		entity = "mec_barren_blue_05"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Sinmara"
+			count = 1
+			class = "pc_barren"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 9
+			size = 4
+			entity = "mec_barren_grey_07"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Thrivaldi"
+		class = "pc_gas_giant"
+		orbit_distance = 160
+		orbit_angle = { min = 90 max = 270 }
+		size = 35
+		has_ring = yes
+		entity = "mec_gg_green_08"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Thrivaldi a"
+			count = 1
+			class = "pc_barren"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 14
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Thrivaldi b"
+			count = 1
+			class = "pc_barren_cold"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+}
+
+mec_caleston_rift_neighbour_03 = {
+	name = "Talava"
+	class = "sc_f"
+	
+	flags = { mec_caleston_rift_talava_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_caleston_rift_balor_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+
+	planet = {
+		name = "Talava"
+		class = "pc_f_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 70
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Aitarus"
+		class = "pc_barren"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 21
+		has_ring = no
+		entity = "mec_barren_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 		
+		
+			add_modifier = {
+				modifier = high_gravity
+				days = -1
+			}
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Kaushus"
+		class = "pc_molten"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_molten_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes	
+			clear_planet_modifiers = yes 	
+		
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Maitrum"
+		class = "pc_barren"
+		orbit_distance = 95
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+		entity = "mec_barren_red_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Taitus"
+		class = "pc_barren_cold"
+		orbit_distance = 80
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_grey_03"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+}
+
+mec_caleston_rift_neighbour_04 = {
+	name = "Yakawa"
+	class = "sc_g"
+
+	flags = { mec_caleston_rift_yakawa_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_caleston_rift_balor_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	planet = {
+		name = "Yakawa"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+	planet = {
+		name = "Sakata"
+		class = "pc_toxic"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 24
+		has_ring = no
+		entity = "mec_toxic_green_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = strong_magnetic_field
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Nambu"
+		class = "pc_gas_giant"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 38
+		has_ring = yes
+		entity = "mec_gg_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+		
+		moon = {
+			name = "Sumiko"
+			count = 1
+			class = "pc_molten"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 16
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_trade_value_2
+				set_planet_flag = starting_deposit
+			}
+		}
+		
+		moon = {
+			name = "Nambu b"
+			count = 1
+			class = "pc_barren"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Nambu c"
+			count = 1
+			class = "pc_barren"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+	
+	planet = {
+		name = "Maskawa"
+		class = "pc_toxic"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_molten_purple_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Karumto"
+		class = "pc_molten"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_molten_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Kobayashi"
+		class = "pc_gas_giant"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 33
+		has_ring = yes
+		entity = "mec_gg_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+		
+		moon = {
+			name = "Kobayashi a"
+			count = 1
+			class = "pc_barren"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 14
+			size = 8
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+		
+		moon = {
+			name = "Kobayashi b"
+			count = 1
+			class = "pc_frozen"
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+}

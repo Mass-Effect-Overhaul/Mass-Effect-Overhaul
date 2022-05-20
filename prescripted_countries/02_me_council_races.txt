@@ -1,0 +1,214 @@
+# Asari Republics
+asari ={
+	name = "Asari Republics"
+	adjective = "Asari Republican"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "ARS"
+	
+	species={
+		class = "HUM"
+		portrait = "humanoid_03"
+		name = "Asari"
+		plural = "Asariae"
+		adjective = "Asaric"
+		species_bio = "The asari, native to the planet Thessia, are often considered the most influential and respected sentient species in the galaxy, and are known for their elegance, diplomacy, and biotic aptitude. This is partly due to the fact that the asari were among the earliest races to achieve interstellar flight after the Protheans, and the first to discover and settle the Citadel."
+		name_list = "HUM1"
+		gender = female
+		trait = "trait_slow_breeders"
+		trait = "trait_weak"
+		trait = "trait_charismatic"
+		trait = "trait_venerable"
+		trait = "trait_decadent"
+	}
+	
+	room = "personality_spiritual_seekers_room"
+	
+	authority = "auth_democratic"
+	civics={ "civic_idealistic_foundation" "civic_pleasure_seekers" }
+	government = "gov_theocratic_republic"
+	advisor_voice_type = "l_the_diplomat"
+	
+	ethic = "ethic_egalitarian"
+	ethic = "ethic_xenophile"
+	ethic = "ethic_spiritualist"
+	
+	origin = "origin_galactic_doorstep"
+	
+	planet_name = "Thessia"
+	planet_class = "pc_continental"
+	initializer = ""
+	system_name = "Parnitha"
+	
+	graphical_culture = "humanoid_01"
+	city_graphical_culture = "humanoid_01"
+	
+	empire_flag = {
+		icon = {
+			category = "masseffect"
+			file = "Asari Republics.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "triangle_split.dds"
+		}
+		colors = {
+			"burgundy"
+			"light_blue"
+			"null"
+			"null"
+		}
+	}
+	ruler={
+		name = "Tiala"
+		gender = female
+		portrait = "asari-republic_1"
+		texture = 2
+		hair = 0
+		clothes = 23
+		ruler_title = "Patriarch"
+		ruler_title_female = "Matriarch"
+		leader_class = ruler
+	}
+}
+
+# Salarian Union
+salarian ={
+	name = "Salarian Union"
+	adjective = "Salarian Unionic"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "SNV"
+	
+	species={
+		class = "REP"
+		portrait = "rep1"
+		name = "Salarian"
+		plural = "Salarians"
+		adjective = "Salaric"
+		species_bio = "The second species to join the Citadel, the salarians are warm-blooded amphibians native to the planet Sur'Kesh. Salarians possess a hyperactive metabolism; they think fast, talk fast, and move fast. To salarians, other species seem sluggish and dull-witted, especially the elcor. Unfortunately, their metabolic speed leaves them with a relatively short lifespan; salarians over the age of 40 are a rarity."
+		name_list = "REP2"
+		trait = "trait_intelligent"
+		trait = "trait_quick_learners"
+		trait = "trait_fleeting"
+	}
+	
+	room = "personality_erudite_explorers_room"
+	
+	authority = "auth_imperial"
+	civics={ "civic_cutthroat_politics" "civic_diplomatic_corps" }
+	government = "gov_despotic_hegemony"
+	
+	ethic = "ethic_fanatic_xenophile"
+	ethic = "ethic_materialist"
+	
+	origin = "origin_galactic_doorstep"
+	
+	planet_name = "Sur'Kesh"
+	planet_class = "pc_tropical"
+	initializer = ""
+	system_name = "Pranas"
+	
+	graphical_culture = "reptilian_01"
+	city_graphical_culture = "reptilian_01"
+	
+	empire_flag = {
+		icon = {
+			category = "masseffect"
+			file = "Salarian Union.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "v.dds"
+		}
+		colors = {
+			"dark_green"
+			"turquoise"
+			"null"
+			"null"
+		}
+	}
+	ruler = {
+		name = "Linron"
+		gender = female
+		portrait = "salarian_1"
+		texture = 1
+		hair = 0
+		clothes = 13
+		ruler_title = "Dalator"
+		ruler_title_female = "Dalatrass"
+		leader_class = ruler
+	}
+}
+
+# Turian Hierarchy
+turian ={
+	name = "Turian Hierarchy"
+	adjective = "Turian Hierarchial"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "TSF"
+	
+	species={
+		class = "AVI"
+		portrait = "avi13"
+		name = "Turian"
+		plural = "Turians"
+		adjective = "Turic"
+		species_bio = "Known for their militaristic and disciplined culture, the turians were the third race to join the Citadel Council. They gained their Council seat after defeating the hostile krogan for the Council during the Krogan Rebellions. The turians deployed a salarian-created biological weapon called the genophage, which virtually sterilised the krogan and sent them into a decline. The turians then filled the peacekeeping niche left by the once-cooperative krogan, and eventually gained a Council seat in recognition of their efforts."
+		name_list = "HUMAN3"
+		trait = "trait_traditional"
+		trait = "trait_resilient"
+	}
+	
+	room = "personality_honorbound_warriors_room"
+	
+	authority = "auth_oligarchic"
+	civics={ "civic_citizen_service" "civic_police_state" }
+	government = "gov_citizen_stratocracy"
+	
+	ethic = "ethic_xenophile"
+	ethic = "ethic_fanatic_militarist"
+	
+	origin = "origin_galactic_doorstep"
+	
+	planet_name = "Palaven"
+	planet_class = "pc_arid"
+	initializer = ""
+	system_name = "Trebia"
+	
+	graphical_culture = "reptilian_01"
+	city_graphical_culture = "reptilian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Turian Hierarchy.dds"
+		}
+		background={
+			category="backgrounds"
+			file="stripes.dds"
+		}
+		colors={
+			"black"
+			"orange"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler = {
+		name = "Publius Fedorianus"
+		gender = male
+		portrait = "turian_3"
+		texture = 3
+		hair = 0
+		clothes = 1
+		ruler_title = "Primarch"
+		ruler_title_female = "Primarche"
+		leader_class = ruler
+	}
+}

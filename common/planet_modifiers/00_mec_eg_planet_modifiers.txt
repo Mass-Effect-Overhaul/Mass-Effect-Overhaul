@@ -1,0 +1,175 @@
+####################################
+#        MEC Planet Modifers       #
+####################################
+
+mec_eg_pm_poison_biosphere = {
+	spawn_chance = {
+		modifier = {
+			add = 3
+			is_planet_class = "pc_desert"
+		}
+		modifier = {
+			add = 15
+			is_planet_class = "pc_tropical"
+		}
+		modifier = {
+			add = 5
+			is_planet_class = "pc_arid"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_continental"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_ocean"
+		}
+		modifier = {
+			add = 3
+			is_planet_class = "pc_tundra"
+		}
+		modifier = {
+			add = 1
+			is_planet_class = "pc_arctic"
+		}
+		modifier = {
+			add = 5
+			is_planet_class = "pc_alpine"
+		}
+		modifier = {
+			add = 5
+			is_planet_class = "pc_savannah"
+		}				
+		modifier = {
+			add = 0
+			is_planet_class = "pc_molten"
+		}
+		modifier = {
+			add = 5
+			is_planet_class = "pc_barren"
+		}
+		modifier = {
+			add = 3
+			is_planet_class = "pc_barren_cold"
+		}
+		modifier = {
+			add = 10
+			is_planet_class = "pc_toxic"
+		}
+		modifier = {
+			add = 1
+			is_planet_class = "pc_frozen"
+		}
+		modifier = {
+			add = 3
+			is_planet_class = "pc_gaia"
+		}
+		modifier = {
+			add = 0
+			is_planet_class = "pc_relic"
+		}
+		modifier = {
+			factor = 5
+			has_planet_modifier = "pm_lush"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_atmospheric_aphrodisiac"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_atmospheric_hallucinogen"
+		}
+		modifier = {
+			factor = 3
+			has_planet_modifier = "mec_eg_pm_dying_planet"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "mec_eg_pm_poison_biosphere"
+		}
+
+		modifier = {
+			factor = 0
+			num_modifiers > 1
+		}
+	}
+}
+
+mec_eg_pm_dying_planet = {
+	spawn_chance = {
+		modifier = {
+			add = 10
+			is_planet_class = "pc_desert"
+		}
+		modifier = {
+			add = 1
+			is_planet_class = "pc_tropical"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_arid"
+		}
+		modifier = {
+			add = 3
+			is_planet_class = "pc_continental"
+		}
+		modifier = {
+			add = 3
+			is_planet_class = "pc_ocean"
+		}
+		modifier = {
+			add = 15
+			is_planet_class = "pc_tundra"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_arctic"
+		}
+		modifier = {
+			add = 8
+			is_planet_class = "pc_alpine"
+		}
+		modifier = {
+			add = 5
+			is_planet_class = "pc_savannah"
+		}	
+		modifier = {
+			add = 20
+			is_planet_class = "pc_nuked"
+		}			
+		modifier = {
+			add = 0
+			is_planet_class = "pc_gaia"
+		}
+		modifier = {
+			add = 5
+			is_planet_class = "pc_relic"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_natural_beauty"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_lush"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "pm_bleak"
+		}
+		modifier = {
+			factor = 0
+			has_planet_modifier = "mec_eg_pm_dying_planet"
+		}
+		modifier = {
+			factor = 3
+			has_planet_modifier = "mec_eg_pm_poison_biosphere"
+		}
+
+		modifier = {
+			factor = 0
+			num_modifiers > 1
+		}
+	}
+}

@@ -1,0 +1,598 @@
+### Hawking Eta Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_hawking_eta_system_initializer = {
+	name = "Chandrasekhar"
+	class = "sc_m"
+	
+	flags = { mec_hawking_eta_chandrasekhar_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Chandrasekhar"
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 50
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Teshub"
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_red_06"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Hebat"
+		class = "pc_gas_giant"
+		orbit_distance = 140
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_blue_01"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}		
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hawking_eta_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hawking_eta_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hawking_eta_neighbour_03"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hawking_eta_neighbour_04"
+	}
+}
+
+mec_hawking_eta_neighbour_01 = {
+	name = "Century"
+	class = "sc_k"
+
+	flags = { mec_hawking_eta_century_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hawking_eta_chandrasekhar_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 205
+	}
+	
+	planet = {
+		name = "Century"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Tamahera"
+		class = "pc_barren"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_grey_04"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Klendagon"
+		class = "pc_barren"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_barren_red_03"
+		flags = { mec_eg_planet_klendagon }
+
+		init_effect = {
+			prevent_anomaly = yes					###Klendagon Anomaly (Great Rift)	NOT YET MADE	
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+		
+		moon = {
+			name = "Presop"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 12
+			size = 12
+			entity = "mec_barren_red_07"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+
+				set_deposit = d_minerals_4
+				set_planet_flag = starting_deposit			
+
+				add_modifier = {
+					modifier = mineral_rich
+					days = -1
+				}
+			}
+		}
+	}
+	
+	change_orbit = 30
+
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Canctra"
+		class = "pc_barren"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 15
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+	}
+	
+	planet = {
+		name = "Tharopto"
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = yes
+		entity = "mec_gg_blue_04"
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+		}
+
+		moon = {
+			name = "Tharopto a"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}		
+		
+		moon = {
+			name = "Tharopto b"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 9
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}	
+		
+		moon = {
+			name = "Tharopto c"
+			count = 1
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}	
+		
+		moon = {
+			name = "Tharopto d"
+			count = 1
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}	
+		
+		moon = {
+			name = "Tharopto e"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 3
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}	
+	}
+}
+
+mec_hawking_eta_neighbour_02 = {
+	name = "Schwarzschild"
+	class = "sc_g"
+	
+	flags = { mec_hawking_eta_schwarzschild_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hawking_eta_chandrasekhar_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Schwarzschild"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 65
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Atahil"
+		class = "pc_toxic"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_toxic_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Etamis"
+		class = "pc_barren"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 22
+		has_ring = no
+		entity = "mec_barren_green_01"
+		flags = { mec_eg_planet_etamis }
+		
+		init_effect = {
+			prevent_anomaly = yes			
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_ETAMIS_1101_CAT			###Etamis Anomaly (Mass Extinction)
+			}
+		}
+	}
+	
+	planet = {
+		name = "Linossa"
+		class = "pc_gas_giant"
+		orbit_distance = 140
+		orbit_angle = { min = 90 max = 270 }
+		size = 43
+		has_ring = no
+		entity = "mec_gg_pink_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Rihali"
+		class = "pc_gas_giant"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = yes
+		entity = "mec_gg_red_07"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}
+
+mec_hawking_eta_neighbour_03 = {
+	name = "Thorne"
+	class = "sc_binary_10"
+	
+	flags = { mec_hawking_eta_thorne_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hawking_eta_chandrasekhar_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Thorne"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 75
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_4
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Mnemosyne"
+		class = "pc_t_star"
+		orbit_distance = 140
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		flags = { mec_eg_planet_mnemosyne }
+		
+		init_effect = {
+			prevent_anomaly = yes						###Mnemosyne Anomaly (Derelict Dreadnought)		NOT YET IN
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			#set_deposit = d_engineering_4
+			#set_planet_flag = starting_deposit
+		}
+		
+		moon = {
+			name = "Lethe"
+			count = 1
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 14
+			entity = "mec_molten_green_01"
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}
+	}
+}
+
+mec_hawking_eta_neighbour_04 = {
+	name = "Verr"
+	class = "sc_m"
+	
+	flags = { mec_hawking_eta_verr_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hawking_eta_chandrasekhar_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Verr"
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 65
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Corang"
+		class = "pc_toxic"
+		orbit_distance = 65
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_toxic_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+			add_modifier = {
+				modifier = ultra_rich
+				days = -1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Allusah"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = no
+		entity = "mec_gg_red_02"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Serao"
+		class = "pc_gas_giant"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_gg_red_06"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+}

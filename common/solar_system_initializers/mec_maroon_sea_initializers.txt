@@ -1,0 +1,565 @@
+### Maroon Sea Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_maroon_sea_system_initializer = {
+	name = "Matano"
+	class = "sc_k"
+	
+	flags = { mec_maroon_sea_matano_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 145
+	}
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 290
+	}
+	
+	planet = {
+		name = "Matano"
+		class = "pc_k_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Inti"
+		class = "pc_toxic"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 21
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Chasca"
+		class = "pc_continental"
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+		size = 19
+		has_ring = yes
+		flags = { mec_eg_planet_chasca }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes
+
+			add_anomaly = {
+				category = MEC_EG_ANO_CHASCA_1151_CAT			###Chasca Anomaly (Synthetic Rings)	
+			}
+			add_modifier = {
+				modifier = tidal_locked
+				days = -1
+			}
+		}			
+	}
+	
+	change_orbit = 25
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Apo"
+		class = "pc_barren"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_barren_grey_01"		
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = unstable_tectonics
+				days = -1
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Illapa"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 45
+		has_ring = no
+		entity = "mec_gg_red_05"	
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+
+			add_modifier = {
+				modifier = extensive_moon_system
+				days = -1
+			}
+
+			set_deposit = d_exotic_gases_1
+			set_planet_flag = starting_deposit
+		}	
+
+		moon = {
+			name = "Illapa a"
+			count = 1
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 18
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}	
+
+		moon = {
+			name = "Illapa b"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 7
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}	
+
+		moon = {
+			name = "Illapa c"
+			count = 1
+			class = pc_barren
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 0
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+
+		moon = {
+			name = "Coniraya"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 4
+			size = 5
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}	
+		
+		moon = {
+			name = "Illapa e"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 2
+			size = 4
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+
+				set_deposit = d_minerals_2
+				set_planet_flag = starting_deposit
+			}
+		}
+
+		moon = {
+			name = "Illapa f"
+			count = 1
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 3
+			size = 3
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes
+			}
+		}	
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = 3
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Supay"
+		class = "pc_frozen"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}		
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_maroon_sea_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_maroon_sea_neighbour_02"
+	}
+}
+
+mec_maroon_sea_neighbour_01 = {
+	name = "Caspian"
+	class = "sc_b"
+
+	flags = { mec_maroon_sea_caspian_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_maroon_sea_matano_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 140
+	}
+	
+	planet = {
+		name = "Caspian"
+		class = "pc_b_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 85
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_4
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	change_orbit = 140
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		count = 1
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_minerals_3
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Clotanca"
+		class = "pc_barren"
+		orbit_distance = 45
+		orbit_angle = { min = 90 max = 270 }
+		size = 18
+		has_ring = no
+		entity = "mec_barren_blue_04"	
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}		
+	}
+	
+	planet = {
+		name = "Farnuri"
+		class = "pc_barren"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 21
+		has_ring = no
+		entity = "mec_barren_red_06"	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Almarcrux"
+		class = "pc_frozen"
+		orbit_distance = 55
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+			
+			add_modifier = {
+				modifier = terraforming_candidate
+				days = -1
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Antida"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 33
+		has_ring = no
+		entity = "mec_gg_green_05"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}		
+	}
+}
+
+mec_maroon_sea_neighbour_02 = {
+	name = "Vostok"
+	class = "sc_g"
+	
+	flags = { mec_maroon_sea_vostok_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_maroon_sea_matano_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 210
+	}
+		
+	planet = {
+		name = "Vostok"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 65
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		name = "Clomarthu"
+		class = "pc_toxic"
+		orbit_distance = 105
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Nodacrux"
+		class = "pc_continental"
+		orbit_distance = 60
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_nodacrux }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes				
+			
+			add_modifier = {
+				modifier = hazardous_weather
+				days = -1
+			}
+			add_modifier = {
+				modifier = wild_storms
+				days = -1
+			}
+		}
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Alko"
+		class = "pc_barren_cold"
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+		size = 14
+		has_ring = no
+		entity = "mec_barren_green_01"
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+	
+	planet = {
+		name = "Pataiton"
+		class = "pc_gas_giant"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 25
+		has_ring = no
+		entity = "mec_gg_yellow_02"	
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			clear_planet_modifiers = yes
+		}
+	}
+}

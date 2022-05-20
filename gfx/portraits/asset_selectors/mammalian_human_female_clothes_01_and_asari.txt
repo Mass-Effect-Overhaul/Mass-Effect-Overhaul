@@ -1,0 +1,1414 @@
+# This is a template which multiple species can use.
+
+human_female_and_asari_clothes_01 = {
+	default = "gfx/models/portraits/human/human_female_clothes_ruler.dds"
+	
+	game_setup = {#will run with a limited country scope. species and government is set but the country does not actually exist
+		default = "gfx/models/portraits/human/human_female_clothes_admiral.dds"
+	}
+	
+	#species scope
+	species = { #generic portrait for a species
+		default = "gfx/models/portraits/human/human_female_clothes_ruler.dds"
+		random = {
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_ruler.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1b.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_ruler.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4a.dds"
+			}
+		}
+	}
+	
+	#pop scope
+	pop = { #for a specific pop
+		default = "gfx/models/portraits/human/human_female_clothes_governor.dds"
+		
+		random = {
+		# Collection of all available outfits for ordering
+			trigger = {
+				always = no
+			}
+			list = {
+				# Vanilla
+				"gfx/models/portraits/human/human_female_clothes_ruler.dds"
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/human/human_female_outfit_scientist.dds"
+				"gfx/models/portraits/human/human_female_clothes_general.dds"
+				"gfx/models/portraits/human/human_female_clothes_admiral.dds"
+				"gfx/models/portraits/human/human_female_clothes_ruler2.dds"
+				"gfx/models/portraits/human/human_female_clothes_royal.dds"
+				
+				# Vanilla Recolours
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				
+				# Rulers
+				"gfx/models/portraits/alliance/alliance_female_outfit_ruler.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4a.dds"
+				
+				# Governors
+				"gfx/models/portraits/alliance/alliance_female_outfit_governor.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_admiral.dds" # Cerberus Logo
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4b.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1a.dds"
+				
+				# Scientists
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4a.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_general.dds" # Alliance Biotic Students
+				
+				# Military
+				"gfx/models/portraits/alliance/alliance_female_outfit_admiral.dds" # Alliance Admiral Formal Outfit
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2b.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_admiral_2.dds" # Cerberus Logo
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general.dds" # Cerberus Logo
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3d.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2b.dds"
+				
+				# Civilians
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian_3.dds" # N7 Casual Jacket
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian_2.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist_2.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_trellis.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_1.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer.dds" # Cerberus Logo on arm
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds" # Miranda's Outfit
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_4b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3a.dds"
+				
+				# Cold Climates
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_4.dds"
+				
+				# Primitives
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_3.dds"
+				
+				# Slaves
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_5.dds"
+				
+				# Naked
+				# "gfx/models/portraits/asari-republic/asari_nude_suit.dds" # Commented out for the sake of advisory rating
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = soldier
+					has_job = enforcer
+					has_job = telepath
+					has_job = duelist
+					has_job = titan_hunter
+					has_job = primitive_warrior_2
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_general.dds"
+				"gfx/models/portraits/human/human_female_clothes_admiral.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3d.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2b.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = miner
+					has_job = farmer
+					has_job = crystal_miner
+					has_job = mote_harvester
+					has_job = gas_extractor
+					has_job = colonist
+					has_job = ratling_scavenger
+					has_job = cave_cleaner
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian_2.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist_2.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_trellis.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1a.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = technician
+					has_job = clerk
+					has_job = foundry
+					has_job = artisan
+					has_job = culture_worker
+					has_job = bureaucrat
+					has_job = manager
+					has_job = odd_factory_worker
+					has_job = underground_trade_worker
+					has_job = primitive_technician
+					has_job = primitive_bureaucrat
+					has_job = primitive_researcher_2
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_governor.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1a.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = researcher
+					has_job = chemist
+					has_job = translucer
+					has_job = gas_refiner
+					has_job = gas_plant_engineer
+					has_job = roboticist
+					has_job = head_researcher
+					has_job = dimensional_portal_researcher
+					has_job = bluelotus_technician
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_outfit_scientist.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_1.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				has_job = healthcare
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4a.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				OR = {
+					has_job = preacher
+					has_job = priest
+					has_job = high_priest
+					has_job = death_priest
+					has_job = necromancer
+					has_job = death_chronicler
+					has_job = primitive_priest_2
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1b.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				OR = {
+					has_job = entertainer
+					has_job = servant
+					AND = {
+						planet = {
+							OR = {
+								has_planet_modifier = pm_atmospheric_aphrodisiac
+								has_modifier = feral_overload_00
+								has_modifier = feral_overload_01
+								has_modifier = feral_overload_02
+								has_modifier = pheromoned_1
+								has_modifier = pheromoned_2
+								has_modifier = pheromoned_3
+								has_modifier = pheromoned_4
+							}
+						}
+						NOR = {
+							has_job = bio_trophy
+							has_trait = trait_hive_mind
+						}
+					}
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_ruler.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_ruler.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_5.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = administrator
+					has_job = noble
+					has_job = merchant
+					has_job = executive
+					AND = {
+						owner = {
+							is_primitive = yes
+							OR = {
+								has_country_flag = bronze_age
+								has_country_flag = iron_age
+								has_country_flag = late_medieval_age
+								has_country_flag = renaissance_age
+								has_country_flag = steam_age
+							}
+						}
+						OR = {
+							is_pop_category = specialist
+							is_pop_category = ruler
+						}
+					}
+				}
+				NOT = { has_job = primitive_warrior }
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_ruler.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_ruler.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4a.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				OR = {
+					has_job = mortal_initiate
+					has_job = necro_apprentice
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4b.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				is_pop_category = pre_sapients
+			}
+			list = {
+				# "gfx/models/portraits/asari-republic/asari_nude_suit.dds" # Commented out for the sake of advisory rating
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_3.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				owner = {
+					is_primitive = yes
+					has_country_flag = stone_age
+				}
+			}
+			list = {
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_3.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				OR = {
+					AND = {
+						OR = {
+							is_pop_category = worker
+							is_unemployed = yes
+						}
+						owner = {
+							is_primitive = yes
+							OR = {
+								has_country_flag = bronze_age
+								has_country_flag = iron_age
+								has_country_flag = late_medieval_age
+								has_country_flag = renaissance_age
+								has_country_flag = steam_age
+							}
+						}
+					}
+					has_job = primitive_laborer
+					has_job = primitive_miner
+					has_job = primitive_farmer
+				}
+				NOT = {
+					has_job = primitive_warrior
+				}
+			}
+			list = {
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_2.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				has_job = primitive_warrior
+				owner = {
+					is_primitive = yes
+				}
+			}
+			list = {
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_3.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = slave_overseer
+					has_job = slave_toiler
+					has_job = organic_battery
+					has_job = livestock
+					has_job = purge
+					has_job = assimilation
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_2.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = crisis_purge
+					has_job = event_purge
+				}
+				NOT = {
+					has_trait = trait_hive_mind
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_ruler.dds"
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/human/human_female_outfit_scientist.dds"
+				"gfx/models/portraits/human/human_female_clothes_general.dds"
+				"gfx/models/portraits/human/human_female_clothes_admiral.dds"
+				"gfx/models/portraits/human/human_female_clothes_ruler2.dds"
+				"gfx/models/portraits/human/human_female_clothes_royal.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_governor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist_2.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_ruler.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor_2.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_trellis.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_4b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3d.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_4b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_5.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = criminal
+					AND = {
+						is_unemployed = yes
+						owner = {
+							OR = {
+								is_primitive = no
+								AND = {
+									is_primitive = yes
+									OR = {
+										has_country_flag = machine_age
+										has_country_flag = industrial_age
+										has_country_flag = atomic_age
+										has_country_flag = early_space_age
+									}
+								}
+							}
+						}
+					}
+				}
+				planet = {
+					NOR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+						has_planet_modifier = pm_atmospheric_aphrodisiac
+						has_modifier = feral_overload_00
+						has_modifier = feral_overload_01
+						has_modifier = feral_overload_02
+						has_modifier = pheromoned_1
+						has_modifier = pheromoned_2
+						has_modifier = pheromoned_3
+						has_modifier = pheromoned_4
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_ruler2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_1c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_slave_5.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				OR = {
+					has_job = bio_trophy
+					has_trait = trait_hive_mind
+				}
+			}
+			list = {
+				"gfx/models/portraits/alliance/alliance_female_outfit_trellis.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+			}
+		}
+
+		random = {
+			trigger = {
+				planet = {
+					OR = {
+						is_planet_class = pc_tundra
+						is_planet_class = pc_arctic
+						is_planet_class = pc_alpine
+					}
+				}
+				owner = {
+					OR = {
+						is_primitive = no
+						AND = {
+							is_primitive = yes
+							OR = {
+								has_country_flag = machine_age
+								has_country_flag = industrial_age
+								has_country_flag = atomic_age
+								has_country_flag = early_space_age
+							}
+						}
+					}
+				}
+				NOR = {
+					has_job = bio_trophy
+					has_trait = trait_hive_mind
+				}
+			}
+			list = {
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_4.dds"
+			}
+		}
+	}
+
+	#leader scope
+	leader = { #scientists, generals, admirals, governor
+		default = "gfx/models/portraits/human/human_female_clothes_governor.dds"
+		
+		# Neither Systems Alliance or Cerberus
+		random = {
+			trigger = {
+				leader_class = scientist
+				nor = {
+					owner = {
+						has_country_flag = "me_alliance"
+					}
+					owner = {
+						has_ethic = ethic_gestalt_consciousness
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_outfit_scientist.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4a.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				leader_class = general
+				nor = {
+					owner = {
+						has_country_flag = "me_cerberus"
+					}
+					owner = {
+						has_ethic = ethic_gestalt_consciousness
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_general.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3d.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2b.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				leader_class = admiral
+				nor = {
+					owner = {
+						has_country_flag = "me_alliance"
+					}
+					owner = {
+						has_country_flag = "me_cerberus"
+					}
+					owner = {
+						has_ethic = ethic_gestalt_consciousness
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_admiral.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				OR = {
+					leader_class = governor
+					leader_class = envoy
+				}
+				nor = {
+					owner = {
+						has_country_flag = "me_cerberus"
+					}
+					owner = {
+						has_ethic = ethic_gestalt_consciousness
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_governor.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1a.dds"
+			}
+		}
+		
+		# Systems Alliance
+		random = {
+			trigger = {
+				leader_class = scientist
+				owner = { has_country_flag = "me_alliance" }
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_outfit_scientist.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_general.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4a.dds"
+			}
+		}
+		random = {
+			trigger = {
+				leader_class = admiral
+				owner = { has_country_flag = "me_alliance" }
+			}
+			list = {
+				"gfx/models/portraits/alliance/alliance_female_outfit_admiral.dds"
+			}
+		}
+
+		# Cerberus
+		random = {
+			trigger = {
+				leader_class = general
+				owner = { has_country_flag = "me_cerberus" }
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_general.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_admiral_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3d.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2b.dds"
+			}
+		}
+		random = {
+			trigger = {
+				leader_class = admiral
+				owner = { has_country_flag = "me_cerberus" }
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_admiral.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+			}
+		}
+		random = {
+			trigger = {
+				OR = {
+					leader_class = governor
+					leader_class = envoy
+				}
+				owner = { has_country_flag = "me_cerberus" }
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_civilian.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_governor.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_admiral.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setA_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setB_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_1a.dds"
+			}
+		}
+		
+		random = {
+			trigger = {
+				owner = { has_ethic = ethic_gestalt_consciousness }
+			}
+			list = {
+				"gfx/models/portraits/alliance/alliance_female_outfit_trellis.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+			}
+		}
+	}
+	
+	#leader scope 
+	ruler = { #for rulers
+		default = "gfx/models/portraits/human/human_female_clothes_ruler.dds"
+
+		# Generic
+		random = {
+			trigger = { 
+				owner = {
+					OR = {
+						has_generic_government = yes
+						has_spiritualist_government = yes
+						has_pacifist_government = yes
+						has_government = gov_stagnant_ascendancy
+						has_government = gov_awakened_ascendancy
+						has_government = gov_artist_enclave
+						has_government = gov_curator_enclave
+						has_government = gov_trader_enclave
+					}
+					nor = {
+						has_authority = auth_imperial
+						has_country_flag = "me_alliance"
+						has_country_flag = "me_cerberus"
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_ruler.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_ruler.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4a.dds"
+			}
+		}
+		
+		# Military
+		random = {
+			trigger = {
+				owner = {
+					OR = {
+						has_militarist_government = yes
+						has_government = gov_military_order
+					}
+					nor = {
+						has_authority = auth_imperial
+						has_country_flag = "me_alliance"
+						has_country_flag = "me_cerberus"
+						has_ethic = ethic_gestalt_consciousness
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_general.dds"
+				"gfx/models/portraits/human/human_female_clothes_admiral.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_armor_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_general_2.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_admiral_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_generic_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3c.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_3d.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setC_2b.dds"
+			}
+		}
+		
+		# Scientists
+		random = {
+			trigger = {
+				owner = {
+					has_materialist_government = yes
+					NOR = {
+						has_authority = auth_imperial
+						has_country_flag = "me_alliance"
+						has_country_flag = "me_cerberus"
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_outfit_scientist.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_scientist.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_scientist_4a.dds"
+			}
+		}
+		
+		# Imperial
+		random = {
+			trigger = {
+				owner = {
+					has_authority = auth_imperial
+					NOR = {
+						has_country_flag = "me_alliance"
+						has_country_flag = "me_cerberus"
+					}
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_royal.dds"
+			}
+		}
+		
+		# Systems Alliance
+		random = {
+			trigger = {
+				owner = {
+					has_country_flag = "me_alliance"
+				}
+			}
+			list = {
+				"gfx/models/portraits/alliance/alliance_female_outfit_admiral.dds"
+			}
+		}
+		
+		# Cerberus
+		random = {
+			trigger = {
+				owner = {
+					has_country_flag = "me_cerberus"
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_ruler.dds"
+				"gfx/models/portraits/alliance/alliance_female_outfit_ruler.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_scientist_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_governor_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_1b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_3b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_setD_4a.dds"
+			}
+		}
+
+		# Primitives
+		random = {
+			trigger = {
+				owner = {
+					has_primitive_government = yes
+				}
+			}
+			list = {
+				"gfx/models/portraits/human/human_female_clothes_governor.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_1.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_primitive_3.dds"
+			}
+		}
+		
+		# Hives
+		random = {
+			trigger = {
+				owner = { has_ethic = ethic_gestalt_consciousness }
+			}
+			list = {
+				"gfx/models/portraits/alliance/alliance_female_outfit_trellis.dds"
+				"gfx/models/portraits/cerberus/cerberus_female_outfit_governer_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_general_3a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2a.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2b.dds"
+				"gfx/models/portraits/asari-republic/asari_outfit_ruler_2c.dds"
+			}
+		}
+	}
+}

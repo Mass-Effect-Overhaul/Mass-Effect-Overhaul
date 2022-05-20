@@ -1,0 +1,214 @@
+# Batarian Hegemony
+batarian ={
+	name = "Batarian Hegemony"
+	adjective = "Batarian Hegemonial"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "BRV"
+	
+	species={
+		class = "HUM"
+		portrait = "humanoid_04"
+		name = "Batarian"
+		plural = "Batarians"
+		adjective = "Bataric"
+		species_bio = "A race of four-eyed bipeds native to the world of Khar'shan, the batarians are a disreputable species that chose to isolate itself from the rest of the galaxy. The Terminus Systems are infested with batarian pirate gangs and slaving rings, fueling the stereotype of the batarian thug. It should be noted that these criminals do not represent average citizens, who are forbidden to leave batarian space by their ubiquitous and paranoid government."
+		name_list = "MAM1"
+		trait="trait_adaptive"
+		trait="trait_quarrelsome"
+		trait="trait_communal"
+	}
+	
+	room = "personality_slaving_despots_room"
+	
+	authority = "auth_dictatorial"
+	civics={ "civic_pompous_purists" "civic_slaver_guilds" }
+	government="gov_constitutional_dictatorship"
+	
+	ethic="ethic_fanatic_authoritarian"
+	ethic="ethic_xenophobe"
+	
+	origin = "origin_galactic_doorstep"
+	
+	planet_name = "Khar'shan"
+	planet_class = "pc_tropical"
+	initializer = ""
+	system_name = "Harsa"
+	
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Batarian Hegemony.dds"
+		}
+		background={
+			category="backgrounds"
+			file="circle.dds"
+		}
+		colors={
+			"beige"
+			"dark_brown"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Ka'hairal Balak"
+		gender = male
+		portrait = "batarian"
+		texture = 0
+		hair = 0
+		clothes = 15
+		ruler_title = "Minister"
+		ruler_title_female = "Ministress"
+		leader_class = ruler
+	}
+}
+
+# Void Devils
+vorcha ={
+	name = "Void Devils"
+	adjective = "Vorcharic Diabolic"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "VDV"
+	
+	species={
+		class = "ART"
+		portrait = "art8"
+		name = "Vorcha"
+		plural = "Vorchares"
+		adjective = "Vorcharic"
+		species_bio = "Known for their unique biology and aggressive behavior, the vorcha of Heshtok are a primitive race that live among the galaxy's darker and more dangerous locations, such as Omega. Many vorcha are trained by the krogan Blood Pack as mercenaries due to their savage nature and adaptability to different environments. The rest of galactic civilization regards them as pests and scavengers, and their presence is generally seen as a blight."
+		name_list = "LITHOID1"
+		trait="trait_survivor"
+		trait="trait_industrious"
+		trait="trait_adaptive"
+		trait="trait_strong"
+		trait="trait_repugnant"
+		trait="trait_fleeting"
+	}
+	
+	room = "personality_metalheads_room"
+	
+	authority = "auth_corporate"
+	civics={ "civic_criminal_heritage" "civic_private_military_companies" }
+	government="gov_criminal_syndicate"
+	
+	ethic="ethic_xenophobe"
+	ethic="ethic_militarist"
+	ethic="ethic_materialist"
+	
+	origin="origin_post_apocalyptic"
+	
+	planet_name = "Heshtok"
+	planet_class = "pc_tundra"
+	initializer = ""
+	system_name = "Kyzil"
+	
+	graphical_culture = "lithoid_01"
+	city_graphical_culture = "lithoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="Vorcha.dds"
+		}
+		background={
+			category="backgrounds"
+			file="v.dds"
+		}
+		colors={
+			"dark_brown"
+			"orange"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Yrekkt Orr Krekt'Err"
+		gender = male
+		portrait = "vorcha_green"
+		texture = 3
+		hair = 0
+		clothes = 0
+		leader_class = ruler
+	}
+}
+
+# Yahg Dominion
+yahg ={
+	name = "Yahg Dominion"
+	adjective = "Yahg Dominionic"
+	spawn_enabled = yes # yes / no / always
+	ignore_portrait_duplication = yes
+	
+	ship_prefix = "YAH"
+	
+	species={
+		class = "MAM"
+		portrait = "mam12"
+		name = "Yahg"
+		plural = "Yahgoi"
+		adjective = "Yahgitic"
+		species_bio = "The yahg are a sentient race of towering humanoids native to the world of Parnack, known for their violent and aggressive nature. Consummate predators, the yahg possess unrivaled perceptiveness and mental adaptability. Discovered by the Citadel Council in 2125 CE, the yahg were unceremoniously barred from interaction with Citadel space after massacring the Council's delegation."
+		name_list = "MOL2"
+		trait="trait_quick_learners"
+		trait="trait_very_strong"
+		trait="trait_solitary"
+		trait="trait_fleeting"
+	}
+	
+	room = "personality_xenophobic_isolationists_room"
+	
+	authority = "auth_imperial"
+	civics={ "civic_feudal_realm" "civic_inwards_perfection" }
+	government="gov_feudal_empire"
+	
+	ethic="ethic_authoritarian"
+	ethic="ethic_xenophobe"
+	ethic="ethic_pacifist"
+	
+	origin="origin_shoulders_of_giants"
+	
+	planet_name = "Parnack"
+	planet_class = "pc_continental"
+	initializer = ""
+	system_name = "Chabtan"
+	
+	graphical_culture = "molluscoid_01"
+	city_graphical_culture = "molluscoid_01"
+	
+	empire_flag={
+		icon={
+			category="masseffect"
+			file="yahg.dds"
+		}
+		background={
+			category="backgrounds"
+			file="circle.dds"
+		}
+		colors={
+			"red_orange"
+			"brown"
+			"null"
+			"null"
+		}
+	}
+	
+	ruler={
+		name = "Slugradeb"
+		gender = male
+		portrait = "yahg"
+		texture = 0
+		hair = 0
+		clothes = 0
+		leader_class = ruler
+	}
+}

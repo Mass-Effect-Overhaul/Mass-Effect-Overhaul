@@ -1,0 +1,81 @@
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+me_chabtan_system = {
+	name = "Chabtan"
+	class = "sc_m"
+	
+	flags = { empire_home_system }
+	
+	usage = custom_empire
+	
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		generate_home_system_resources = yes
+	}
+	
+	planet = {
+		name = "Chabtan"
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 120
+		has_ring = no
+	}
+	
+	planet = {
+		name = "Parnack"
+		class = "pc_tropical"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		starting_planet = yes
+		has_ring = no
+		entity = "tropical_planet_parnack_entity"
+		deposit_blockers = none
+		modifiers = none
+		flags = { planet_parnack }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_planet_modifiers = yes 
+		}
+	}
+	
+	planet = {
+		name = "Noviz"
+		class = "pc_toxic"
+		orbit_distance = 80
+		orbit_angle = random
+		size = 15
+		has_ring = no
+	}
+	
+	planet = {
+		class = "pc_asteroid"
+		orbit_distance = 90
+		orbit_angle = random
+		size = 3
+		has_ring = no
+	}
+		
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		distance = { min = 10 max = @distance }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		distance = { min = 10 max = @distance }	
+		initializer = "neighbor_t1_first_colony"
+	}
+}

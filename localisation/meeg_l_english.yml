@@ -1,0 +1,108 @@
+﻿l_english:
+
+########## Mass Effect Flags
+ FLAG_CATEGORY_coloured:0 "ME Coloured"
+ 
+ FLAG_CATEGORY_angara:0 "ME Angara Gold"
+ FLAG_CATEGORY_angarablack:0 "ME Angara Black"
+ FLAG_CATEGORY_angarasilver:0 "ME Angara Silver"
+ 
+ FLAG_CATEGORY_asari:0 "ME Asari Gold"
+ FLAG_CATEGORY_asariblack:0 "ME Asari Black"
+ FLAG_CATEGORY_asarisilver:0 "ME Asari Silver"
+ 
+ FLAG_CATEGORY_batarian:0 "ME Batarian Gold"
+ FLAG_CATEGORY_batarianblack:0 "ME Batarian Black"
+ FLAG_CATEGORY_batariansilver:0 "ME Batarian Silver" 
+ 
+ FLAG_CATEGORY_citadel:0 "ME Citadel Gold"
+ FLAG_CATEGORY_citadelblack:0 "ME Citadel Black"
+ FLAG_CATEGORY_citadelsilver:0 "ME Citadel Silver"
+ 
+ FLAG_CATEGORY_collector:0 "ME Collector Gold"
+ FLAG_CATEGORY_collectorblack:0 "ME Collector Black"
+ FLAG_CATEGORY_collectorsilver:0 "ME Collector Silver"
+ 
+ FLAG_CATEGORY_drell:0 "ME Drell Gold"
+ FLAG_CATEGORY_drellblack:0 "ME Drell Black"
+ FLAG_CATEGORY_drellsilver:0 "ME Drell Silver"
+ 
+ FLAG_CATEGORY_elcor:0 "ME Elcor Gold"
+ FLAG_CATEGORY_elcorblack:0 "ME Elcor Black"
+ FLAG_CATEGORY_elcorsilver:0 "ME Elcor Silver"
+ 
+ FLAG_CATEGORY_gangs:0 "ME Gangs Gold"
+ FLAG_CATEGORY_gangsblack:0 "ME Gangs Black"
+ FLAG_CATEGORY_gangssilver:0 "ME Gangs Silver"
+ 
+ FLAG_CATEGORY_geth:0 "ME Geth Gold"
+ FLAG_CATEGORY_gethblack:0 "ME Geth Black"
+ FLAG_CATEGORY_gethsilver:0 "ME Geth Silver"
+ 
+ FLAG_CATEGORY_hanar:0 "ME Hanar Gold"
+ FLAG_CATEGORY_hanarblack:0 "ME Hanar Black"
+ FLAG_CATEGORY_hanarsilver:0 "ME Hanar Silver"
+ 
+ FLAG_CATEGORY_mehuman:0 "ME Human Gold"
+ FLAG_CATEGORY_humanblack:0 "ME Human Black"
+ FLAG_CATEGORY_humansilver:0 "ME Human Silver"
+ 
+ FLAG_CATEGORY_initiatives:0 "ME Initiatives Gold"
+ FLAG_CATEGORY_initiativesblack:0 "ME Initiatives Black"
+ FLAG_CATEGORY_initiativessilver:0 "ME Initiatives Silver"
+ 
+ FLAG_CATEGORY_kett:0 "ME Kett Gold"
+ FLAG_CATEGORY_kettblack:0 "ME Kett Black"
+ FLAG_CATEGORY_kettsilver:0 "ME Kett Silver" 
+ 
+ FLAG_CATEGORY_krogan:0 "ME Krogan Gold"
+ FLAG_CATEGORY_kroganblack:0 "ME Krogan Black"
+ FLAG_CATEGORY_krogansilver:0 "ME Krogan Silver"
+ 
+ FLAG_CATEGORY_leviathan:0 "ME Leviathan Gold"
+ FLAG_CATEGORY_leviathanblack:0 "ME Leviathan Black"
+ FLAG_CATEGORY_leviathansilver:0 "ME Leviathan Silver"
+ 
+ FLAG_CATEGORY_manufacturers:0 "ME Manufacturers Gold"
+ FLAG_CATEGORY_manufacturersblack:0 "ME Manufacturers Black"
+ FLAG_CATEGORY_manufacturerssilver:0 "ME Manufacturers Silver"
+ 
+ FLAG_CATEGORY_prothean:0 "ME Prothean Gold"
+ FLAG_CATEGORY_protheanblack:0 "ME Prothean Black"
+ FLAG_CATEGORY_protheansilver:0 "ME Prothean Silver"
+ 
+ FLAG_CATEGORY_quarian:0 "ME Quarian Gold"
+ FLAG_CATEGORY_quarianblack:0 "ME Quarian Black"
+ FLAG_CATEGORY_quariansilver:0 "ME Quarian Silver"
+ 
+ FLAG_CATEGORY_rachni:0 "ME Rachni Gold"
+ FLAG_CATEGORY_rachniblack:0 "ME Rachni Black"
+ FLAG_CATEGORY_rachnisilver:0 "ME Rachni Silver"
+ 
+ FLAG_CATEGORY_reaper:0 "ME Reaper Gold"
+ FLAG_CATEGORY_reaperblack:0 "ME Reaper Black"
+ FLAG_CATEGORY_reapersilver:0 "ME Reaper Silver"
+ 
+ FLAG_CATEGORY_salarian:0 "ME Salarian Gold"
+ FLAG_CATEGORY_salarianblack:0 "ME Salarian Black"
+ FLAG_CATEGORY_salariansilver:0 "ME Salarian Silver"
+ 
+ FLAG_CATEGORY_turian:0 "ME Turian Gold"
+ FLAG_CATEGORY_turianblack:0 "ME Turian Black"
+ FLAG_CATEGORY_turiansilver:0 "ME Turian Silver"
+ 
+ FLAG_CATEGORY_virtues:0 "ME Virtues Gold"
+ FLAG_CATEGORY_virtuessilver:0 "ME Virtues Silver"
+ FLAG_CATEGORY_virtuesblack:0 "ME Virtues Black"
+ 
+ FLAG_CATEGORY_volus:0 "ME Volus Gold"
+ FLAG_CATEGORY_volusblack:0 "ME Volus Black"
+ FLAG_CATEGORY_volussilver:0 "ME Volus Silver"
+ 
+ FLAG_CATEGORY_vorcha:0 "ME Vorcha Gold"
+ FLAG_CATEGORY_vorchablack:0 "ME Vorcha Black"
+ FLAG_CATEGORY_vorchasilver:0 "ME Vorcha Silver"
+ 
+ FLAG_CATEGORY_yahg:0 "ME Yahg Gold"
+ FLAG_CATEGORY_yahgblack:0 "ME Yahg Black"
+ FLAG_CATEGORY_yahgsilver:0 "ME Yahg Silver"

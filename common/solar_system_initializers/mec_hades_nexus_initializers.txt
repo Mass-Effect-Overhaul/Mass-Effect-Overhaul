@@ -1,0 +1,455 @@
+### Hades Nexus Systems
+
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+### Standardized Planetary Size Conversion (ME Codex/Wiki - Stellaris)
+### Terrestrial Planets
+### 1000-3000 = 6-9
+### 3000-5000 = 10-14
+### 5000-7000 = 15-17
+### 7000-10000 = 18-23
+### 10000+ = 23 -25
+
+### Gas Giants
+### 15000 - 25000 = 25 - 30
+### 25000 - 35000 = 31 - 35
+### 35000 - 55000 = 36 - 40
+### 55000+ = 41-45
+
+mec_hades_nexus_system_initializer = {
+	name = "Hekate"
+	class = "sc_g"
+	
+	flags = { mec_hades_nexus_hekate_system custom_system abandoned_gateway }
+	
+	usage = misc_system_init
+	usage_odds = 100
+	spawn_chance = 100
+	max_instances = 1
+	
+	planet = {
+		name = "Hekate"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}	
+	
+	planet = {
+		name = "Asteria"
+		class = "pc_arid"
+		orbit_distance = 110
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		flags = { mec_eg_planet_asteria }
+
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 				
+		}		
+	}
+	
+	planet = {
+		name = "Ker"
+		class = "pc_barren"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_red_07"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}		
+	}
+	
+	planet = {
+		name = "Triodia"
+		class = "pc_gas_giant"
+		orbit_distance = 50
+		orbit_angle = { min = 90 max = 270 }
+		size = 26
+		has_ring = no
+		entity = "mec_gg_blue_07"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Bothros"
+		class = "pc_frozen"
+		orbit_distance = 100
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_barren_grey_08"
+		flags = { mec_eg_planet_bothros }
+
+		init_effect = {
+			prevent_anomaly = yes						
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_BOTHROS_1091_CAT			###Bothros Anomaly (Mass Extinction)
+			}
+			add_modifier = {
+				modifier = asteroid_impacts
+				days = -1
+			}
+		}		
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = "gateway_ruined"
+			random_pos = yes
+			orbit_angle = 360		
+		}
+	}
+
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hades_nexus_neighbour_01"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hades_nexus_neighbour_02"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }
+		initializer = "mec_hades_nexus_neighbour_03"
+	}
+}
+
+mec_hades_nexus_neighbour_01 = {
+	name = "Hoplos"
+	class = "sc_g"
+
+	flags = { mec_hades_nexus_hoplos_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hades_nexus_hekate_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	planet = {
+		name = "Hoplos"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 60
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_3
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Talaria"
+		class = "pc_barren"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 10
+		has_ring = no
+		entity = "mec_barren_grey_06"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}		
+	}
+	
+	planet = {
+		name = "Makhaira"
+		class = "pc_barren"
+		orbit_distance = 75
+		orbit_angle = { min = 90 max = 270 }
+		size = 13
+		has_ring = no
+		entity = "mec_barren_grey_04"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+		}	
+
+		moon = {
+			name = "Kopis"
+			count = 1
+			class = pc_barren_cold
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 6
+			size = 6
+			
+			init_effect = {
+				prevent_anomaly = yes
+				clear_deposits = yes
+				clear_planet_modifiers = yes 
+			}
+		}		
+	}
+	
+	planet = {
+		name = "Trident"
+		class = "pc_ocean"
+		orbit_distance = 95
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_ocean_02"
+		flags = { mec_eg_planet_trident }
+		
+		init_effect = {
+			prevent_anomaly = yes	
+			clear_planet_modifiers = yes 
+			
+			add_modifier = {
+				modifier = hazardous_weather
+				days = -1
+			}
+		}	
+	}
+	
+	planet = {
+		name = "Aegis"
+		class = "pc_gas_giant"
+		orbit_distance = 110
+		orbit_angle = { min = 90 max = 270 }
+		size = 39
+		has_ring = yes
+		entity = "gas_giant_03_entity"
+		flags = {  mec_eg_planet_aegis }
+
+		init_effect = {
+			prevent_anomaly = yes				
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_AEGIS_1092_CAT			###Aegis Anomaly (Rings of Aegis)	
+			}
+		}		
+	}
+}
+
+mec_hades_nexus_neighbour_02 = {
+	name = "Pamyat"
+	class = "sc_g"
+	
+	flags = { mec_hades_nexus_pamyat_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hades_nexus_hekate_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 230
+	}
+
+		
+	planet = {
+		name = "Pamyat"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 55
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+	
+	planet = {
+		name = "Komarov"
+		class = "pc_barren"
+		orbit_distance = 70
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_grey_06"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_minerals_2
+			set_planet_flag = starting_deposit
+		}		
+	}
+	
+	planet = {
+		name = "Dobrovolski"
+		class = "pc_barren"
+		orbit_distance = 85
+		orbit_angle = { min = 90 max = 270 }
+		size = 17
+		has_ring = no
+		entity = "mec_barren_grey_10"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_trade_value_5
+			set_planet_flag = starting_deposit
+		}		
+	}
+	
+	planet = {
+		name = "Patsayev"
+		class = "pc_frozen"
+		orbit_distance = 35
+		orbit_angle = { min = 90 max = 270 }
+		size = 16
+		has_ring = no
+		entity = "mec_barren_green_01"
+
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_alloys_2
+			set_planet_flag = starting_deposit
+		}		
+	}
+	
+	change_orbit = 40
+	
+	planet = {
+		name = "Volkov"
+		class = "pc_barren"
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		size = 7
+		has_ring = no
+		entity = "mec_barren_red_01"
+		
+		init_effect = {
+			prevent_anomaly = yes					
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			set_deposit = d_rare_crystals_1
+			set_planet_flag = starting_deposit
+		}
+	}
+	
+	planet = {
+		count = 2
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = { min = 10 max = 190 }
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+		}
+	}
+
+}
+
+mec_hades_nexus_neighbour_03 = {
+	name = "Sheol"
+	class = "sc_m"
+	
+	flags = { mec_hades_nexus_sheol_system custom_system }
+
+	init_effect = {
+		closest_system = {
+			limit = { has_star_flag = mec_hades_nexus_hekate_system }
+			add_hyperlane = {
+				from = this
+				to = prev
+			}
+		}
+	}
+		
+	planet = {
+		name = "Sheol"
+		class = "pc_m_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 40
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+
+			set_deposit = d_energy_2
+			set_planet_flag = starting_deposit
+		}
+	}
+
+	planet = {
+		name = "Gei Hinnom"
+		class = "pc_barren"
+		orbit_distance = 90
+		orbit_angle = { min = 90 max = 270 }
+		size = 7
+		has_ring = no
+		entity = "mec_barren_red_06"
+		flags = { mec_eg_planet_geihinnom }
+		
+		init_effect = {
+			prevent_anomaly = yes						
+			clear_deposits = yes
+			clear_planet_modifiers = yes 
+
+			add_anomaly = {
+				category = MEC_EG_ANO_GEIHINNOM_2090_CAT					###Gei Hinnom Anomaly & Archaeological Site (Prothean Burial Ground)	
+			}
+			
+			add_modifier = {
+				modifier = low_gravity
+				days = -1
+			}
+		}		
+	}	
+}

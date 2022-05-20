@@ -1,0 +1,78 @@
+##############
+# NAME PARTS #
+##############
+
+### ASARI
+
+# Various States
+empire_name_parts_list = {
+	key = "mec_en_asr"
+	parts = {
+		"Republic" = 6
+		"Systems" = 4
+		"Colonies" = 3
+		"Territories" = 1
+		"Provinces" = 2
+		"Nations" = 3
+		"States" = 4
+		"Holdings" = 1
+		"Domains" = 1
+		"Planet-States" = 3
+		"Commonalities" = 1
+		"Dominions" = 1
+	}
+}
+
+empire_name_parts_list = {
+	key = "mec_en_asr_sub"
+	parts = {
+		"Republic" = 10
+	}
+}
+
+################
+# NAME FORMATS #
+################
+
+### Electronic Democracy 
+
+# Asari Republics Variants
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = gov_mec_asr
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+			always = no
+		}
+	}
+	lookups = "[This.GetSpeciesName] <mec_en_asr>"
+	format = format.mec_en_asr.1 # [This.GetSpeciesName] <mec_en_asr>
+	noun = format.species # [This.GetSpeciesName]
+	prefix_format = format_prefix.mec_en_asr.1 # [This.GetSpeciesName] <mec_en_asr>
+	# Asari Republics
+}
+
+# Asari Planetary Republics
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = gov_mec_asr
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "<mec_en_asr_sub> [This.Capital.GetName]"
+	format = format.mec_en_asr_sub.1 # <mec_en_asr> of [This.Capital.GetName]
+	noun = format.homeworld # [This.Capital.GetName]
+	prefix_format = format_prefix.mec_en_asr_sub.1 # [This.Capital.GetName] <mec_en_asr>
+	# Republic of Thessia
+}
